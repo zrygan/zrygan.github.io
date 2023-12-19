@@ -1,0 +1,35 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  width: auto;
+  display: block;
+}
+
+.logo {
+  height: 100vh;
+  width: auto;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.link-remove {
+  display: block;
+  margin-bottom: 0.005px;
+  text-decoration: none;
+  color: black;
+}
+
+.fixed-text {
+  position: fixed;
+  left: 1000px;
+  top: 115px;
+  font-family: "Space Mono", monospace;
+  font-size: 24px;
+}
