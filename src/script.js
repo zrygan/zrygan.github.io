@@ -4,7 +4,7 @@
 
 // Code for logo
 const logos = document.querySelectorAll('.logo');
-const links = document.querySelectorAll('.link-remove');
+const links = document.querySelectorAll('.logo-link-remove');
 
 let isHoveringLink = false; // Flag to check if any link is being hovered
 

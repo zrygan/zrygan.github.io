@@ -19,7 +19,7 @@ html {
   bottom: 0;
 }
 
-.link-remove {
+.logo-link-remove {
   display: block;
   margin-bottom: 0.005px;
   text-decoration: none;
@@ -59,4 +59,9 @@ html {
   font-family: "Space Mono", monospace;
   font-size: 10px;
   font-style: italic;
+}
+
+.others-link {
+  text-decoration: none;
+  color: red;
 }
