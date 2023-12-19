@@ -32,4 +32,31 @@ html {
   top: 115px;
   font-family: "Space Mono", monospace;
   font-size: 24px;
+  text-align: right;
+}
+
+.fixed-text-two {
+  text-align: right;
+  left: 940px;
+  top: 400px;
+  position: fixed;
+  font-family: "Space Mono", monospace;
+}
+
+.fixed-text-two p {
+  font-size: 14px;
+  font-style: italic;
+  margin: 0.0005px 0;
+}
+
+.fixed-text-two p:first-child {
+  font-style: normal;
+  font-size: 22px;
+  margin-top: 0;
+}
+
+.fixed-text-two span {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-style: italic;
 }
