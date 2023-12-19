@@ -1,43 +1,20 @@
-/* Example of using relative units and media queries */
-
-/* For larger screens */
-@media screen and (min-width: 768px) {
-  .logo {
-    height: 50vh; /* Adjust as needed */
-  }
-
-  .fixed-text {
-    left: 5%; /* Adjust as needed */
-  }
-
-  .fixed-text-two {
-    left: 3%; /* Adjust as needed */
-    top: 30%; /* Adjust as needed */
-  }
-}
-
-/* For smaller screens or mobile devices */
-@media screen and (max-width: 767px) {
-  .logo {
-    height: 30vh; /* Adjust as needed */
-  }
-
-  .fixed-text {
-    left: 3%; /* Adjust as needed */
-    top: 5%; /* Adjust as needed */
-  }
-
-  .fixed-text-two {
-    left: 2%; /* Adjust as needed */
-    top: 20%; /* Adjust as needed */
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  font-family: "Jost", sans-serif;
+  font-size: 16px; /* Base font size */
+  line-height: 1.6;
   position: relative;
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
 }
 
 html {
@@ -47,11 +24,14 @@ html {
 }
 
 .logo {
-  height: 100vh;
-  width: auto;
   display: block;
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  z-index: 1; /* Set a lower z-index to keep it behind the text */
 }
 
 .logo-link-remove {
@@ -61,38 +41,59 @@ html {
   color: black;
 }
 
+/* Example of flexible text positioning */
 .fixed-text {
   position: fixed;
-  left: 1000px;
-  top: 115px;
+  z-index: 2; /* Ensure the text is above the logo */
+  right: 150px; /* Adjust positioning from the right edge */
+  top: 5%; /* Adjust positioning as needed */
   font-family: "Space Mono", monospace;
-  font-size: 24px;
+  font-size: 2vw; /* Adjust font size using viewport units */
   text-align: right;
+  backdrop-filter: blur(10px); /* Apply frosted background effect */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust background color and opacity */
+  padding: 25px; /* Add padding for better visibility */
 }
 
+/* Example of responsive text */
 .fixed-text-two {
+  z-index: 2; /* Ensure the text is above the logo */
   text-align: right;
-  left: 940px;
-  top: 400px;
+  right: 150px; /* Adjust positioning from the right edge */
+  bottom: 30px; /* Adjust positioning from the bottom */
   position: fixed;
   font-family: "Space Mono", monospace;
+  font-size: 1.5vw; /* Adjust font size using viewport units */
+  backdrop-filter: blur(10px); /* Apply frosted background effect */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust background color and opacity */
+  padding: 10px; /* Add padding for better visibility */
 }
 
 .fixed-text-two p {
-  font-size: 14px;
+  font-size: 1vw; /* Adjust font size using viewport units */
   font-style: italic;
-  margin: 0.0005px 0;
+  margin: 0.1vw 0; /* Adjust margins using viewport units */
 }
 
 .fixed-text-two p:first-child {
   font-style: normal;
-  font-size: 22px;
+  font-size: 1.8vw; /* Adjust font size using viewport units */
   margin-top: 0;
 }
 
 .fixed-text-two span {
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: 0.8vw; /* Adjust font size using viewport units */
   font-style: italic;
 }
 

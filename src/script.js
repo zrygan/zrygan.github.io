@@ -13,7 +13,9 @@ links.forEach(link => {
     isHoveringLink = true; 
     const altSrc = this.getAttribute('data-alt-src');
     logos.forEach(logo => {
-      logo.setAttribute('src', altSrc);
+      if (!logo.classList.contains('hovered')) {
+        logo.setAttribute('src', altSrc);
+      }
     });
   });
 
@@ -26,9 +28,8 @@ links.forEach(link => {
 function resetToRed() {
   if (!isHoveringLink) {
     logos.forEach(logo => {
-      const originalSrc = logo.getAttribute('src');
-      const redSrc = '/icon/iconRed.svg';
-      if (originalSrc !== redSrc) {
+      if (!logo.classList.contains('hovered')) {
+        const redSrc = '/icon/iconRed.svg';
         logo.setAttribute('src', redSrc);
       }
     });
@@ -40,15 +41,18 @@ logos.forEach(logo => {
     const altSrc = this.getAttribute('data-alt-src');
     if (!isHoveringLink && altSrc !== '/icon/iconOrange.svg') {
       this.setAttribute('src', altSrc);
+      this.classList.add('hovered');
     }
   });
 
   logo.addEventListener('mouseleave', function() {
     if (!isHoveringLink) {
       resetToRed();
+      this.classList.remove('hovered');
     }
   });
 });
+
 
 // Code for clock
 function updateTime() {
