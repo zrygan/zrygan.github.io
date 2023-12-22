@@ -50,7 +50,7 @@ body {
 
 .left-block {
   position: absolute;
-  left: 100px;
+  left: 7.5%;
   margin-right: 750px;
   top: 50%;
   transform: translateY(-50%);
@@ -67,7 +67,7 @@ body {
 
 .right-block {
   position: absolute;
-  right: 100px;
+  right: 5%;
   margin-left: 925px;
   top: 50%;
   transform: translateY(-50%);
