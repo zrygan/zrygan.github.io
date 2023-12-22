@@ -178,6 +178,7 @@ td a:hover {
 }
 
 .toggle-btn {
+  left: 0;
   display: block;
   font-family: "Space Mono", monospace;
   font-size: 36pt;
@@ -186,11 +187,18 @@ td a:hover {
   position: fixed;
   top: 0;
   background-color: transparent;
-  backdrop-filter: blur(10px);
   border: none;
   outline: none;
   color: white;
-  transition: left 1s cubic-bezier(0.42, 0, 0.58, 1);
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+  transition: left 1.05s cubic-bezier(0.42, 0, 0.58, 1); /* Default transition */
+}
+
+.toggle-btn.faster-transition {
+  transition-duration: 0.95s; /* Faster transition when sidebar closes */
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .toggle-btn:hover {

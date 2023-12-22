@@ -5,17 +5,23 @@
 function toggleSidebar() {
   const sidebar = document.querySelector('.sidebar');
   const toggleBtn = document.querySelector('.toggle-btn');
+  const isSidebarOpen = sidebar.classList.contains('sidebar-open');
 
-  sidebar.classList.toggle('sidebar-open');
-
-  if (sidebar.classList.contains('sidebar-open')) {
+  if (!isSidebarOpen) {
     sidebar.style.left = '0';
-    toggleBtn.style.left = '80%'; // Move the button with the sidebar
+    toggleBtn.style.left = '75%'; // Adjust the button position
+    sidebar.classList.add('sidebar-open');
+    toggleBtn.classList.remove('faster-transition'); // Remove the faster transition class
   } else {
     sidebar.style.left = '-80%';
     toggleBtn.style.left = '0'; // Reset button position when sidebar closes
+    sidebar.classList.remove('sidebar-open');
+    toggleBtn.classList.add('faster-transition'); // Add the faster transition class when closing
   }
 }
+
+
+
 
 const buttons = document.querySelectorAll('.sidebar a');
 
