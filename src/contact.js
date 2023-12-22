@@ -1,3 +1,7 @@
+// Code for obin-odayo.github.io
+// Created by Zhean Robby L. Ganituen (Obin Odayo)
+// Created on December 23, 2023
+
 function displayText(buttonText) {
     var displayArea = document.getElementById('dynamic-text');
     var circle = document.querySelector('.circle');

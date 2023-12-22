@@ -1,6 +1,6 @@
 // Code for obin-odayo.github.io
 // Created by Zhean Robby L. Ganituen (Obin Odayo)
-// Created on December 22, 2023
+// Created on December 23, 2023
 
 function toggleSidebar() {
   const sidebar = document.querySelector('.sidebar');
