@@ -5,7 +5,7 @@ function displayText(buttonText) {
   
     switch (buttonText) {
       case 'Email':
-        newText = `I use this email <span class="mono"> <a href="mailto:obin-odayo@gmail.com">obin-odayo@gmail.com</a> </span> for professional emails. You can also contact me through my <a href="mailto:zhean_robby_ganituen@dlsu.edu.ph">DLSU</a> and <a href="mailto:zganituen@acm.org">ACM</a> emails. <br /> Although unprofessional, you may also correspond with me through Discord (Username: ob1n.), but I prefer initial correspondence via my professional email.`;
+        newText = `I use this email <span class="mono"> <a href="mailto:obin.odayo@gmail.com">obin.odayo@gmail.com</a> </span> for professional emails. You can also contact me through my <a href="mailto:zhean_robby_ganituen@dlsu.edu.ph">DLSU</a> and <a href="mailto:zganituen@acm.org">ACM</a> emails. <br /> Although unprofessional, you may also correspond with me through Discord (Username: ob1n.), but I prefer initial correspondence via my professional email.`;
         circle.style.backgroundColor = 'blue';
         break;
       case 'Websites':
