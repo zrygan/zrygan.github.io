@@ -285,27 +285,6 @@ td {
   transition: padding 0.5s ease-in;
 }
 
-.numbering {
-  counter-reset: custom-counter; /* Reset the counter */
-
-  /* Remove default list styles */
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.numbering li {
-  counter-increment: custom-counter; /* Increment the counter */
-
-  /* Add the custom numbering */
-  position: relative;
-  padding-left: 20px; /* Space for the custom number */
-}
-
-.numbering li::before {
-  content: "[" counter(custom-counter) "]"; /* Set the content to the counter value */
-  left: 0;
-}
-
 .learn-more {
   margin: 0pt;
   margin-left: 24pt;
