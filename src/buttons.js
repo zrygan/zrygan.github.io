@@ -1,6 +1,6 @@
 // Code for obin-odayo.github.io
 // Created by Zhean Robby L. Ganituen (Obin Odayo)
-// Created on December 20, 2023
+// Created on December 22, 2023
 
 // scroll checker and fade button in
 window.addEventListener('scroll', function() {
@@ -21,3 +21,10 @@ window.addEventListener('scroll', function() {
     backToTopButton.style.opacity = '0'; // Hide the button by setting opacity to 0
   }
 });
+
+
+// details
+function toggleClass() {
+  const details = document.querySelector('.learn-more');
+  details.classList.toggle('active');
+}
