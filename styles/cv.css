@@ -210,11 +210,11 @@ h2 {
 }
 
 .myName {
-  font-family: "Jost", sans-serif;
   font-size: 34pt;
   font-weight: bold;
-  margin-right: 10px;
-  margin-top: 0pt;
+  margin: 0;
+  padding: 0;
+  line-height: 0.1;
 }
 
 .myName span {
@@ -229,7 +229,8 @@ h2 {
   font-family: "Space Mono", monospace;
   font-size: 10pt;
   font-style: italic;
-  margin-top: 0pt;
+  margin: 0pt;
+  padding: 0pt;
 }
 
 .header {
