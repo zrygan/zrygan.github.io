@@ -129,39 +129,61 @@ td a:hover {
   font-size: 20px;
 }
 
-.left-nav {
-  position: fixed; /* Fixed positioning */
+.sidebar {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  width: 1000px;
+  position: fixed;
   top: 0;
-  left: 0;
-  width: 200px;
+  left: -1000px;
   height: 100%;
-  background-color: #101010;
+  transition: left 1s cubic-bezier(0.42, 0, 0.58, 1);
+  z-index: 1000;
 }
 
-.left-nav ul {
-  list-style: none;
+.sidebar ul {
+  list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
-.left-nav ul li {
-  margin: 10px 0;
+.sidebar li {
+  padding: 10px;
 }
 
-.left-nav ul li a {
-  text-decoration: none;
+.sidebar a {
+  color: #fff;
   font-family: "Space Mono", monospace;
-  color: white;
+  text-decoration: none;
+  font-size: 20pt;
   display: block;
-  padding: 5px 10px;
-  cursor: crosshair;
 }
 
-.left-nav ul li a:hover {
-  background-color: red;
+.sidebar a:hover {
+  color: red;
+  font-style: italic;
 }
 
-.left-nav ul li.selected a {
-  background-color: red; /* Change the color for the selected item */
+.toggle-btn {
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-size: 36pt;
+  writing-mode: vertical-rl;
+  transform: rotate(0deg);
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  border: none;
+  outline: none;
+  color: white;
+  transition: left 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.toggle-btn:hover {
+  font-style: italic;
+  color: red;
 }
 
 .main-content {
@@ -281,7 +303,6 @@ td {
 
 .numbering li::before {
   content: "[" counter(custom-counter) "]"; /* Set the content to the counter value */
-  position: absolute;
   left: 0;
 }
 
