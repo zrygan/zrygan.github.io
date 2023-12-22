@@ -87,6 +87,7 @@ body {
   margin: 0 -0.1em; /* Adjust to align with text */
   position: relative;
   top: 12px; /* Adjust position vertically */
+  transition: background-color 1s ease;
 }
 
 button {
