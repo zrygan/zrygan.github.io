@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles/contact.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <title>Contact</title>
+  </head>
+  <body>
+    <a href="/index.html" class="back-home-btn">Back Home</a>
+    <div class="left-block">
+      <button class="mono" onclick="displayText('Email')">
+        Comms // Email.
+      </button>
+      <br />
+      <button class="mono" onclick="displayText('Websites')">
+        Socials // Websites
+      </button>
+      <br />
+      <button class="mono" onclick="displayText('CV')">
+        Portfolios // C. Vitae
+      </button>
+      <br />
+      <button class="mono" onclick="displayText('Zhean')">Who is Zhean?</button>
+      <br />
+      <button class="mono" onclick="displayText('What')">What is this?</button>
+      <br />
+    </div>
+    <div class="right-block">
+      <p id="dynamic-text">
+        <span class="small">try clicking a button.</span>
+      </p>
+    </div>
+    <div class="centered-text">
+      <p>C<span class="circle"> </span>N</p>
+      <p>TACT</p>
+    </div>
+    <script src="/src/buttons.js"></script>
+    <script src="/src/contact.js"></script>
+  </body>
+</html>

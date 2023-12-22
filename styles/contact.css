@@ -1,0 +1,123 @@
+.back-home-btn {
+  font-family: "Space Mono", monospace; /* Applying Space Mono to the buttons */
+  font-size: 10px;
+  position: fixed;
+  min-width: 50px;
+  text-align: center;
+
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.05); /* Frosted background */
+  backdrop-filter: blur(10px); /* Apply frosted background effect */
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.5s ease;
+  cursor: crosshair;
+}
+
+.back-home-btn {
+  right: 25px;
+  top: 20px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  background-color: black;
+}
+
+.centered-text {
+  text-align: center;
+  font-size: 256px;
+  color: white;
+  margin: 0;
+  line-height: 0;
+  position: relative;
+}
+
+.centered-text p {
+  margin: 0; /* Remove default paragraph margins */
+}
+
+.centered-text p:nth-child(2) {
+  margin-top: 100px;
+  margin-bottom: 25%;
+}
+
+.left-block {
+  position: absolute;
+  left: 100px;
+  margin-right: 750px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: white;
+  text-align: right;
+  background-color: rgba(0, 0, 0, 0.66);
+  backdrop-filter: blur(7px);
+  padding: 15px;
+  min-width: 400px;
+  max-width: 400px;
+  z-index: 100;
+}
+
+.right-block {
+  position: absolute;
+  right: 100px;
+  margin-left: 925px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: white;
+  text-align: left;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.circle {
+  display: inline-block;
+  width: 200px; /* Adjust size as needed */
+  height: 200px; /* Adjust size as needed */
+  border-radius: 100%; /* Make it a circle */
+  background-color: red; /* Fill with grey color */
+  margin: 0 -0.1em; /* Adjust to align with text */
+  position: relative;
+  top: 12px; /* Adjust position vertically */
+}
+
+button {
+  text-decoration: none;
+  font-size: 26px;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+button:hover {
+  color: red;
+  font-style: italic;
+}
+
+.mono {
+  font-family: "Space Mono", monospace;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Space Mono", monospace;
+  color: red;
+}
+
+a:hover {
+  color: red;
+  font-style: italic;
+}
+
+.small {
+  font-size: 16pt;
+  color: #3d3d3d80;
+}
