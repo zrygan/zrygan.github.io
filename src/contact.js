@@ -9,7 +9,7 @@ function displayText(buttonText) {
         circle.style.backgroundColor = 'blue';
         break;
       case 'Websites':
-        newText = `I have a <a href="https://www.linkedin.com/in/zr-gntn/">LinkedIn</a> and <a href="https://github.com/obin-odayo">GitHub</a>. Aside from these, I do not use any other social media accounts for professional purposes. <br /> I will update my academic accounts in the future, including my Google Scholar account.`;
+        newText = `I have a <a href="https://www.linkedin.com/in/obin-odayo/">LinkedIn</a> and <a href="https://github.com/obin-odayo">GitHub</a>. Aside from these, I do not use any other social media accounts for professional purposes. <br /> I will update my academic accounts in the future, including my Google Scholar account.`;
         circle.style.backgroundColor = 'green';
         break;
       case 'CV':
