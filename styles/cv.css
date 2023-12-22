@@ -32,13 +32,14 @@ body {
 
 .back-home-btn,
 .back-to-top-btn,
-.contact-btn {
+.contact-btn,
+.cv-btn {
   font-family: "Space Mono", monospace; /* Applying Space Mono to the buttons */
   font-size: 10px;
   position: fixed;
   min-width: 50px;
   text-align: center;
-  top: 20px;
+
   padding: 10px 20px;
   background-color: rgba(255, 255, 255, 0.05); /* Frosted background */
   backdrop-filter: blur(10px); /* Apply frosted background effect */
@@ -51,28 +52,38 @@ body {
 
 .back-home-btn {
   right: 25px;
+  top: 20px;
 }
 
 .back-to-top-btn {
   right: calc(125px + 120px);
   display: none;
+  top: 20px;
 }
 
 .contact-btn {
   right: calc(20px + 120px);
+  top: 20px;
   background-color: rgba(150, 0, 0, 0.5); /* Frosted background */
+}
+
+.cv-btn {
+  right: 25pt;
+  bottom: 10pt;
 }
 
 .back-to-top-btn:hover,
 .back-home-btn:hover,
-.contact-btn:hover {
+.contact-btn:hover,
+.cv-btn:hover {
   background-color: rgba(255, 0, 0, 0.5); /* Adjust opacity on hover */
   color: white;
   backdrop-filter: blur(10px);
   font-style: italic;
 }
 
-.modal-overlay {
+.modal-overlay,
+.modal-overlay2 {
   display: none;
   position: fixed;
   top: 0;
@@ -92,6 +103,7 @@ body {
   border-radius: 5px;
   outline: 2px solid red;
   position: relative;
+  min-width: 300px;
   max-width: 1500px;
 }
 
@@ -315,4 +327,10 @@ td {
 .project-details {
   font-size: 16px;
   margin-left: 20px;
+}
+
+.file {
+  font-family: "Space Mono", monospace;
+  text-decoration: none;
+  color: white;
 }

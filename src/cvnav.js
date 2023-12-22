@@ -32,3 +32,24 @@ buttons.forEach(button => {
   button.addEventListener('click', handleButtonClick);
 });
 
+// download cv
+document.getElementById('downloadLink').addEventListener('click', function() {
+  // Get the content of the current page
+  var htmlContent = document.documentElement.outerHTML;
+
+  // Create a Blob containing the page's content
+  var blob = new Blob([htmlContent], { type: 'text/html' });
+
+  // Create a URL for the Blob
+  var url = URL.createObjectURL(blob);
+
+  // Create a link element and trigger the download
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = 'current_page.html'; // Set a default filename
+  link.click();
+
+  // Clean up by revoking the URL object
+  URL.revokeObjectURL(url);
+});
+
