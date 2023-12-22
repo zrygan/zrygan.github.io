@@ -145,10 +145,10 @@ td a:hover {
   background-color: transparent;
   backdrop-filter: blur(10px);
   color: #fff;
-  width: 1000px;
+  width: 80%;
   position: fixed;
   top: 0;
-  left: -1000px;
+  left: -80%;
   height: 100%;
   transition: left 1s cubic-bezier(0.42, 0, 0.58, 1);
   z-index: 1000;

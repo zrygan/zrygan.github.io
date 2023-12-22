@@ -10,9 +10,9 @@ function toggleSidebar() {
 
   if (sidebar.classList.contains('sidebar-open')) {
     sidebar.style.left = '0';
-    toggleBtn.style.left = '1000px'; // Move the button with the sidebar
+    toggleBtn.style.left = '80%'; // Move the button with the sidebar
   } else {
-    sidebar.style.left = '-1000px';
+    sidebar.style.left = '-80%';
     toggleBtn.style.left = '0'; // Reset button position when sidebar closes
   }
 }
