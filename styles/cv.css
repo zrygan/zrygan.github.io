@@ -324,3 +324,16 @@ td {
 .learn-more.active .learn-more-button {
   color: red;
 }
+
+.project-title {
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+}
+.project-type {
+  font-style: italic;
+  font-size: 16px;
+}
+.project-details {
+  font-size: 16px;
+  margin-left: 20px;
+}
