@@ -49,25 +49,55 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(50, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(10px);
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
 
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+      0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+}
+
 .modal {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 1);
   padding: 20px;
   border-radius: 5px;
-  outline: 2px solid red;
+  outline: 2px solid white;
   position: relative;
   min-width: 300px;
   max-width: 1500px;
+  animation: glow 2s infinite alternate;
 }
 
 .modal-content {
-  font-family: "Jost", sans-serif;
+  font-family: "Space Mono", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  left: 50%;
+}
+
+td {
+  min-width: 100px; /* Adjust the minimum width as needed */
+}
+
+td a {
+  text-decoration: none;
+  color: white;
 }
 
 .close-modal {
@@ -117,7 +147,7 @@ body {
 }
 
 .subtitle {
-  font-family: "Inter", sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-size: 25pt;
   font-weight: normal;
   text-align: center;
@@ -144,7 +174,8 @@ body {
 
 #page-3 .content,
 #page-6 .content,
-#page-13 .content {
+#page-13 .content,
+#page-20 .content {
   position: absolute;
   top: 50%;
   left: 15%;
@@ -152,9 +183,27 @@ body {
   color: white;
 }
 
+.details {
+  font-family: "PT Sans", sans-serif;
+  font-size: 18pt;
+  position: absolute;
+  top: 50%; /* Adjust top position */
+  right: 5%; /* Set the left position */
+  transform: translate(-15%, -50%); /* Adjust translation if needed */
+  color: #555555;
+  width: 50%; /* Set the width as needed */
+  height: 45%;
+  overflow-y: scroll; /* Enable vertical scrollbar */
+}
+
+.details::-webkit-scrollbar {
+  display: none;
+}
+
 #page-3 .title,
 #page-6 .title,
-#page-13 .title {
+#page-13 .title,
+#page-20 .title {
   font-family: "PT Sans", sans-serif;
   font-size: 32pt;
   font-weight: normal;
@@ -164,7 +213,8 @@ body {
 
 #page-3 .subtitle,
 #page-6 .subtitle,
-#page-13 .subtitle {
+#page-13 .subtitle,
+#page-20 .subtitle {
   font-family: "EB Garamond", serif;
   font-style: italic;
   font-size: 18pt;
@@ -281,4 +331,8 @@ body {
 
 #page-19 {
   left: 1800%;
+}
+
+#page-20 {
+  left: 1900%;
 }

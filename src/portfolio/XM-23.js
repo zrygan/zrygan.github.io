@@ -23,47 +23,25 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-document.addEventListener('wheel', (e) => {
-  e.preventDefault();
-  if (e.deltaY !== 0) {
-    currentPageIndex += e.deltaY > 0 ? 1 : -1;
-    currentPageIndex = Math.min(Math.max(currentPageIndex, 0), pages.length - 1);
-    pages[currentPageIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+function updatePageIndex(partNumber) {
+  let scrollPosition = 0;
+
+  switch (partNumber) {
+    case 1:
+      scrollPosition = 300;
+      break;
+    case 2:
+      scrollPosition = 500;
+      break;
+    case 3:
+      scrollPosition = 1900;
+      break;
+    default:
+      break;
   }
-});
 
-pages.forEach((page) => {
-  page.addEventListener('wheel', (e) => {
-    if (e.deltaY !== 0) {
-      e.preventDefault();
-      page.scrollLeft += e.deltaY;
-    }
-  });
-});
-
-window.addEventListener('scroll', function() {
-  var backToTopButton = document.getElementById('backToTopBtn');
-  var page2 = document.getElementById('page-2');
-
-  // Check if the user has scrolled to the second page
-  var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-  var secondPageOffset = page2.offsetTop - 100; // Adjust offset as needed
-
-  if (scrollPosition > secondPageOffset) {
-    backToTopButton.style.opacity = '1'; // Show the button by setting opacity to 1
-  } else {
-    backToTopButton.style.opacity = '0'; // Hide the button by setting opacity to 0
-  }
-});
-
-window.addEventListener('scroll', function() {
-  var backToTopButton = document.getElementById('backToTopBtn');
-  if (window.scrollX > 200) {
-    backToTopButton.style.display = 'block';
-  } else {
-    backToTopButton.style.display = 'none';
-  }
-});  
+  window.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+}
 
 // info button
 const inBtn = document.querySelector('.info-btn');
@@ -78,4 +56,23 @@ inBtn.addEventListener('click', function(event) {
 
 closeModal3.addEventListener('click', function() {
   modalOverlay3.style.display = 'none';
+});
+
+window.addEventListener('scroll', function() {
+  var backToTopButton = document.getElementById('backToTopBtn');
+  if (window.scrollX> 200) {
+    backToTopButton.style.display = 'block';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});  
+
+// fade button
+window.addEventListener('scroll', function() {
+var backToTopButton = document.getElementById('backToTopBtn');
+if (window.scrollX > 200) {
+  backToTopButton.style.opacity = '1'; // Show the button by setting opacity to 1
+} else {
+  backToTopButton.style.opacity = '0'; // Hide the button by setting opacity to 0
+}
 });
