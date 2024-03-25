@@ -9,11 +9,11 @@ function displayText(buttonText) {
   
     switch (buttonText) {
       case 'Email':
-        newText = `I use this email <span class="mono"> <a href="mailto:obin.odayo@gmail.com">obin.odayo@gmail.com</a> </span> for professional emails. You can also contact me through my <a href="mailto:zhean_robby_ganituen@dlsu.edu.ph">DLSU</a> and <a href="mailto:zganituen@acm.org">ACM</a> emails. <br /> Although unprofessional, you may also correspond with me through Discord (Username: ob1n.), but I prefer initial correspondence via my professional email.`;
+        newText = `I use this email <span class="mono"> <a href="mailto:zr.gntn@gmail.com">zr.gntn@gmail.com</a> </span> for professional emails. You can also contact me through <a href="mailto:zhean_robby_ganituen@dlsu.edu.ph">DLSU mail</a> and <a href="mailto:zganituen@acm.org">ACM mail</a>. <b>I do not correspond thorugh accounts not listed above.</b> Should I "email" you and the account used for correspondence is not the ones above, contact me ASAP. `;
         circle.style.backgroundColor = 'blue';
         break;
       case 'Websites':
-        newText = `I have a <a href="https://www.linkedin.com/in/obin-odayo/">LinkedIn</a> and <a href="https://github.com/obin-odayo">GitHub</a>. Aside from these, I do not use any other social media accounts for professional purposes. <br /> I will update my academic accounts in the future, including my Google Scholar account.`;
+        newText = `I have a <a href="https://www.linkedin.com/in/obin-odayo/">LinkedIn</a>, <a href="https://github.com/obin-odayo">GitHub</a>, <a href="https://orcid.org/0009-0002-3266-5384">ORCID</a>, <a href="https://scholar.google.com/citations?user=tGIiReAAAAAJ">Google Scholar</a>, and <a href="https://www.instagram.com/o___dayo">Instagram</a>. Aside from these, I do not use any other social media accounts for professional purposes. For professional and academic purpuses, <b>do not </b> contact me outside these profiles.`;
         circle.style.backgroundColor = 'green';
         break;
       case 'CV':
@@ -21,7 +21,7 @@ function displayText(buttonText) {
         circle.style.backgroundColor = 'white';
         break;
       case 'Zhean':
-        newText = `I am a Computer Science and Philosophy student at <a href='https://www.dlsu.edu.ph/'>DLSU</a>, graduating in 2027. I am actively involved in research, focusing on computer graphics, interactive entertainment, and HCI. I sometimes even work with liminal spaces and architecture!`;
+        newText = `I am a Computer Science and Game Design student at <a href='https://www.dlsu.edu.ph/'>DLSU</a>, graduating in 2027. I am actively involved in research, focusing on computer graphics, interactive entertainment, and HCI. I sometimes even work with liminal spaces and architecture!`;
         circle.style.backgroundColor = 'purple';
         break;
       case 'What':
