@@ -1,5 +1,5 @@
-// Code for obin-odayo.github.io
-// Created by Zhean Robby L. Ganituen (Obin Odayo)
+// Code for zrygan.github.io
+// Created by Zhean Robby L. Ganituen (zrygan)
 // Created on December 23, 2023
 
 function displayText(buttonText) {
@@ -13,7 +13,7 @@ function displayText(buttonText) {
         circle.style.backgroundColor = 'blue';
         break;
       case 'Websites':
-        newText = `I have a <a href="https://www.linkedin.com/in/obin-odayo/">LinkedIn</a>, <a href="https://github.com/obin-odayo">GitHub</a>, <a href="https://orcid.org/0009-0002-3266-5384">ORCID</a>, <a href="https://scholar.google.com/citations?user=tGIiReAAAAAJ">Google Scholar</a>, and <a href="https://www.instagram.com/o___dayo">Instagram</a>. Aside from these, I do not use any other social media accounts for professional purposes. For professional and academic purpuses, <b>do not </b> contact me outside these profiles.`;
+        newText = `I have a <a href="https://www.linkedin.com/in/zrygan/">LinkedIn</a>, <a href="https://github.com/zrygan">GitHub</a>, <a href="https://orcid.org/0009-0002-3266-5384">ORCID</a>, <a href="https://scholar.google.com/citations?user=tGIiReAAAAAJ">Google Scholar</a>, and <a href="https://www.instagram.com/o___dayo">Instagram</a>. Aside from these, I do not use any other social media accounts for professional purposes. For professional and academic purpuses, <b>do not </b> contact me outside these profiles.`;
         circle.style.backgroundColor = 'green';
         break;
       case 'CV':
@@ -25,7 +25,7 @@ function displayText(buttonText) {
         circle.style.backgroundColor = 'purple';
         break;
       case 'What':
-        newText = `This website serves as Zhean Ganituen's (frequently using the nickname: <span class="mono">Obi</span>) personal webpage, encompassing various aspects about me such as bio, CV, portfolio, papers, interests, blogs, etc.`;
+        newText = `This website serves as Zhean Ganituen's (frequently using the nickname: <span class="mono">zrygan</span>) personal webpage, encompassing various aspects about me such as bio, CV, portfolio, papers, interests, blogs, etc.`;
         circle.style.backgroundColor = 'orange';
         break;
       default:

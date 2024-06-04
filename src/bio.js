@@ -1,5 +1,5 @@
-// Code for obin-odayo.github.io
-// Created by Zhean Robby L. Ganituen (Obin Odayo)
+// Code for zrygan.github.io
+// Created by Zhean Robby L. Ganituen (zrygan)
 // Created on December 22, 2023
 
 document.querySelector('.prev-btn').style.display = 'none';
@@ -118,7 +118,7 @@ function revertText1() {
 
     title.innerHTML = 'Who is this man?';
     par.innerHTML = `Hi! I'm Zhean Robby L. Ganituen, known online by the alias
-    <span>Obi</span> or <span> Obin Odayo</span>. Welcome to my web page,
+    <span> zrygan</span>. Welcome to my web page,
     where I mostly talk about myself, my work, research, academia,
     computers, graphics, and many more.`
 }

@@ -1,5 +1,5 @@
-// Code for obin-odayo.github.io
-// Created by Zhean Robby L. Ganituen (Obin Odayo)
+// Code for zrygan.github.io
+// Created by Zhean Robby L. Ganituen (zrygan)
 // Created on December 23, 2023
 
 function toggleSidebar() {
