@@ -2,646 +2,244 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhean Ganituen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet" />
-
-  <link rel="stylesheet" href="/styles/cv.css" />
-  <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
-
-  <title>Curriculum Vitae</title>
+  <link rel="stylesheet" href="/styles/cv.css">
+  <link rel="stylesheet" href="/styles/fonts.css" />
 </head>
 
 <body>
-  <a href="#" class="back-to-top-btn" id="backToTopBtn">Back to Top</a>
-  <a href="#" class="contact-btn">Contact</a>
+  <div class="container">
+    <header>
+      <h1 class="name"><strong>Zhean</strong> Ganituen</h1>
+      <div class="contact-info">
+        <div class="email"><a href="mailto:zr.gntn@gmail.com">zr.gntn@gmail.com</a></div>
+        <div class="link"><a href="https://zrygan.github.io/">https://zrygan.github.io/</a></div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Research</h2>
+      <div class="section-content">
+        <div class="left-column"></div>
+        <div class="right-column">
+          <p>I do independent research on the Theoretical Computer Sciences. Recently, I have been interested in
+            parallel algorithms, cryptography, and advanced data structures. On occasion, I work on programming language
+            theory: compilers, interpreters, and syntax.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="section-content">
+        <div class="left-column">Aug 2023–</div>
+        <div class="right-column">
+          <p>B.S. Computer Science<br>
+            De La Salle University</p>
+        </div>
+      </div>
+      <div class="section-content">
+        <div class="left-column">July 2021–Apr 2023</div>
+        <div class="right-column">
+          <p>STEM High School<br>
+            De La Salle University Integrated School<br>
+            Advisors: Neil Stephen Lopez and Jose Bienvenido Biona
+            Thesis: "Traditional and Modernized Jeepneys: An Assessment on Comfort, Ease of Use, and Safety"</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Honors</h2>
+      <div class="section-content">
+        <div class="left-column">Apr 2023</div>
+        <div class="right-column">
+          <p>De La Salle University Integrated School, Distinction in Research</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="section-content">
+        <div class="left-column-sans">Programming</div>
+        <div class="right-column">
+          <p>C, C++, Go, Python, Java, Rust</p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column-sans">Other Programming</div>
+        <div class="right-column">
+          <p>CSS, HTML, LaTeX, PGF, TikZ</p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column-sans">Data Science</div>
+        <div class="right-column">
+          <p>Jupyter Notebook, Matplotlib, NumPy, Pandas</p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column-sans">Graphics</div>
+        <div class="right-column">
+          <p>OpenGL, GLSL</p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column-sans">Miscellaneous</div>
+        <div class="right-column">
+          <p>Problem Solving, Tutoring, Research</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="section-content">
+        <div class="left-column">Mar 2025–</div>
+        <div class="right-column">
+          <p><strong>C-MEN</strong> | <a href="https://github.com/zrygan/c-men">github.com/zrygan/c-men</a><br>
+            A project that implements memoization for recursive functions in C. By passing a recursive function (like
+            the recursive Fibonacci Sequence algorithm) in the memoization function, it reduces computation time by
+            memoizing the recursive function.</p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column">Feb 2025–</div>
+        <div class="right-column">
+          <p><strong>Raytracer</strong> | <a
+              href="https://github.com/zrygan/Raytracer">github.com/zrygan/Raytracer</a><br>
+            A project written in Python exploring concepts in two-dimensional ray tracing algorithms.</p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column">Oct 2024–</div>
+        <div class="right-column">
+          <p><strong>The tt</strong><br>
+            Beginning as a small project for the students I tutor, The Turing Tome (tt) is a collection of notes,
+            articles, and problems that cover topics like discrete structures, computational complexity theory, and
+            more.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Academic Engagement</h2>
+      <div class="section-content">
+        <div class="left-column">May 2024–</div>
+        <div class="right-column">
+          <p><strong>Tutor and Associate Vice President for Activities</strong><br>
+            Peer Tutors Society<br>
+          </p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column">Oct 2024–</div>
+        <div class="right-column">
+          <p><strong>Associate Vice President for Activities</strong><br>
+            DLSU Association for Computing Machinery (ACM) Student Chapter</p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column">Nov 2023–</div>
+        <div class="right-column">
+          <p><strong>Science Writer</strong><br>
+            CCS Creatives Unit, De La Salle University</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Research and Papers</h2>
+      <div class="section-content">
+        <div class="left-column">2023</div>
+        <div class="right-column">
+          <p><strong>Traditional and Modernized Jeepneys: An Assessment on Comfort, Ease of Use, and Safety</strong><br>
+            Zhean Ganituen, Micah Cabatingan, Margarita Ko, Diego Manalo<br>
+            <span class="publication">5th DLSU SHS Research Congress. AnimoRepository.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Talks and Presentations</h2>
+      <div class="section-content">
+        <div class="left-column">Mar 2025</div>
+        <div class="right-column">
+          <p><strong>Nachos, Chips, & Dips: Crunching Cryptos, Algos, and Symbols</strong>
+            <span class="event">Was the project head and one of the guest lecturers for a workshop on cryptography,
+              regular expressions, and advanced data structures </span>
+          </p>
+        </div>
+      </div>
+      <div class="section-content">
+        <div class="left-column">Jul 2023</div>
+        <div class="right-column">
+          <p><strong>Philippine Science Research Symposium</strong><br>
+            <span class="event">Presented research on traditional and modernized jeepneys</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <div class="left-column">Jun 2023</div>
+        <div class="right-column">
+          <p><strong>De La Salle University Integrated School Research Congress</strong><br>
+            <span class="event">Presented findings on public transportation comfort and accessibility</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <a href="/index.html" class="back-home-btn">Back Home</a>
-  <a href="#" class="cv-btn">CV Formats</a>
+  <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
 
-  <div class="modal-overlay" id="modalOverlay">
+  <a href="#" id="download-cv" class="download-btn">Download</a>
+
+  <!-- Download Modal -->
+  <div class="modal-overlay" id="download-modal">
     <div class="modal">
-      <span class="close-modal" id="closeModal">&times;</span>
+      <span class="close-modal" id="closeDownloadModal">&times;</span>
       <div class="modal-content">
-        <table>
-          <tr>
-            <td class="first-column">Based in</td>
-            <td>
-              <a href="https://maps.app.goo.gl/DKHJo2MU88f8kGcL9">San Juan, Philippines</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="first-column">Email</td>
-            <td>
-              <a href="mailto:zr.gntn@gmail.com">zr.gntn@gmail.com</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="first-column">GitHub</td>
-            <td>
-              <a href="https://github.com/zrygan">github.com/zrygan</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="first-column">LinkedIn</td>
-            <td>
-              <a href="https://www.linkedin.com/in/zrygan/">in/zrygan</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="first-column">Portfolio</td>
-            <td>
-              <a href="/pages/portfolio/XM-23.html">zrygan</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="first-column">Personal Website</td>
-            <td>
-              <a href="https://zrygan.github.io">zrygan.github.io</a>
-            </td>
-          </tr>
-        </table>
+        <div class="download-options">
+          <table>
+            <tr>
+              <td>PDF</td>
+              <td><a href="#" class="download-option">download</a></td>
+            </tr>
+            <tr>
+              <td>Plaintext (.md)</td>
+              <td><a href="/pages/cv.md" class="download-option">download</a></td>
+            </tr>
+            <tr>
+              <td>Google Docs</td>
+              <td><a
+                  href="https://docs.google.com/document/d/1Hd6YuNhR9nOFylSSgsT3Nvc5VqnppdqH3K_FEJTH8do/edit?usp=sharing"
+                  class="download-option">visit</a></td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="modal-overlay2" id="modalOverlay2">
-    <div class="modal">
-      <span class="close-modal" id="closeModal2">&times;</span>
-      <div class="modal-content">
-        Download Zhean's CV in different formats: <br />
-        <table>
-          <tr>
-            <td class="file">.pdf &nbsp;(full)</td>
-            <td>
-              <a href="/docs/cvs/Ganituen_CV_2024.pdf" download="Ganituen_CV">Download</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="file">.docx (full)</td>
-            <td>
-              <a href="/docs/cvs/Ganituen_CV_2024.docx" download="Ganituen_CV">Download</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Google Drive</td>
-            <td>
-              <a href="https://drive.google.com/file/d/1wiq0gvzXJZ0v4jF4Zyl4A7rRGypKIgRH/view?usp=sharing"
-                target="!">View</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Contact me here:</td>
-            <td>
-              <a class="file" href="mailto:zr.gntn@gmail.com">zr.gntn@gmail.com</a>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <button class="toggle-btn" onclick="toggleSidebar()">Contents</button>
-
-  <div class="sidebar">
-    <ul>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#research">Published Research</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#talks/presentations">Talks & Presentations </a></li>
-      <li><a href="#membership/involvement">Membership & Involvement</a></li>
-      <li><a href="/pages/portfolio.html">Portfolio</a></li>
-    </ul>
-  </div>
-
-  <div class="main-content">
-    <span class="myName">
-      <span>Z</span><span>h</span><span>e</span><span>a</span><span>n</span>
-      <span> </span><span>R</span><span>o</span><span>b</span><span>b</span><span>y</span> <span>
-      </span><span>L</span><span>.</span><span>
-      </span><span>G</span><span>a</span><span>n</span><span>i</span><span>t</span><span>u</span><span>e</span><span>n</span>
-    </span>
-
-    <span class="nickname">/ <span>O</span><span>b</span><span>i</span> /</span>
-
-    <div class="content">
-      <p class="group" style="
-            font-size: 32px;
-            text-align: left;
-            margin-left: 55px;
-            margin-right: 55px;
-          ">
-        Zhean Ganituen, or known as “zrygan”, is a Computer Science student at
-        De La Salle University with the Class of 2027. Before his
-        undergraduate studies, he was a senior high school student conducting
-        a thesis that was published, received distinctions, and was presented
-        to other students and faculty. He also joined organizations which
-        advanced his studies in programming and engineering. Currently, his
-        work now focuses on computer graphics, actively seeking the
-        combination of it with interactive entertainment and human-computer
-        interaction.
-      </p>
-
-      <div id="education">
-        <div class="container">
-          <div class="breathing-circle"></div>
-        </div>
-        <div class="header">>> EDUCATION</div>
-      </div>
-
-      <div class="group">
-        <div class="info">
-          <span class="name">De La Salle University, College of Computer Studies</span>
-          <span class="location">Manila, Philippines.</span>
-        </div>
-        <span class="date">[est. 2027]</span>
-        <span class="degree">B.S. in Computer Science, Major in Software Technology, Minor in
-          Philosophy.</span>
-        <ul class="lists">
-          <li>
-            Relevant Coursework:
-            <ul>
-              <li>Programming with Structured Data Types.</li>
-              <li>Discrete Structures.</li>
-              <li>Differential Calculus.</li>
-              <li>Linear Algebra for Computer Science Students.</li>
-            </ul>
-          </li>
-          <li>
-            Expected Coursework:
-            <ul>
-              <li>3D Computer Graphics Modelling.</li>
-              <li>Game Design.</li>
-              <li>Computational Interaction Design.</li>
-              <li>Augmented and Virtual Reality.</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div class="group">
-        <div class="info">
-          <span class="name">De La Salle University, Integrated School</span>
-          <span class="location">Manila, Philippines.</span>
-        </div>
-        <span class="date">[2023]</span>
-        <span class="degree">STEM Senior High School Diploma.</span>
-        <ul class="lists">
-          <li>
-            Advisers: Dr. Neil Stephen Lopez and Dr. Jose Bienvenido Biona.
-          </li>
-          <li>
-            Thesis: Traditional and Modernized Jeepneys: An Assessment on
-            Comfort, Ease of Use, and Safety.
-          </li>
-          <li>
-            Received distinction in research. Thesis published as part of the
-            University's 2023 SHS Research Congress.
-          </li>
-          <li>
-            Was the Director and Research Head of a class project that helped
-            and assisted dairy farmers from General Trias Dairy Raisers
-            Mutipurpose Cooperative to collaborate with the Department of
-            Science and Technology of the Philippines for their milk
-            pulverizing project.
-          </li>
-        </ul>
-      </div>
-
-      <div class="group">
-        <div class="info">
-          <span class="name">MOOCs</span>
-          <span class="location">Online.</span>
-        </div>
-        <ul class="lists">
-          <li>
-            <i>CS50: Introduction to Computer Science.</i> Harvard University,
-            through edX.
-          </li>
-          <li>
-            <i>Viruses & How to Beat Them: Cells, Immunity, Vaccines.</i>
-            Tel Aviv University, through edX.
-          </li>
-        </ul>
-      </div>
-
-      <div id="skills">
-        <div class="container">
-          <div class="breathing-circle"></div>
-        </div>
-        <div class="header">>> SKILLS</div>
-      </div>
-      <table class="skills">
-        <tr class="group">
-          <td>Spoken Languages:</td>
-          <td>
-            <ul>
-              <li>(native) Filipino and English.</li>
-            </ul>
-          </td>
-        </tr>
-        <tr class="group">
-          <td>Programming:</td>
-          <td>
-            <ul>
-              <li>(proficient) C, Python, and GDScript.</li>
-              <li>(intermediate) MATLAB.</li>
-              <li>(basic) Java and JavaScript.</li>
-            </ul>
-          </td>
-        </tr>
-        <tr class="group">
-          <td>Software and Tools:</td>
-          <td>
-            <ul>
-              <li>
-                (proficient) Blender, Godot, Inkscape, Git, Visual Studio
-                Code, Jupyter.
-              </li>
-              <li>
-                (intermediate) Microsoft Excel, Web Development (HTML and
-                CSS).
-              </li>
-              <li>
-                (basic) Vim, Python Data Science (NumPy, Pandas, etc.),
-                OpenGL, Fusion360, Unity.
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr class="group">
-          <td>Research:</td>
-          <td>
-            <ul>
-              <li>
-                Data Analysis: graphical analysis, hypothesis testing,
-                descriptive statistics, and qualitative analysis.
-              </li>
-              <li>Research Tools: Mendeley, online databases, Obsidian.</li>
-            </ul>
-          </td>
-        </tr>
-      </table>
-
-      <div id="experience">
-        <div class="container">
-          <div class="breathing-circle"></div>
-        </div>
-        <div class="header">>> EXPERIENCE</div>
-      </div>
-      <div class="group">
-        <div class="info">
-          <span class="name">De La Salle University, College of Computer Studies</span>
-          <span class="location">Manila, Philippines.</span>
-        </div>
-        <span class="date">[NOV. 2023]</span>
-        <span class="degree">Science Writer for Creatives Unit</span>
-        <ul class="lists">
-          <li>
-            Writing technical documentation and reports for the College to
-            communicate technical and scientific information for students,
-            faculty, and external communications.
-          </li>
-          <li>
-            Writing publication materials to disseminate proceedings within
-            the College to external communications.
-          </li>
-        </ul>
-      </div>
-
-      <div id="research">
-        <div class="container">
-          <div class="breathing-circle"></div>
-        </div>
-        <div class="header">>> PUBLISHED RESEARCH</div>
-      </div>
-      <div>
-        <ol>
-          <li class="group">
-            Ganituen, et al. (2023). Traditional and Modernized Jeepneys: An
-            Assessment on Comfort, Ease of Use, and Safety.
-            <a target="_blank"
-              href="https://animorepository.dlsu.edu.ph/cgi/viewcontent.cgi?article=1812&context=conf_shsrescon">AnimoRepository</a>,
-            <a target="_blank"
-              href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tGIiReAAAAAJ&citation_for_view=tGIiReAAAAAJ:u5HHmVD_uO8C">Google
-              Scholar</a>.
-            <br />
-            <details class="learn-more">
-              <summary class="learn-more-button" onclick="toggleClass(event)">
-                >> Learn more.
-              </summary>
-              <ul>
-                <li>
-                  Analyzed 300 heart rate datasets from 30 participants using
-                  statistical methodologies (descriptive statistics,
-                  hypothesis testing).
-                </li>
-                <li>
-                  Resulted in a baseline study aimed to enhance the quality of
-                  transportation in the Philippines.
-                </li>
-                <li>
-                  Collaborated with a diverse team to integrate multiple
-                  perspectives into the research, enriching the depth and
-                  effectiveness of the study.
-                </li>
-                <li>
-                  Led and coordinated a cohesive team effort for the senior
-                  high school thesis project, steering the project towards
-                  successful completion.
-                </li>
-                <li>
-                  Incorporated diverse insights from external collaborators to
-                  enhance the research project's effectiveness and depth.
-                </li>
-                <li>
-                  Produced comprehensive technical documentation and
-                  presentation materials for research, ensuring accessibility
-                  without compromising accuracy.
-                </li>
-                <li>
-                  Crafted clear and understandable documentation and
-                  presentations for various audiences, including advisers,
-                  participants, and external students.
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ol>
-      </div>
-
-      <div id="projects">
-        <div class="container">
-          <div class="breathing-circle"></div>
-        </div>
-        <div class="header">>> PROJECTS</div>
-      </div>
-      <div class="project">
-        <p>
-          <span class="project-title">The Land is Flat //</span>
-          <span class="project-type">video game (in-development)</span>
-        </p>
-        <ul class="project-details">
-          <li>Creating and designing 2D and 3D walking simulator.</li>
-          <li>
-            Writing a deep and compelling philosophical story of nature,
-            society, and existence.
-          </li>
-          <li>
-            Creating immersive video game models and environments limited by
-            the 2D space and “math art” theme of the game.
-          </li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <p>
-          <span class="project-title">Mini Champs //</span>
-          <span class="project-type">video game (in-development)</span>
-        </p>
-        <ul class="project-details">
-          <li>
-            Creating and designing a MOBA and tower-defense hybrid game that
-            focuses on casual and mechanical skill expression.
-          </li>
-          <li>
-            Modelling low-poly characters to make the game have low system
-            requirements yet immersive and timely looking.
-          </li>
-          <li>
-            Using artificial intelligence to make enemy pathing and ally
-            targeting more realistic.
-          </li>
-          <li>
-            Creating intense, complex, and immersive gameplay through
-            designing complex game loops, features, strategies, and
-            characters.
-          </li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <p>
-          <span class="project-title">Jeopardy Game //</span>
-          <span class="project-type">video game</span>
-        </p>
-        <ul class="project-details">
-          <li>
-            Wrote a Jeopardy-like command line interface game for a school
-            project.
-          </li>
-          <li>
-            Used C and heavily used pointers and functions for the game loop.
-          </li>
-          <li>
-            Heavily used the string library of C for answer verification.
-          </li>
-          <li>
-            Used C header files so that players can freely and easily change
-            the questions and the answers to the game.
-          </li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <p>
-          <span class="project-title">zrygan //</span>
-          <span class="project-type">personal website</span>
-        </p>
-        <ul class="project-details">
-          <li>
-            Designed and developed an avant-garde yet accessible website to
-            serve as my personal website, code, and 3D portfolio.
-          </li>
-          <li>
-            Created to also investigate the usability and accessibility of
-            avant-garde web design and how to execute it effectively, where
-            the visual complexity and weirdness are maintained yet accessible
-            to all.
-          </li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <p>
-          <span class="project-title">Eerie Familiarity //</span>
-          <span class="project-type">3D and design project</span>
-        </p>
-        <ul class="project-details">
-          <li>
-            Conducted research on the nature of liminal spaces and digital
-            recreations of it.
-          </li>
-          <li>
-            Forced liminal space aesthetics in urban and busy areas through
-            lighting and camera effects.
-          </li>
-          <li>
-            Created and designed 3D computer-generated rooms and areas to
-            create liminal spaces through lighting and camera effects.
-          </li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <p>
-          <span class="project-title">Collatzer //</span>
-          <span class="project-type">code project</span>
-        </p>
-        <ul class="project-details">
-          <li>
-            Created a python script that allows a user to view the entire
-            Collatz process of a user-input value for x.
-          </li>
-          <li>
-            Used file handling and mark-up languages to save the file as a
-            portable file.
-          </li>
-          <li>
-            Used pip and the Python Package Index to also turn it into a
-            Python package.
-          </li>
-          <li>Created useful functions for viewing the Collatz process.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <p>
-          <span class="project-title">Epytoml //</span>
-          <span class="project-type">code project</span>
-        </p>
-        <ul class="project-details">
-          <li>
-            Created a python program that makes people write notes in Python.
-          </li>
-          <li>
-            Used file handling techniques for viewing the file in Tkinter and
-            exporting the file as a portable file.
-          </li>
-          <li>
-            Has numerous sub-packages that can be used by the user to create
-            specialized tasks.
-          </li>
-          <li>Used regular expressions to improve its capabilities.</li>
-          <li>
-            Used pip and the Python Package Index to turn it into a Python
-            package available for everybody to use and edit to their needs.
-          </li>
-        </ul>
-      </div>
-
-      <div id="talks/presentations">
-        <div class="container">
-          <div class="breathing-circle"></div>
-        </div>
-        <div class="header">>> TALKS // PRESENTATIONS</div>
-      </div>
-      <div>
-        <ol>
-          <li class="group">
-            <i>
-              De La Salle University Mechanical Engineering Department
-              Symposium</i>. Online, July 6, 2023. Presented my thesis project to >100
-            attendees from Philippine Science High School and De La Salle
-            University.
-          </li>
-          <li class="group">
-            <i>
-              De La Salle University 2023 Senior High School Research
-              Congress</i>. Online, June 27, 2023. Presented my thesis project to >500
-            attendees from De La Salle University and outside schools.
-          </li>
-        </ol>
-      </div>
-
-      <div id="membership/involvement">
-        <div class="container">
-          <div class="breathing-circle"></div>
-        </div>
-        <div class="header">>> MEMBERSHIP // INVOLVEMENT</div>
-      </div>
-      <div>
-        <ol>
-          <li class="group">
-            De La Salle University Association of Computing Machinery (ACM)
-            Student Chapter. Since October 2023.
-            <ul>
-              <li>
-                Attending numerous talks, discussions, and meetings on
-                computer science research and innovations.
-              </li>
-              <li>
-                Collaborating and brainstorming with other student researchers
-                on research topics and discussions.
-              </li>
-              <li>
-                Communicating my research goals and interests with other
-                student researchers.
-              </li>
-            </ul>
-          </li>
-          <li class="group">
-            La Salle Computer Society. Since October 2023.
-          </li>
-          <li class="group">
-            Samahan ng mga Lasalyanong Pilosopo. Since October 2023.
-          </li>
-          <li class="group">
-            Writers' Guild. Since October 2023.
-            <ul>
-              <li>
-                Attending numerous lectures and events on fiction and creative
-                nonfiction.
-              </li>
-              <li>
-                Creating short creative nonfiction pieces to be published by
-                the organization.
-              </li>
-            </ul>
-          </li>
-          <li class="group">
-            Engineering and Robotics Club. September 2022 to July 2023.
-            <ul>
-              <li>
-                Attended classes and workshops on Arduino programming,
-                robotics, circuits, and computer aided design.
-              </li>
-              <li>
-                Was a member of the Review Committee which gave out hand-outs
-                and review notes to other members.
-              </li>
-              <li>
-                Wrote review notes for Analytic Geometry and College Algebra.
-              </li>
-            </ul>
-          </li>
-          <li class="group">
-            Competitive Computer Programmers, Junior Competitive Programming
-            League. September 2021 to July 2023.
-            <ul>
-              <li>
-                Attended classes and lectures on advanced and competitive
-                programming in C.
-              </li>
-              <li>Competed in programming competitions with teammates.</li>
-              <li>
-                Studied competitive programming techniques with teammates.
-              </li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <script src="/js/buttons.js"></script>
-  <script src="/js/cvnav.js"></script>
-  <script src="/js/modal.js"></script>
+  <script src="/js/cv.js"></script>
 </body>
 
 </html>
