@@ -30,7 +30,7 @@
                 <div class="graffiti">
                     This is a graffiti note on the left side, explaining or augmenting the main content.
                 </div>
-                <div class="blog-content">
+                <div class="content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis in sapien ultrices
                         efficitur.
                         Cras vel ligula ac risus tempor condimentum. Morbi bibendum ultrices magna, et tincidunt arcu
@@ -50,7 +50,7 @@
                 <div class="graffiti">
                     Key insight: This algorithm runs in O(n log n) time.
                 </div>
-                <div class="blog-content">
+                <div class="content">
                     <p>Pellentesque vestibulum justo ut purus facilisis, in efficitur libero interdum.
                         Sed gravida, velit fringilla consequat feugiat, sem velit mattis nulla, vel rutrum neque nisl id
                         magna.
@@ -75,7 +75,7 @@
                 <div class="graffiti">
                     Real-world examples include search engines and recommendation systems.
                 </div>
-                <div class="blog-content">
+                <div class="content">
                     <p>Aenean efficitur augue ac ex vehicula, id vehicula arcu faucibus. Sed et diam mollis,
                         tincidunt nisl vel, lacinia velit. Fusce malesuada auctor arcu, vitae consequat nisl tincidunt
                         ut.
@@ -99,7 +99,7 @@
                 <div class="graffiti">
                     Summary of key points to remember.
                 </div>
-                <div class="blog-content">
+                <div class="content">
                     <p>Phasellus a consequat nulla. Suspendisse potenti. Sed ullamcorper, nisl eget vulputate dapibus,
                         velit justo tincidunt odio, sit amet pretium arcu risus ut quam. Curabitur sit amet tortor
                         ultrices,
@@ -115,7 +115,23 @@
 
     <a href="/index.html" class="back-home-btn">Back Home</a>
     <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
+    <a href="#" id="references-btn" class="references-btn">References</a>
 
+    <!-- References Modal -->
+    <div id="references-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>References</h2>
+            <div id="references-content">
+                <!-- References will be listed here -->
+                <a href="#">Reference 1</a> - Description of reference
+                <a href="#">Reference 2</a> - Description of reference
+                <a href="#">Reference 3</a> - Description of reference
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/blog_pages.js"></script>
     <script>
         // Script to handle back to top button visibility
         window.onscroll = function () { scrollFunction() };

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run-on Sentences of Programming: On Verbose Syntax</title>
+    <title>The Gist of Complexity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,131 +12,81 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="/styles/blog_pages.css">
     <link rel="stylesheet" href="/styles/fonts.css" />
+
 </head>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
 <body>
     <div class="container">
         <header>
-            <h1 class="post-title">Run-on Sentences of Programming: On Verbose Syntax</h1>
+            <h1 class="post-title">The Gist of Complexity</h1>
             <div class="post-meta">
                 <div class="post-date">Zhean Ganituen, April 9, 2025</div>
-                <div class="post-tags">Keywords: <i>Parsing, Programming Languages, Programming Language Theory, Verbose
-                        Syntax, </i></div>
+                <div class="post-tags">Keywords: <i>Algorithms, Complexity Theory</i></div>
             </div>
         </header>
-
         <section>
-            <h2 class="chapter-title">Introduction</h2>
-            <div class="chapter-content">
-                <div class="graffiti">
-                    This is a graffiti note on the left side, explaining or augmenting the main content.
-                </div>
-                <div class="blog-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis in sapien ultrices
-                        efficitur.
-                        Cras vel ligula ac risus tempor condimentum. Morbi bibendum ultrices magna, et tincidunt arcu
-                        auctor id.
-                        Fusce malesuada velit eu augue condimentum, at hendrerit leo vestibulum.</p>
 
-                    <p>Mauris quis lacus justo. Nunc vestibulum, massa a pulvinar sollicitudin, ex dui scelerisque ex,
-                        id egestas nisi tortor non sem. Nunc at velit nec risus convallis rutrum.
-                        Donec quis ultricies nisl, non scelerisque tellus.</p>
+            <div class="chapter-content">
+                <div class="graffiti"></div>
+                <div class="content">
+                    Complexity Theory, one of the most important fields of computer science if you're an aspiring
+                    software engineer, is also one of the most theoretical undergraduate computer science classes you
+                    may
+                    encounter. As the crux of all theoretical computer science lies on this very field. <i>What is
+                        complexity, what are problems, what are algorithms, are all problems solvable?</i>
+                </div>
+            </div>
+            <div class="chapter-content">
+                <div class="graffiti">Honestly, isn't that cool, SMB is a problem? But, what's cooler is that SMB is
+                    "that" problem.</div>
+                <div class="content">
+                    Questions like "What is the shortest path of graph <span>\(G\)</span>?",
+                    "Determine the 3rd element of the sorted array <span>\(A\)</span>.", and even games like Super Mario
+                    Brothers (Demaine) are the central questions of complexity. While, the central goal of complexity
+                    theory
+                    is to determine the <i>classes</i> of these problems, and the relationship of these problems to each
+                    other.
                 </div>
             </div>
         </section>
-
         <section>
-            <h2 class="chapter-title">Main Concept</h2>
-            <div class="chapter-content">
-                <div class="graffiti">
-                    Key insight: This algorithm runs in O(n log n) time.
+            <h2 class="chapter-title">
+                The Classes of Problems
+                </ht>
+                <div class="chapter-content">
+                    <div class="graffiti"></div>
+                    <div class="content">
+                    </div>
                 </div>
-                <div class="blog-content">
-                    <p>Pellentesque vestibulum justo ut purus facilisis, in efficitur libero interdum.
-                        Sed gravida, velit fringilla consequat feugiat, sem velit mattis nulla, vel rutrum neque nisl id
-                        magna.
-                        Integer fermentum neque magna, eu ultrices nunc vestibulum ut.</p>
-
-                    <p>Etiam malesuada sollicitudin risus vel dapibus. Sed laoreet nisl non magna vehicula,
-                        sed condimentum tortor malesuada. Vestibulum ante ipsum primis in faucibus orci luctus
-                        et ultrices posuere cubilia curae.</p>
-
-                    <pre><code>function example() {
-  const data = processInput();
-  const result = analyzeData(data);
-  return formatOutput(result);
-}</code></pre>
+                <div class="chapter-content">
+                    <div class="graffiti"></div>
+                    <div class="content">
+                    </div>
                 </div>
-            </div>
         </section>
 
-        <section>
-            <h2 class="chapter-title">Application</h2>
-            <div class="chapter-content">
-                <div class="graffiti">
-                    Real-world examples include search engines and recommendation systems.
-                </div>
-                <div class="blog-content">
-                    <p>Aenean efficitur augue ac ex vehicula, id vehicula arcu faucibus. Sed et diam mollis,
-                        tincidunt nisl vel, lacinia velit. Fusce malesuada auctor arcu, vitae consequat nisl tincidunt
-                        ut.
-                        Integer elementum dapibus sem, eu rhoncus nunc feugiat at.</p>
-
-                    <blockquote>
-                        "The best solutions are often built on simple, well-understood principles applied creatively to
-                        new domains."
-                    </blockquote>
-
-                    <p>Duis porttitor ligula quis sagittis hendrerit. Curabitur cursus a magna vel venenatis.
-                        Suspendisse potenti. Proin vel ante at eros pulvinar tristique. Nunc facilisis sit amet arcu eu
-                        auctor.</p>
+        <!-- References Modal -->
+        <div id="references-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>References</h2>
+                <div id="references-content">
+                    <!-- <a href="#">Reference 3</a> - Description of reference<-->
+                    <a href="https://doi.org/10.4230/LIPIcs.FUN.2016.13">(Demaine)</a> - Super Mario Bros. is
+                    Harder/Easier Than We Thought
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2 class="chapter-title">Conclusion</h2>
-            <div class="chapter-content">
-                <div class="graffiti">
-                    Summary of key points to remember.
-                </div>
-                <div class="blog-content">
-                    <p>Phasellus a consequat nulla. Suspendisse potenti. Sed ullamcorper, nisl eget vulputate dapibus,
-                        velit justo tincidunt odio, sit amet pretium arcu risus ut quam. Curabitur sit amet tortor
-                        ultrices,
-                        dictum tellus eu, pretium neque.</p>
+        <a href="/index.html" class="back-home-btn">Back Home</a>
+        <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
+        <a href="#" id="references-btn" class="references-btn">References</a>
 
-                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                        Donec ac ex tristique, pellentesque augue sit amet, consequat metus. Sed a tellus fermentum,
-                        aliquam lorem a, commodo nibh.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <a href="/index.html" class="back-home-btn">Back Home</a>
-    <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
-
-    <script>
-        // Script to handle back to top button visibility
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            const backToTopBtn = document.getElementById("back-to-top");
-
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        }
-
-        // Scroll to top when back to top button is clicked
-        document.getElementById("back-to-top").addEventListener("click", function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+        <script src="/js/blog_pages.js"></script>
 </body>
 
 </html>

@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         for (let i = 1; i <= 9999; i++) {
           const id = i.toString().padStart(4, '0');
-          const url = `/pages/blog/zrygan_${id}`;
+          const url = `/pages/blog/zrygan_${id}.html`; // Added .html extension here
           
           try {
             const response = await fetch(url);
             if (!response.ok) {
               if (i === 1) {
-                blogList.innerHTML = '<div class="no-results">No blog posts found.</div>';
+                blogList.innerHTML = '<div class="no-results">No knowledge base entries found.</div>';
               }
               break;
             }
@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             
-            const title = doc.querySelector('.post-title')?.textContent || `Blog Post ${id}`;
+            const title = doc.querySelector('.post-title')?.textContent || `Entry ${id}`;
             const date = doc.querySelector('.post-date')?.textContent || 'No date';
             
             const keywordsElement = doc.querySelector('.post-tags');
             const keywords = keywordsElement ? 
               keywordsElement.textContent.replace('Keywords:', '').trim() : '';
             
-            const firstParagraph = doc.querySelector('.blog-content p')?.textContent || '';
+            const firstParagraph = doc.querySelector('.content p')?.textContent || '';
             const excerpt = firstParagraph.length > 150 ? 
               firstParagraph.substring(0, 150) + '...' : firstParagraph;
             
@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
               date,
               keywords,
               excerpt,
-              url: `/pages/blog/zrygan_${id}`
+              url: `/pages/blog/zrygan_${id}.html` // Added .html extension here too
             });
           } catch (error) {
-            console.error(`Error fetching blog ${id}:`, error);
+            console.error(`Error fetching entry ${id}:`, error);
             break;
           }
         }
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         return allPosts;
       } catch (error) {
-        console.error('Error fetching blog posts:', error);
+        console.error('Error fetching knowledge base entries:', error);
         return [];
       }
     }
@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     (async function init() {
+      blogList.innerHTML = '<div class="loading">Loading knowledge base entries...</div>';
       blogPosts = await fetchBlogPosts();
       currentPosts = [...blogPosts];
       renderBlogPosts(currentPosts);

@@ -82,17 +82,17 @@ h2.chapter-title {
     font-style: italic;
 }
 
-.blog-content {
+.content {
     flex-grow: 1;
     padding-left: 15px;
     color: #333;
 }
 
-.blog-content p {
+.content p {
     margin: 0 0 18px 0;
 }
 
-.blog-content img {
+.content img {
     max-width: 100%;
     height: auto;
     margin: 20px 0;
@@ -174,6 +174,94 @@ pre code {
     transform: scale(0.97);
 }
 
+/* Add references button and modal styles */
+.references-btn {
+    font-family: "IBM Plex Mono", monospace;
+    position: fixed;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    animation: redPulse 2s infinite;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    bottom: 20px;
+    right: 20px;
+}
+
+.references-btn:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #cc0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    text-decoration: none;
+    border-color: rgba(255, 0, 0, 0.3);
+    animation: redPulseStrong 1.5s infinite;
+}
+
+.references-btn:active {
+    background-color: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+    transform: scale(0.97);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    width: 70%;
+    max-width: 700px;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #cc0000;
+    text-decoration: none;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Animation for the subtle persistent glow effect */
 @keyframes redPulse {
     0% {
@@ -233,7 +321,7 @@ pre code {
         padding-bottom: 8px;
     }
 
-    .blog-content {
+    .content {
         padding-left: 0;
     }
 
@@ -250,5 +338,16 @@ pre code {
         bottom: 20px;
         right: 20px;
         top: auto;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 15px;
+    }
+
+    .references-btn {
+        bottom: 20px;
+        right: 20px;
     }
 }
