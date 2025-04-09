@@ -4,17 +4,28 @@
   padding: 0;
 }
 
+:root {
+  --base-font-size: 16px;
+  --base-line-height: 1.6;
+  --side-margin: 5vw;
+  --menu-font-size: clamp(2rem, 2vw, 1.5rem);
+  --bio-width: clamp(300px, 50%, 700px);
+  --bio-font-size: clamp(1rem, 1.15rem, 1.3rem);
+  --info-font-size: clamp(0.8rem, 1vw, 1.2rem);
+  --padding-standard: clamp(10px, 2vw, 25px);
+}
+
 body {
-  font-family: "Jost", sans-serif;
-  font-size: 16px; /* Base font size */
-  line-height: 1.6;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
   position: relative;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 html {
@@ -23,16 +34,6 @@ html {
   display: block;
 }
 
-.logo {
-  display: block;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: auto;
-  max-width: 100%;
-  z-index: 1; /* Set a lower z-index to keep it behind the text */
-}
 
 .logo-link-remove {
   display: block;
@@ -41,63 +42,95 @@ html {
   color: black;
 }
 
-/* Example of flexible text positioning */
 .fixed-text {
   position: fixed;
-  z-index: 2; /* Ensure the text is above the logo */
-  right: 150px; /* Adjust positioning from the right edge */
-  top: 5%; /* Adjust positioning as needed */
-  font-family: "Space Mono", monospace;
-  font-size: 2vw; /* Adjust font size using viewport units */
+  z-index: 2;
+  right: var(--side-margin);
+  top: 5%;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--menu-font-size);
   text-align: right;
-  backdrop-filter: blur(10px); /* Apply frosted background effect */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.3
-  ); /* Adjust background color and opacity */
-  padding: 25px; /* Add padding for better visibility */
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: var(--padding-standard);
 }
 
-/* Example of responsive text */
+.fixed-text a:hover {
+  color: red;
+}
+
 .fixed-text-two {
-  z-index: 2; /* Ensure the text is above the logo */
+  z-index: 2;
   text-align: right;
-  right: 150px; /* Adjust positioning from the right edge */
-  bottom: 30px; /* Adjust positioning from the bottom */
+  right: var(--side-margin);
+  bottom: 30px;
   position: fixed;
-  font-family: "Space Mono", monospace;
-  font-size: 1.5vw; /* Adjust font size using viewport units */
-  backdrop-filter: blur(10px); /* Apply frosted background effect */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.3
-  ); /* Adjust background color and opacity */
-  padding: 10px; /* Add padding for better visibility */
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--info-font-size);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px;
 }
 
 .fixed-text-two p {
-  font-size: 1vw; /* Adjust font size using viewport units */
+  font-size: calc(var(--info-font-size) * 0.9);
   font-style: italic;
-  margin: 0.1vw 0; /* Adjust margins using viewport units */
+  margin: 0.1vw 0;
 }
 
 .fixed-text-two p:first-child {
   font-style: normal;
-  font-size: 1.8vw; /* Adjust font size using viewport units */
+  font-size: calc(var(--info-font-size) * 1.5);
   margin-top: 0;
 }
 
 .fixed-text-two span {
-  font-family: "Space Mono", monospace;
-  font-size: 0.8vw; /* Adjust font size using viewport units */
+  font-family: "IBM Plex Mono", monospace;
+  font-size: calc(var(--info-font-size) * 0.8);
   font-style: italic;
 }
 
 .others-link {
   text-decoration: none;
   color: red;
+}
+
+.bio-text {
+  width: var(--bio-width);
+  position: fixed;
+  left: var(--side-margin);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: calc(var(--padding-standard) * 0.8);
+  font-size: var(--bio-font-size);
+  line-height: 1.5;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --side-margin: 20px;
+  }
+
+  .bio-text {
+    width: calc(100% - (var(--side-margin) * 2));
+    top: 20%;
+    transform: none;
+    max-height: 40vh;
+  }
+
+  .fixed-text {
+    top: 65%;
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+  }
+
+  .fixed-text-two {
+    bottom: 10px;
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+  }
 }
