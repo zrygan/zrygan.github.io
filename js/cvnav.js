@@ -52,7 +52,7 @@ document.getElementById('downloadLink').addEventListener('click', function() {
   // Create a link element and trigger the download
   var link = document.createElement('a');
   link.href = url;
-  link.download = 'current_page.html'; // Set a default filename
+  link.download = 'current_page'; // Set a default filename
   link.click();
 
   // Clean up by revoking the URL object

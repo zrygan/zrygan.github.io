@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zry's Knowledge Base - Zhean Ganituen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/blog_main.css">
+    <link rel="stylesheet" href="/styles/blog_pages.css">
+    <link rel="stylesheet" href="/styles/fonts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container blogs-container">
+        <header class="blogs-header">
+            <h1 class="post-title">Zry's Knowledge Base</h1>
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search knowledge base..." class="search-input">
+                    <button id="clear-search" class="clear-search-button" style="display: none;"><i
+                            class="fas fa-times"></i></button>
+                </div>
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+        </header>
+
+        <section class="blogs-content-section">
+            <h2 class="blogs-section-title">Recent Entries</h2>
+            <div id="blog-list" class="blog-list">
+                <div class="loading">Loading knowledge base entries...</div>
+            </div>
+        </section>
+    </div>
+
+    <a href="/index" class="back-home-btn">Back Home</a>
+    <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
+
+    <script src="/js/blog.js"></script>
+    <script>
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            const backToTopBtn = document.getElementById("back-to-top");
+
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        document.getElementById("back-to-top").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Enhanced search functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('search-input');
+            const clearSearchBtn = document.getElementById('clear-search');
+
+            // Show/hide clear button based on input content
+            searchInput.addEventListener('input', function () {
+                clearSearchBtn.style.display = this.value ? 'block' : 'none';
+            });
+
+            // Clear search when clear button is clicked
+            clearSearchBtn.addEventListener('click', function () {
+                searchInput.value = '';
+                searchInput.focus();
+                this.style.display = 'none';
+                // Trigger search to reset results
+                document.getElementById('search-button').click();
+            });
+        });
+    </script>
+</body>
+
+</html>

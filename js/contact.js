@@ -17,7 +17,7 @@ function displayText(buttonText) {
         circle.style.backgroundColor = 'green';
         break;
       case 'CV':
-        newText = `My curriculum vitae and portfolio are available on this website. You can access my <a href='/pages/cv.html'>CV</a> or <a href="https://github.com/zrygan">GitHub</a>.`;
+        newText = `My curriculum vitae and portfolio are available on this website. You can access my <a href='/pages/cv'>CV</a> or <a href="https://github.com/zrygan">GitHub</a>.`;
         circle.style.backgroundColor = 'white';
         break;
       default:
@@ -54,4 +54,3 @@ function displayText(buttonText) {
     fadeIn()
 }
 
-  

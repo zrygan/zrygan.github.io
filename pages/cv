@@ -207,7 +207,7 @@
     </section>
   </div>
 
-  <a href="/index.html" class="back-home-btn">Back Home</a>
+  <a href="/index" class="back-home-btn">Back Home</a>
   <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
 
   <a href="#" id="download-cv" class="download-btn">Download</a>
