@@ -1,3 +1,7 @@
+.bottom-text {
+  text-align: left;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,15 +21,7 @@
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: var(--base-font-size);
   line-height: var(--base-line-height);
-  position: relative;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 html {
@@ -33,7 +29,6 @@ html {
   width: auto;
   display: block;
 }
-
 
 .logo-link-remove {
   display: block;
@@ -44,7 +39,6 @@ html {
 
 .fixed-text {
   position: fixed;
-  z-index: 2;
   right: var(--side-margin);
   top: 5%;
   font-family: "IBM Plex Mono", monospace;
@@ -60,7 +54,6 @@ html {
 }
 
 .fixed-text-two {
-  z-index: 2;
   text-align: right;
   right: var(--side-margin);
   bottom: 30px;

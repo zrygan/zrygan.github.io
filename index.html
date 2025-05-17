@@ -1,63 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to zrygan</title>
+    <link rel="stylesheet" href="styles/fonts.css" />
+  </head>
+  <style>
+    body {
+      background-color: #151515;
+    }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    .fade-screen {
+      position: absolute;
+      min-height: 100vh;
+      max-height: 100vh;
+      animation: fade-screen-out 5s forwards;
+    }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet" />
+    @keyframes fade-screen-out {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
 
-  <!--    
-        font-family: 'IBM Plex Sans', sans-serif;
-        font-family: 'IBM Plex Mono', monospace; 
-    -->
+    .fade-screen p {
+      padding-left: 12vh;
+      padding-top: 18vh;
+      padding-bottom: 14vh;
+      color: #cccccc;
+      font-size: 32.1608040201005vh;
+      letter-spacing: -0.001em;
+    }
+  </style>
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="/styles/fonts.css" />
-  <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
+  <body>
+    <div class="fade-screen">
+      <p class="ibm-plex-serif-light-italic">zrygan</p>
+    </div>
+  </body>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Home</title>
-</head>
-
-<body>
-
-  <!-- Biography -->
-  <div class="bio-text">
-    <p>Hi, I am Zhean Ganituen or zrygan</p>
-    <br>
-    <p>I am a Computer Science student at De La Salle University in the Philippines.</p>
-    <br>
-    <p>I do independent research on the Theoretical Computer Sciences. Recently, I have been interested in
-      parallel algorithms, cryptography, and advanced data structures. On occasion, I work on programming language
-      theory: compilers, interpreters, and syntax.</p>
-    <br>
-    <p>Finally, I am also a tutor at DLSU focusing on the topics mentioned above.</p>
-  </div>
-
-  <!-- Main Menu -->
-  <div class="fixed-text">
-    <a class="logo-link-remove" href="/pages/blogs.html" data-alt-src="/icon/iconBlack.svg">Blog</a>
-    <a class="logo-link-remove" href="https://github.com/zrygan" data-alt-src="/icon/iconGreen.svg">Code</a>
-    <a class="logo-link-remove" href="/pages/cv.html" data-alt-src="/icon/iconPurple.svg">CV</a>
-    <a class="logo-link-remove" href="/pages/contact.html" data-alt-src="/icon/iconOrange.svg">Contact</a>
-  </div>
-
-  <!-- Information -->
-  <div class="fixed-text-two">
-    <p id="currentTime">00:00:00</p>
-    <p><span>Type:</span> IBM Plex Sans + IBM Plex Mono</p>
-    <p><span>Last Updated:</span> April 9, 2025</p>
-    <p>
-      <span style="font-style: normal">2025 Zhean Ganituen/zrygan</span>
-    </p>
-  </div>
-  <script src="/js/script.js"></script>
-</body>
-
+  <script>
+    setTimeout(function () {
+      window.location.href = "https://zrygan.github.io/pages/home.html";
+    }, 5000);
+  </script>
 </html>
