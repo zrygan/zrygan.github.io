@@ -53,7 +53,7 @@ body {
 
 .left-box {
   /* background-color: blue; */
-  width: 50%;
+  width: 100%;
 }
 
 .left-box-text {
@@ -62,6 +62,9 @@ body {
 }
 
 .left-box-text p span {
+  /* font specifications */
+  font-size: 24vh;
+  letter-spacing: -0.04vh;
   font-family: "IBM Plex Serif", serif;
   font-weight: 400;
   font-style: italic;
@@ -72,7 +75,7 @@ body {
   /* background-color: red; */
   width: 50%;
   height: 100%;
-  margin-right: 5%;
+  margin-right: 15%;
   text-align: right;
   /* flexbox specifications */
   display: flex;
@@ -96,6 +99,19 @@ body {
   text-decoration: none;
 }
 
+.right-box-top a:hover {
+  animation: link-hover 1s ease-in-out alternate infinite;
+}
+
+@keyframes link-hover {
+  0% {
+    color: #0074d9;
+  }
+  100% {
+    color: #dc143c;
+  }
+}
+
 .right-box-bottom {
   /* background-color: yellow; */
   /* flexbox specifications */
@@ -103,11 +119,14 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
 }
 
 .right-box-bottom p {
   margin: 0.5vh;
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #detroit-time,
@@ -128,4 +147,15 @@ body {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   text-decoration: none;
+}
+
+.accessibility {
+  padding-top: 5%;
+  /* font specifications */
+  font-size: 1.35vh;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 200;
+  color: #cccccc;
+  text-decoration: none;
+  animation: link-hover 1s ease-in-out alternate infinite;
 }
