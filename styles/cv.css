@@ -32,6 +32,7 @@ h1.name strong {
 }
 
 .contact-info {
+  font-family: "IBM Plex Mono", monospace;
   font-size: 1rem;
   color: #555;
 }
@@ -63,6 +64,13 @@ section h2 {
   margin-bottom: 15px;
   padding-bottom: 5px;
   margin-left: 230px;
+}
+
+.research-statement {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.9rem;
+  padding-right: 15px;
+  font-style: italic;
 }
 
 .section-content {
@@ -238,7 +246,6 @@ section h2 {
 
 /* Responsive design for the buttons */
 @media (max-width: 768px) {
-
   .back-home-btn,
   .download-btn {
     position: static;
@@ -288,7 +295,6 @@ section h2 {
     color: #888;
     padding-right: 0;
   }
-
 
   .right-column {
     border-left: none;
