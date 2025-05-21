@@ -1,92 +1,1040 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gist of Complexity</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithms that Slide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/blog_pages.css">
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/blog_pages.css" />
     <link rel="stylesheet" href="/styles/fonts.css" />
+  </head>
 
-</head>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-<body>
+  <body>
     <div class="container">
-        <header>
-            <h1 class="post-title">The Gist of Complexity</h1>
-            <div class="post-meta">
-                <div class="post-date">Zhean Ganituen, April 9, 2025</div>
-                <div class="post-tags">Keywords: <i>Algorithms, Complexity Theory</i></div>
-            </div>
-        </header>
-        <section>
+      <header>
+        <h1 class="post-title">Algorithms that <i>Slide</i></h1>
+        <div class="post-meta">
+          <div class="post-date">Zhean Ganituen, October 1, 2024</div>
+          <div class="post-tags">
+            Keywords:
+            <i
+              >Algorithms, Numerical Algorithms, Exponentiation, Floating-Point
+              Numbers</i
+            >
+          </div>
+        </div>
+      </header>
 
-            <div class="chapter-content">
-                <div class="graffiti"></div>
-                <div class="content">
-                    Complexity Theory, one of the most important fields of computer science if you're an aspiring
-                    software engineer, is also one of the most theoretical undergraduate computer science classes you
-                    may
-                    encounter. As the crux of all theoretical computer science lies on this very field. <i>What is
-                        complexity, what are problems, what are algorithms, are all problems solvable?</i>
-                </div>
-            </div>
-            <div class="chapter-content">
-                <div class="graffiti">Honestly, isn't that cool, SMB is a problem? But, what's cooler is that SMB is
-                    "that" problem.</div>
-                <div class="content">
-                    Questions like "What is the shortest path of graph <span>\(G\)</span>?",
-                    "Determine the 3rd element of the sorted array <span>\(A\)</span>.", and even games like Super Mario
-                    Brothers (Demaine) are the central questions of complexity. While, the central goal of complexity
-                    theory
-                    is to determine the <i>classes</i> of these problems, and the relationship of these problems to each
-                    other.
-                </div>
-            </div>
-        </section>
-        <section>
-            <h2 class="chapter-title">
-                The Classes of Problems
-                </ht>
-                <div class="chapter-content">
-                    <div class="graffiti"></div>
-                    <div class="content">
-                    </div>
-                </div>
-                <div class="chapter-content">
-                    <div class="graffiti"></div>
-                    <div class="content">
-                    </div>
-                </div>
-        </section>
-
-        <!-- References Modal -->
-        <div id="references-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h2>References</h2>
-                <div id="references-content">
-                    <!-- <a href="#">Reference 3</a> - Description of reference<-->
-                    <a href="https://doi.org/10.4230/LIPIcs.FUN.2016.13">(Demaine)</a> - Super Mario Bros. is
-                    Harder/Easier Than We Thought
-                </div>
-            </div>
+      <section>
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            When we think of algorithms, we typically think of discrete
+            algorithms—those that operate on discrete structures. In simpler
+            terms, these are algorithms that work on structures composed of
+            distinct, separate elements.
+          </div>
         </div>
 
-        <a href="/index.html" class="back-home-btn">Back Home</a>
-        <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
-        <a href="#" id="references-btn" class="references-btn">References</a>
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Take search algorithms, for example—they're usually applied to
+            sequences (or array) of numbers—a discrete structure, since, it
+            consists of a finite set of clearly separated elements. Another
+            example is graph traversal algorithms, which operate on graph. In a
+            graph, each vertex is distinct. For every vertex pair \(v_i\),\(\
+            v_j\in V\) where \(v_i\neq v_j\),we treat \(v_i\) and \(v_j\) as
+            separate entities. To move from \(v_i\) from \(v_j\), we “jump”
+            along an edge—again emphasizing the discrete nature of graphs.
+          </div>
+        </div>
 
-        <script src="/js/blog_pages.js"></script>
-</body>
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This brings us to an important question: what about algorithms that
+            are not discrete?
+          </div>
+        </div>
 
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This essay explores the beautiful and often overlooked world of
+            numerical algorithms—those that operate on continuous values,
+            approximate solutions, and the real numbers that underpin much of
+            scientific computing.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Hopscotch</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Let's revisit our earlier graph example. We mentioned that if you're
+            on a vertex \(v_i\), and you want to move to another vertex \(\
+            v_j\), you need to jump. But why exactly do we need to jump? And
+            what does this action of jumping from \(v_i\) to \(v_j\) tell us
+            about the nature of discrete structures?
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">Let's think about it in terms of hopscotch:</div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              <img src="0001/discrete-hopscotch.png" alt="" />
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Here, [s] is the start tile, [e] is the end tile, [x] marks invalid
+            or empty tiles, and [n] (where n is a whole number) represents
+            valid, numbered tiles. To go from [s] to [1], we have to
+            jump—because there's a gap or an invalid tile between them.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This same idea applies to discrete structures like sequences, sets,
+            and graphs. For any two adjacent elements \(e_i\) and \(e_j\) in a
+            discrete structure, moving from \(e_i\) to \(e_j\) involves a jump,
+            since there's no element that exists between them.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Consider the set \(S=\{1,2,3,4\}\). If you're at \(S_1=1\) and want
+            to get to \(S_4=4\), you simply jump to it. If you're a programmer,
+            this “jump” is just indexing—accessing elements by their position.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">Now imagine a new version of hopscotch:</div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              <img src="0001/continuous-hopscotch.png" alt="" />
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Here, you can slide from [s] to [1], since there are no invalid
+            tiles in between. The motion is smooth—continuous. This gives us a
+            mental model for continuous structures: in these, you can always
+            find another element between any two others, no matter how close
+            they are.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti">See note [1].</div>
+          <div class="content">
+            Take the real numbers \(\mathbb{R}\). For any two values \(r_1\) and
+            \(r_2\) where \(r_1 < r_2\), there will always be some \(\ r_k \in
+            \mathbb{R}\) such that \(r_1 < r_k < r_2\). Even as \(\ r_2 - r_1
+            \to 0\), an \(r_k\) still exists!
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="chapter-title">Continuous-ness and Infinite-ness</h3>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Now that we've built an intuitive understanding of discrete and
+            continuous structures using hopscotch, let's explore an important
+            distinction:
+            <b>just because a set is infinite doesn't mean it's continuous</b>!
+            This distinction shapes how we approach mathematical problems and
+            algorithms, and it challenges common assumptions about infinite
+            sets.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Take the set of natural numbers \(\mathbb{N}\), the integers
+            \(\mathbb{Z}\), or even the set of all possible strings formed from
+            the English alphabet. All of these are clearly infinite—but they are
+            also <b>discrete</b>.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Let's look at \(\mathbb{Z}\) more closely. We'll prove that it's
+            discrete by contradiction.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <i>Proof.</i> Assume, for the sake of contradiction, that
+            \(\mathbb{Z}\) is continuous. That would mean:
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              For all \(a, b \in \mathbb{Z}\) where \(a < b\), there exists some
+              \(c \in \mathbb{Z}\) such that \(a < c < b\).
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Now pick \(a = 0\) and \(b = 1\). Can you find an integer \(\ c\)
+            such that \(0 < c < 1\)? Clearly, there is no such integer. So our
+            assumption that \(\mathbb{Z}\) is continuous must be false.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Therefore, \(\mathbb{Z}\) is discrete—even though it's infinite.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This tells us something important:
+            <b>a set being infinite doesn't automatically make it continuous</b
+            >. Whether a structure is discrete or continuous depends not on how
+            <i>many</i> elements it has, but on the
+            <i>relationship between</i> those elements.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            The confusion often comes from the definition of continuous
+            structures. By definition, in a continuous structure, for any two
+            values \(i\) and \(j\), the slice between them (i.e., from \(\ i+1\)
+            to \(j\)) contains infinitely many values. This feels similar to
+            being infinite—but it's a <i>different kind</i> of infinity. It's
+            about how <b>densely packed</b> the elements are, not just how many
+            there are.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">
+          Continuous Structures, a familiar foe (or friend)
+        </h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            To take a slight detour, it's interesting to ask ourselves the
+            question:
+            <i>
+              If there is 'discrete mathematics', what is 'non-discrete
+              mathematics' </i
+            >? While the idea of studying non-discrete mathematics might sound
+            intimidating—since discrete mathematics itself can be a daunting
+            topic—it's not as abstract as it seems.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In fact, you study "non-discrete" mathematics before discrete
+            mathematics. Why? Because Calculus is the study of "non-discrete" or
+            continuous mathematics! The study of continuous change is, in
+            essence, "non-discrete mathematics."
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            But why is this the case? Let's revisit our "sliding" analogy. We
+            say that a structure is continuous if there is a small "slide" from
+            our starting point. Wait a second—"small slide"? That sounds
+            familiar! It's actually the gradual changes that calculus studies!
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Furthermore, since calculus is the study of continuous change, it
+            must be based on a continuous structure. After all, it wouldn't make
+            sense to talk about gradual or smooth changes if our structure were
+            non-continuous. From this, it's obvious that the set of real numbers
+            \(\mathbb{R}\) is continuous!
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">The Algorithms on Numbers</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Now that we understand how continuous structures differ from
+            discrete ones, it's time to explore how these ideas translate into
+            algorithms. Many computational problems rely on continuous
+            structures—whether in physics, graphics, or machine learning—leading
+            to the development of numerical algorithms designed to work with
+            real numbers and approximations.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Say we want to solve the following problems:
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              <b>
+                Is a point \(k\) on the line segment between two points \(\
+                x_1\) and \(x_2\)?
+              </b>
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            To answer this, we usually use an algorithm that relies on geometric
+            or vector-based operations—things like checking distances, slopes,
+            or dot products. All of this happens in \(Euclidean space\), which
+            is inherently <b>continuous</b>.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">Now consider another common problem:</div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              <b>Is \(x\) a root of a function \(y(x)\)?</b>
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            To solve computational problems—especially when they involve
+            nonlinear functions—we often work within the real number system
+            \(\mathbb{R}\). This enables us to construct
+            <b>numerical algorithms</b>, which are designed to find approximate
+            (yet practically useful) solutions to problems that may not admit
+            neat, closed-form expressions.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            The branch of study that focuses on the design, analysis, and
+            implementation of these algorithms is called
+            <b>numerical analysis</b>. It examines not just how to compute a
+            result, but how <i>accurately</i>, <i>efficiently</i>, and
+            <i>stably</i> this result can be obtained. Numerical analysis plays
+            a crucial role in applied mathematics, scientific computing, and
+            computer science, with wide-ranging real-world applications.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Speeding up \(x^y\)</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            We usually begin our mathematical journey with the idea of
+            <b>counting</b>. Answering questions like, "How many of \(x\) do I
+            have?" This naturally leads us to the notion of <b>succession</b>:
+            given a number \(x\), what comes next? For example, if I have 10
+            apples and I get <em>one more</em>, I now have 11.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            From succession, we generalize to <b>addition</b>, which is repeated
+            succession. A classic scenario: "Bob has 3 apples, and Alice gives
+            him 2 more. How many does he now have?" The answer comes from adding
+            2 to 3.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Next, we generalize further to <b>multiplication</b>, which
+            represents repeated addition. From there, we reach
+            <b>exponentiation</b>, or repeated multiplication. This process of
+            abstraction continues into even higher operations like
+            <b>tetration</b>, and beyond.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti">
+            Recall your models of computation, like the unit cost and RAM model.
+          </div>
+          <div class="content">
+            In the <b>word RAM model</b>, basic arithmetic and bitwise
+            operations on fixed-width \(w\)-bit integers take constant time, or
+            \(\mathcal{O}(1)\). Thus, operations like \(x + y\) or \(x \times
+            y\) are considered inexpensive for bounded integer sizes.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            However, exponentiation is a different story. It involves repeated
+            multiplication, and its result can grow rapidly in bit length—far
+            beyond what a single word can store. Therefore, we cannot assume
+            exponentiation runs in constant time, and we must consider its
+            complexity explicitly.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            From the definition of exponentiation, we can propose a naive
+            algorithm:
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              <img src="0001/naive-exponentiation.png" alt="" />
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            From this, we see that \(\textbf{Naive-Exponentiation}(x, y) \in
+            \mathcal{O}(y)\). While this isn't terrible, the jump from
+            multiplication \(\mathcal{O}(1)\) to exponentiation \(\
+            \mathcal{O}(y)\) is rather <i>steep</i>.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti">
+            To expect that repeating a constant-time operation would itself take
+            constant time is ridiculous!
+          </div>
+          <div class="content">
+            A constant-time solution would be unrealistically optimistic, while
+            a linear-time algorithm—like the naive approach that multiplies \(\
+            x\) by itself \(y\) times—is inefficient for large \(y\).
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Hence, our goal is to design an algorithm for computing \(x^y\) with
+            time complexity \(\mathcal{O}(f(y))\), such that: \[ \mathcal{O}(1)
+            < \mathcal{O}(f(y)) < \mathcal{O}(y) \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            We want something in between: an optimized algorithm whose time
+            grows more slowly with \(y\). In other words, we seek an approach
+            that lies between these two extremes—ideally one that reduces the
+            number of operations needed as a function of \(y\), such as \(\
+            \mathcal{O}(\log y)\).
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            To achieve this, we must ask: what variable governs the runtime?
+            Clearly, the exponent \(y\) determines how many operations are
+            needed. So our strategy must focus on minimizing the number of
+            multiplications as a function of \(y\).
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            We'll explore this next by looking at the structure of
+            exponentiation and how to compute it more efficiently.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti">
+            Try generalizing \(x^y\) to \(\mathbb{R}\) as an exercise!
+          </div>
+          <div class="content">
+            To make things more manageable, let's limit our scope: we define
+            \(x^y\) only for \(9x, y \in \mathbb{Z}^+\). That is, we
+            exponentiate only positive integers.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Let us recall a basic identity of exponents: \[ x^y =
+            \left(x^{\frac{y}{2}}\right)^2=x^{\frac{y}{2}\cdot2} \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This identity can be used to reduce the number of multiplications
+            when computing powers. However, it only holds when \(y\) is even, so
+            that \(\frac{y}{2} \in \mathbb{Z}^+\). If \(y\) is odd, then
+            \(\frac{y}{2} \notin \mathbb{Z}^+\), and computing \(\
+            x^{\frac{y}{2}}\) would involve non-integer exponents, which is not
+            desirable.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Consider an example with \(x = 2\) and \(y = 3\): \[ x^3 = 2^3 = 8,
+            \quad \left(x^{\frac{3}{2}}\right)^2 = \left(2^{1.5}\right)^2 = 2^3
+            = 8 \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti">
+            We will go over the problem of floating-point precision in numerical
+            algorithms and analysis!
+          </div>
+          <div class="content">
+            Although the numeric result is the same, the expression
+            \(\left(2^{1.5}\right)^2\) is not suitable in integer computations
+            because it requires taking roots, which are more computationally
+            expensive and may introduce floating-point error.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            To address this, we define exponentiation recursively using a
+            piecewise formulation: \[ \textbf{Exponentiation-by-Squaring}(x, y)
+            = x^y = \begin{cases} \left(x^{\frac{y}{2}}\right)^2 & \text{if } y
+            \text{ is even} \\ x \cdot \left(x^{\frac{y - 1}{2}}\right)^2 &
+            \text{if } y \text{ is odd} \end{cases} \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This recursive definition forms the basis of the
+            <em>exponentiation by squaring</em> algorithm, which allows us to
+            compute \(x^y\) using only \(\mathcal{O}(\log y)\) multiplications,
+            making it a fundamental tool in numerical algorithms, cryptography,
+            and symbolic computation.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">We can now implement it recursively:</div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              <img src="0001/exponentiation-by-squaring.png" alt="" />
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            At each recursive step, the exponent \(y\) is halved (for even \(\
+            y\)) or reduced to \(\frac{y - 1}{2}\) (for odd \(y\)), resulting in
+            at most \(\log_2 y\) recursive calls. Thus, the time complexity is
+            \(\mathcal{O}(\log y)\).
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">
+          Doing More for Less, the weirdness of matrix multiplication
+        </h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Just as we optimized exponentiation by reducing unnecessary
+            multiplications, we can apply a similar mindset to another
+            fundamental operation: matrix multiplication. While multiplying
+            matrices may seem straightforward, it presents surprising
+            opportunities for improvement, particularly when dealing with
+            large-scale computations.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Recall that multiplying two matrices \(A\) of size \(n \times p\)
+            and \(B\) of size \(p \times m\) yields a matrix product: \[ AB = C
+            \] where each entry \(c_{ij}\) in the resulting matrix \(\ C\) is
+            computed as: \[ c_{ij} = \sum_{k=1}^p a_{ik} b_{kj} \quad \text{for
+            each } i \in [1,\dots,n] \text{ and } j \in [1,\dots,m] \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Let's analyze the naive matrix multiplication algorithm, especially
+            in the worst-case scenario where \(A\) and \(B\) are both \(n \times
+            n\) square matrices. In that case:
+
+            <ul>
+              <li>
+                We perform \(n^3\) <b>multiplications</b>, since we compute
+                \(n\) multiplications for each of the \(n^2\) entries in \(\
+                C\).
+              </li>
+              <li>
+                We perform \((n-1)n^2\) <b>additions</b>, because each sum
+                involves \(n-1\) additions per entry.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3 class="chapter-title">The Lies of Asymptotics</h3>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Now that we're working with actual numbers instead of purely
+            abstract data structures, we gain a more grounded sense of cost.
+            Compared to symbolic structures like graphs or trees, numeric
+            computations often feel more “real"—they're things we've done by
+            hand, like computing \(74352 + 343\) or \(74352 \times 343\).
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This brings us to an important realization:
+            <b>not all constant-time operations are created equal</b>.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In the word RAM model, we often assume that both addition and
+            multiplication are \(\mathcal{O}(1)\). But in reality, while they
+            are constant in theory, they are not constant in practice. To see
+            this:
+            <ul>
+              <li>\(74352 + 343\)</li>
+              <li>\(74352 \times 343\)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Clearly, the multiplication is significantly more work. So even
+            though both operations fall under the same asymptotic umbrella, one
+            is clearly more expensive than the other.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This subtlety becomes crucial in <b>numerical algorithms</b>, where
+            the cost of actual arithmetic dominates. In contrast, many discrete
+            algorithms primarily rely on memory accesses or comparisons, which
+            tend to be cheap and genuinely constant in practice.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            So when it comes to optimizing matrix multiplication, our real-world
+            goal isn't just to reduce the asymptotic complexity. It's also to
+            minimize expensive operations—especially multiplications. That is,
+            we seek an algorithm that performs only \(f(n)\) multiplications
+            where: \[ \mathcal{O}(f(n)) < \mathcal{O}(n^3) \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Even if this means doing more additions, the tradeoff can be well
+            worth it.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="chapter-title">Strassen's Algorithm</h3>
+
+        <div class="chapter-content">
+          <div class="graffiti">
+            Strassen's algorithm works on square matrices. For general cases,
+            padding or preprocessing may be required.
+          </div>
+          <div class="content">
+            This is exactly the motivation behind <b>Strassen's algorithm</b>, a
+            classic technique that reduces the time complexity of matrix
+            multiplication to: \[ \mathcal{O}(n^{\log_2 7}) \approx
+            \mathcal{O}(n^{2.81}) \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            For two \(2 \times 2\) matrices, the naive algorithm uses:
+            <ul>
+              <li>8 multiplications</li>
+              <li>4 additions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Strassen's insight was to cleverly reorganize the computation to
+            use:
+            <ul>
+              <li><b>only 7 multiplications</b></li>
+              <li><b>18 additions and subtractions</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            At first glance, replacing one multiplication with twelve extra
+            additions might seem counterproductive. But as we've seen,
+            <b>additions are far cheaper than multiplications</b>. By reducing
+            the number of multiplications—especially as \(n\) grows—Strassen's
+            algorithm achieves a significant theoretical and practical
+            improvement.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            While we won't dive into the full details of how Strassen's method
+            achieves this, it's a perfect example of how
+            <b>
+              numerical algorithms can be optimized by trading costly operations
+              for cheaper ones </b
+            >. The same philosophy underlies many advanced techniques in
+            scientific computing.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Epsilons and Equivalence</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Earlier, I mentioned that when calculating \(x^y\) using the
+            technique of exponentiation by squaring, we need to ensure that
+            during the recursive steps, the exponent never becomes a rational
+            number. But why is this the case? And how is precision related to
+            it?
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Let us go back to the definition of a continuous structure. We
+            mentioned earlier that given two points \(x\) and \(y\) in a
+            structure \(S\), there will always exist a \(k \in S\) such that \(x
+            < k < y\). Hence, continuous structures have an infinite
+            <b>number of elements</b>. But something we need to remember is that
+            computers (and arguably everything in practice) are finite.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            We have finite resources and time! This is why we analyze algorithms
+            in the first place. If resources and time weren't a concern, why
+            even bother creating better algorithms—we could just wait things
+            out!
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In light of this, algorithms running on a computer cannot achieve
+            the <i>infinite precision</i> that some continuous structures
+            require.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Let's look again at exponentiation. Suppose we need to compute \(\
+            2^{1/3}\), but our computer only supports one decimal place of
+            floating-point precision. We are then forced to approximate: \[
+            2^{1/3} \Longrightarrow 2^{0.3} \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            However, we know that: \[ 2^{1/3} \neq 2^{0.3} \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Even so, they are <i>approximately equal</i>! So how do we tell the
+            computer that we don't want <b>exact equivalence</b>, but only
+            <b>approximate equivalence</b>?
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Here we introduce the concept of <b>epsilon values</b>. Instead of
+            checking: \[ 2^{1/3} \overset{?}{=} 2^{0.3} \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            We check whether: \[ \left| 2^{1/3} - 2^{0.3} \right| < \epsilon \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Here, \(\epsilon\) acts as a buffer or tolerance—it tells the
+            computer that as long as the difference between the two values is
+            within this buffer, we consider them <i>close enough</i>.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This approach is commonly used in numerical computing because
+            perfect precision is unattainable on digital machines. Instead, we
+            choose an appropriate and sufficiently small \(\epsilon\) so that
+            even if two values are not <i>strictly equal</i>, they are
+            <i>effectively equal</i> for practical purposes.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Of course, this leads to another problem: how do we choose an
+            appropriate value for \(\epsilon\)? If \(\epsilon\) is too large,
+            then almost any two numbers will pass the comparison—even if they
+            are very different. On the other hand, if \(\epsilon\) is too small,
+            then even values that are very close might be rejected as unequal.
+            Choosing the right \(\epsilon\) depends on the context and the
+            precision requirements of the task at hand.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Ending Notes</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In summary, algorithms can be roughly classified into those that
+            operate on discrete structures and those on continuous structures.
+            Discrete algorithms often involve jumping from element to element,
+            while continuous algorithms allow smooth sliding through values.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Understanding the nature of the structure—discrete or continuous—is
+            fundamental for designing effective algorithms. This distinction
+            opens a whole world of mathematical beauty, from graph traversal to
+            numerical analysis and geometric algorithms.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            The dance between discrete and continuous worlds challenges our
+            understanding and enriches our toolkit as computer scientists and
+            mathematicians alike.
+          </div>
+        </div>
+      </section>
+
+      <!-- References Modal -->
+      <div id="references-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Notes</h2>
+          <table style="vertical-align: top">
+            <tr>
+              <td style="vertical-align: top">[1]</td>
+              <td>
+                This idea of “infinitely many points in between” sparked a major
+                shift in mathematics. It led to the realization that some
+                infinite sets are actually larger than others! For instance,
+                both the natural numbers (1, 2, 3, ...) and the real numbers
+                (like \(-\pi\), \(\sqrt{2}\), 0, \(e\), 10) are infinite—but
+                there are strictly more real numbers. This is the foundation of
+                countable vs. uncountable infinities, made famous by Cantor's
+                diagonal argument.
+              </td>
+            </tr>
+          </table>
+          <h2>References</h2>
+          <div id="references-content">
+            <table>
+              <tr>
+                <td style="vertical-align: top">[CLRS22]</td>
+                <td>
+                  Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and
+                  Clifford Stein. <i>Introduction to Algorithms</i>. MIT Press,
+                  Cambridge, MA, USA, 4 edition, April 2022.
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: top">[CH17]</td>
+                <td>
+                  Murat Cenk and M. Anwar Hasan. On the arithmetic complexity of
+                  strassen-like matrix multiplications.
+                  <i> Journal of Symbolic Computation </i>, 80:484-501, May
+                  2017.
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: top">[Knu97]</td>
+                <td>
+                  Donald E Knuth. Art of computer programming, volume 2. Addison
+                  Wesley, Boston, MA, 3 edition, November 1997.
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <a href="/index.html" class="back-home-btn">Back Home</a>
+      <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
+      <a href="#" id="references-btn" class="references-btn">Notes and Refs</a>
+    </div>
+  </body>
+
+  <script src="/js/blog_pages.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
 </html>
