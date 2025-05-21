@@ -1,0 +1,16 @@
+{
+  "Blog Content Block": {
+    "prefix": "blogContent",
+    "body": [
+      "<div class=\"chapter-content\">",
+      "    <div class=\"graffiti\">",
+      "        $1",
+      "    </div>",
+      "    <div class=\"content\">",
+      "        $2",
+      "    </div>",
+      "</div>"
+    ],
+    "description": "Inserts a chapter-content block with graffiti and content divs"
+  }
+}
