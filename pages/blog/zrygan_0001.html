@@ -44,14 +44,15 @@
         <div class="chapter-content">
           <div class="graffiti"></div>
           <div class="content">
-            Take search algorithms, for example—they're usually applied to
-            sequences (or array) of numbers—a discrete structure, since, it
-            consists of a finite set of clearly separated elements. Another
-            example is graph traversal algorithms, which operate on graph. In a
-            graph, each vertex is distinct. For every vertex pair \(v_i\),\(\
-            v_j\in V\) where \(v_i\neq v_j\),we treat \(v_i\) and \(v_j\) as
-            separate entities. To move from \(v_i\) from \(v_j\), we “jump”
-            along an edge—again emphasizing the discrete nature of graphs.
+            Take search algorithms, for example, which are usually applied to
+            sequences (or array) of numbers. And a sequence is a discrete
+            structure since it consists of a finite set of clearly separated
+            elements. Another example is graph traversal algorithms, which
+            operate on graph. In a graph, each vertex is distinct. For every
+            vertex pair \(v_i\), \(v_j\in V\) where \(v_i\neq v_j\), we treat
+            \(v_i\) and \(v_j\) as separate entities. To move from \(v_i\) to
+            \(v_j\), we “jump” along an edge—again emphasizing the discrete
+            nature of graphs.
           </div>
         </div>
 
@@ -81,7 +82,7 @@
           <div class="graffiti"></div>
           <div class="content">
             Let's revisit our earlier graph example. We mentioned that if you're
-            on a vertex \(v_i\), and you want to move to another vertex \(\
+            on a vertex \(v_i\), and you want to move to another vertex \(
             v_j\), you need to jump. But why exactly do we need to jump? And
             what does this action of jumping from \(v_i\) to \(v_j\) tell us
             about the nature of discrete structures?
@@ -126,7 +127,7 @@
           <div class="graffiti"></div>
           <div class="content">
             Consider the set \(S=\{1,2,3,4\}\). If you're at \(S_1=1\) and want
-            to get to \(S_4=4\), you simply jump to it. If you're a programmer,
+            to get to \(S_2=2\), you simply jump to it. If you're a programmer,
             this “jump” is just indexing—accessing elements by their position.
           </div>
         </div>
@@ -146,11 +147,14 @@
         </div>
 
         <div class="chapter-content">
-          <div class="graffiti"></div>
+          <div class="graffiti">
+            Here, if we were to zoom in on [s] and [1], we will see more tiles
+            (an infinite number of them) in between.
+          </div>
           <div class="content">
             Here, you can slide from [s] to [1], since there are no invalid
-            tiles in between. The motion is smooth—continuous. This gives us a
-            mental model for continuous structures: in these, you can always
+            tiles in between. The motion is smooth or continuous. This gives us
+            a mental model for continuous structures: in these, you can always
             find another element between any two others, no matter how close
             they are.
           </div>
@@ -160,9 +164,9 @@
           <div class="graffiti">See note [1].</div>
           <div class="content">
             Take the real numbers \(\mathbb{R}\). For any two values \(r_1\) and
-            \(r_2\) where \(r_1 < r_2\), there will always be some \(\ r_k \in
-            \mathbb{R}\) such that \(r_1 < r_k < r_2\). Even as \(\ r_2 - r_1
-            \to 0\), an \(r_k\) still exists!
+            \(r_2\) where \(r_1 < r_2\), there will always be some \(r_k \in
+            \mathbb{R}\) such that \(r_1 < r_k < r_2\). Even as \(r_2 - r_1 \to
+            0\), an \(r_k\) still exists!
           </div>
         </div>
       </section>
@@ -222,8 +226,8 @@
         <div class="chapter-content">
           <div class="graffiti"></div>
           <div class="content">
-            Now pick \(a = 0\) and \(b = 1\). Can you find an integer \(\ c\)
-            such that \(0 < c < 1\)? Clearly, there is no such integer. So our
+            Now pick \(a = 0\) and \(b = 1\). Can you find an integer \(c\) such
+            that \(0 < c < 1\)? Clearly, there is no such integer. So our
             assumption that \(\mathbb{Z}\) is continuous must be false.
           </div>
         </div>
@@ -251,7 +255,7 @@
           <div class="content">
             The confusion often comes from the definition of continuous
             structures. By definition, in a continuous structure, for any two
-            values \(i\) and \(j\), the slice between them (i.e., from \(\ i+1\)
+            values \(i\) and \(j\), the slice between them (i.e., from \(i+1\)
             to \(j\)) contains infinitely many values. This feels similar to
             being infinite—but it's a <i>different kind</i> of infinity. It's
             about how <b>densely packed</b> the elements are, not just how many
@@ -338,8 +342,8 @@
           <div class="content">
             <center>
               <b>
-                Is a point \(k\) on the line segment between two points \(\
-                x_1\) and \(x_2\)?
+                Is a point \(k\) on the line segment between two points \( x_1\)
+                and \(x_2\)?
               </b>
             </center>
           </div>
@@ -350,8 +354,8 @@
           <div class="content">
             To answer this, we usually use an algorithm that relies on geometric
             or vector-based operations—things like checking distances, slopes,
-            or dot products. All of this happens in \(Euclidean space\), which
-            is inherently <b>continuous</b>.
+            or dot products. All of this happens in the <i>Euclidean space</i>,
+            which is inherently <b>continuous</b>.
           </div>
         </div>
 
@@ -475,8 +479,8 @@
           <div class="content">
             From this, we see that \(\textbf{Naive-Exponentiation}(x, y) \in
             \mathcal{O}(y)\). While this isn't terrible, the jump from
-            multiplication \(\mathcal{O}(1)\) to exponentiation \(\
-            \mathcal{O}(y)\) is rather <i>steep</i>.
+            multiplication \(\mathcal{O}(1)\) to exponentiation
+            \(\mathcal{O}(y)\) is rather <i>steep</i>.
           </div>
         </div>
 
@@ -487,7 +491,7 @@
           </div>
           <div class="content">
             A constant-time solution would be unrealistically optimistic, while
-            a linear-time algorithm—like the naive approach that multiplies \(\
+            a linear-time algorithm—like the naive approach that multiplies \(
             x\) by itself \(y\) times—is inefficient for large \(y\).
           </div>
         </div>
@@ -504,10 +508,10 @@
         <div class="chapter-content">
           <div class="graffiti"></div>
           <div class="content">
-            We want something in between: an optimized algorithm whose time
-            grows more slowly with \(y\). In other words, we seek an approach
-            that lies between these two extremes—ideally one that reduces the
-            number of operations needed as a function of \(y\), such as \(\
+            In other words, we want something in between: an optimized algorithm
+            whose time grows more slowly with \(y\); we seek an approach that
+            lies between these two extremes. Ideally one that reduces the number
+            of operations needed as a function of \(y\), such as \(\
             \mathcal{O}(\log y)\).
           </div>
         </div>
@@ -536,8 +540,8 @@
           </div>
           <div class="content">
             To make things more manageable, let's limit our scope: we define
-            \(x^y\) only for \(9x, y \in \mathbb{Z}^+\). That is, we
-            exponentiate only positive integers.
+            \(x^y\) only for \(x, y \in \mathbb{Z}^+\). That is, we exponentiate
+            only positive integers.
           </div>
         </div>
 
@@ -565,8 +569,8 @@
           <div class="graffiti"></div>
           <div class="content">
             Consider an example with \(x = 2\) and \(y = 3\): \[ x^3 = 2^3 = 8,
-            \quad \left(x^{\frac{3}{2}}\right)^2 = \left(2^{1.5}\right)^2 = 2^3
-            = 8 \]
+            \quad \left(x^{\frac{3}{2}}\right)^2 = \left(2^{\frac 32}\right)^2 =
+            (2.8284\dots)^2 = 8 \]
           </div>
         </div>
 
@@ -578,8 +582,9 @@
           <div class="content">
             Although the numeric result is the same, the expression
             \(\left(2^{1.5}\right)^2\) is not suitable in integer computations
-            because it requires taking roots, which are more computationally
-            expensive and may introduce floating-point error.
+            because it requires taking roots (\(2^{\frac32} = \sqrt{2^3}\)),
+            which are more computationally expensive and may introduce
+            floating-point error.
           </div>
         </div>
 
@@ -587,8 +592,8 @@
           <div class="graffiti"></div>
           <div class="content">
             To address this, we define exponentiation recursively using a
-            piecewise formulation: \[ \textbf{Exponentiation-by-Squaring}(x, y)
-            = x^y = \begin{cases} \left(x^{\frac{y}{2}}\right)^2 & \text{if } y
+            piecewise formula: \[ \textbf{Exponentiation-by-Squaring}(x, y) =
+            x^y = \begin{cases} \left(x^{\frac{y}{2}}\right)^2 & \text{if } y
             \text{ is even} \\ x \cdot \left(x^{\frac{y - 1}{2}}\right)^2 &
             \text{if } y \text{ is odd} \end{cases} \]
           </div>
@@ -622,7 +627,7 @@
         <div class="chapter-content">
           <div class="graffiti"></div>
           <div class="content">
-            At each recursive step, the exponent \(y\) is halved (for even \(\
+            At each recursive step, the exponent \(y\) is halved (for even \(
             y\)) or reduced to \(\frac{y - 1}{2}\) (for odd \(y\)), resulting in
             at most \(\log_2 y\) recursive calls. Thus, the time complexity is
             \(\mathcal{O}(\log y)\).
@@ -652,9 +657,9 @@
           <div class="content">
             Recall that multiplying two matrices \(A\) of size \(n \times p\)
             and \(B\) of size \(p \times m\) yields a matrix product: \[ AB = C
-            \] where each entry \(c_{ij}\) in the resulting matrix \(\ C\) is
-            computed as: \[ c_{ij} = \sum_{k=1}^p a_{ik} b_{kj} \quad \text{for
-            each } i \in [1,\dots,n] \text{ and } j \in [1,\dots,m] \]
+            \] where each entry \(c_{ij}\) in the resulting matrix \(C\) is
+            computed as: \[ c_{ij} = \sum_{k=1}^p a_{ik} b_{kj} \quad 
+            \text{for each } i \in [1,\dots,n] \text{ and } j \in [1,\dots,m] \]
           </div>
         </div>
 
@@ -668,8 +673,7 @@
             <ul>
               <li>
                 We perform \(n^3\) <b>multiplications</b>, since we compute
-                \(n\) multiplications for each of the \(n^2\) entries in \(\
-                C\).
+                \(n\) multiplications for each of the \(n^2\) entries in \( C\).
               </li>
               <li>
                 We perform \((n-1)n^2\) <b>additions</b>, because each sum
@@ -689,7 +693,7 @@
             abstract data structures, we gain a more grounded sense of cost.
             Compared to symbolic structures like graphs or trees, numeric
             computations often feel more “real"—they're things we've done by
-            hand, like computing \(74352 + 343\) or \(74352 \times 343\).
+            hand.
           </div>
         </div>
 
@@ -707,7 +711,7 @@
             In the word RAM model, we often assume that both addition and
             multiplication are \(\mathcal{O}(1)\). But in reality, while they
             are constant in theory, they are not constant in practice. To see
-            this:
+            this, compute the operations below:
             <ul>
               <li>\(74352 + 343\)</li>
               <li>\(74352 \times 343\)</li>
@@ -867,7 +871,7 @@
         <div class="chapter-content">
           <div class="graffiti"></div>
           <div class="content">
-            Let's look again at exponentiation. Suppose we need to compute \(\
+            Let's look again at exponentiation. Suppose we need to compute \(
             2^{1/3}\), but our computer only supports one decimal place of
             floating-point precision. We are then forced to approximate: \[
             2^{1/3} \Longrightarrow 2^{0.3} \]
@@ -987,7 +991,7 @@
                 both the natural numbers (1, 2, 3, ...) and the real numbers
                 (\(-\pi\), \(\sqrt{2}\), 0, \(e\), 10) are infinite—but there
                 are strictly more real numbers. This is the foundation of
-                countable vs. uncountable infinities, made famous by Cantor's
+                countable versus uncountable infinities, made famous by Cantor's
                 diagonal argument.
               </td>
             </tr>
