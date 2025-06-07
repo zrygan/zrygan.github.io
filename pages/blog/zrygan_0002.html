@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post Title - Zhean Ganituen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/blog_pages.css" />
+    <link rel="stylesheet" href="/styles/fonts.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="post-title">How B.J. Blazkowicz Saw Things</h1>
+        <div class="post-meta">
+          <div class="post-date">Zhean Ganituen, April 3, 2025</div>
+          <div class="post-tags">
+            Keywords:
+            <i
+              >Geometry, Parametric Equations, Ray Casting, Quadratic
+              Equations</i
+            >
+          </div>
+        </div>
+      </header>
+
+      <section>
+        <h2 class="chapter-title">Introduction</h2>
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <p>
+              This essay explores the fundamental geometry behind ray casting in
+              early 3D video games. Focusing on the 2D problem of ray-circle
+              intersection, it explains how to calculate where a ray hits or
+              misses a circle—laying the groundwork for understanding more
+              complex graphics techniques like those used in Wolfenstein 3D.
+            </p>
+
+            <p>
+              Before the video game industry got all serious with its
+              <em>ray tracing</em>, <em>procedural generation</em>,
+              <em>AI-driven NPCs</em>, and other doodads, life was simple.
+              People played top-down RPGs like <em>The Legend of Zelda</em> or
+              side-scrolling platformers like <em>Sonic the Hedgehog</em>.
+            </p>
+
+            <p>
+              But of course, people wanted more&mdash;more immersion, better
+              graphics, a deeper sense of being inside the game. Since we live
+              our lives in &quot;first-person,&quot; it only makes sense for
+              games to adopt that perspective too. After all, full immersion
+              means seeing through the eyes of your character.
+            </p>
+
+            <p>
+              This transition from 2D to 3D is often credited to id Software's
+              <em>Wolfenstein 3D</em> (henceforth, simply <em>Wolfenstein</em>).
+              And sure, by today's standards, it looks&mdash;how shall we say
+              it&mdash;<strong>bad</strong>. But at the time, it was a
+              technological marvel. It featured first-person 3D graphics that
+              were unheard of in mainstream gaming.
+            </p>
+
+            <p>
+              And obviously, playing games from the first-person perspective
+              required a 3D world&mdash;or at least the illusion of one. What
+              makes Wolfenstein interesting is that they didn't use true 3D
+              geometry. It faked it&mdash;cleverly&mdash;with 2D math that
+              looked 3D to the player's eye.
+            </p>
+
+            <p>
+              At the heart of this process lies a simple but important geometric
+              problem: how to find where a ray intersects a geometric object.
+            </p>
+
+            <p>
+              Understanding this intersection is a key step in building more
+              complex graphics and simulations. Here, we'll focus on the math
+              behind ray-circle intersection in 2D&mdash;breaking down how to
+              calculate exactly where a ray hits a circle, or whether it misses
+              altogether. Then at a later essay, we will generalize it to any
+              polygon!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Intersections</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <p>
+              Let's start with a fundamental question in raycasting: suppose we
+              have a ray \(r\) and a geometry object \(G\). What does the ray
+              “see” first?
+            </p>
+            <ul>
+              <li>Does the ray intersect any part of the world?</li>
+              <li>If so, what is the first thing it hits?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <p>
+              To get a feel for this, imagine B.J. Blazkowicz standing in a
+              pixelated corridor with his pistol drawn. He's looking forward,
+              scanning for enemies, doors, or walls. Each object in his line of
+              sight is a potential collision point. But which one does he
+              encounter first?
+            </p>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <center>
+              <img
+                src="/pages/blog/0002/wolfenstein-screenshot.jpg"
+                alt="Screenshot from Wolfenstein 3D"
+              />
+            </center>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In the screenshot above, an enemy NPC stands directly in front of
+            the player. Notice how the wall behind the NPC is not visible—it's
+            <b>occluded</b> from view. Just like in real life, you can't see
+            something if something else is in the way.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This is the core idea behind raycasting: for each ray \(r\) cast
+            from the player's position, we compute which object it intersects
+            first. That intersection determines what gets rendered—anything
+            behind it is hidden.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            But there's a catch. Not all objects are shaped the same. Some might
+            be axis-aligned walls, others could be circular enemies or
+            oddly-shaped sprites. So we can't rely on a single universal
+            intersection algorithm. The method we use depends on the geometry of
+            the object \(G\).
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In this section, we'll explore how to compute ray-object
+            intersections in two-dimensional Euclidean space, \(\mathbb{R}^2\).
+            The ideas carry over naturally to \(\mathbb{R}^3\).
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Ray-Circle Intersection</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Let's minimize our scope a bit and specifically look at circles. We
+            imagine our scenario as follows:
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <img src="0002/secant.png" alt="" />
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In this case, the ray intersects the circle in two distinct points:
+            an “entrance” point where it first hits the circle, and an “exit”
+            point where it leaves it. <b>typical case</b>—the ray hits the
+            circle and keeps going.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            But that's not the only possibility. Here's another:
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <img src="0002/tangent.png" alt="" />
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Here, the ray only touches the circle at a single point. It just
+            <i>almost</i> misses the edge! In this case, we have exactly one
+            point of intersection. The ray is aimed perfectly to skim the
+            circle's boundary, without ever going through it.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            And finally, we might have a case like this:
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <img src="0002/external.png" alt="" />
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            No intersection at all—the ray misses the circle completely!
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti">
+            One may notice that these are <i>secant</i>, <i>tangent</i>, and
+            <i>external</i> lines.
+          </div>
+          <div class="content">
+            What's the key difference between these three cases? It comes down
+            to <b>how many times</b> the ray intersects the circle—two times,
+            once, or not at all.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This becomes our first goal: given a ray \(r\) and a circle \(G\),
+            how can we determine how many points of intersection exist?
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">That's what we'll answer next.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Remembering Quadratics</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Before diving into geometry, let's take a brief detour into algebra.
+            In many intersection problems, especially involving curves, we end
+            up solving a quadratic equation.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Consider the general quadratic form: \[ Ax^2 + Bx + C \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            To find where this curve intersects the \(x\)-axis, we set it equal
+            to zero: \[ Ax^2 + Bx + C = 0 \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti">That keyword again: "intersect."</div>
+          <div class="content">
+            This prompts the question: what values of \(x\) make the function
+            zero? In geometric terms, we're asking:
+            <b> where does the curve cross the \(x\)-axis? </b>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <p>
+              Let's look at a concrete example. Suppose: \[ f(x) = x^2 + x - 2
+              \]
+            </p>
+            <p>Setting \(f(x) = 0\), we solve: \[ x^2 + x - 2 = 0 \]</p>
+            <p>
+              This yields \(x = -2\) and \(x = 1\), which are the points where
+              the curve intersects the \(x\)-axis:
+            </p>
+            <img src="0002/example-1.png" alt="" />
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            So why are we talking about this? Because when we try to find out
+            where a <b>ray intersects a circle</b>, the math eventually hands us
+            a quadratic. Solving that quadratic tells us <b>if</b>, and
+            <b>where</b>, the ray hits the circle.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">
+          Creating a Quadratic from a Ray and a Circle
+        </h2>
+        <div class="chapter-content">
+          <div class="graffiti">
+            For vectors, see note [Vector]. For parametric equations, see note
+            [ParaEq].
+          </div>
+          <div class="content">
+            <p>
+              Let us now build a quadratic equation from the intersection of two
+              geometric objects: a ray and a circle.
+            </p>
+            <p>
+              Recall that a ray in \(\mathbb{R}^2\) can be described
+              parametrically as: \[ \vec{r}(t)=\vec{o}+t\vec{d}, t\geq 0 \]
+            </p>
+            <p>
+              Here, \(\vec{o} = (x_0, y_0)\) is a vector that is the origin of
+              the ray and \(\vec{d} = (d_x, d_y)\) is the direction vector.
+            </p>
+            <p>
+              A circle, on the other hand, is described by the equation: \[
+              (x-h)^2 + (y-k)^2 = r^2 \]
+            </p>
+            <p>
+              From our previous section, it is safe to say that our intermediate
+              step is to get from these two equations to a single quadratic.
+            </p>
+            <p>
+              However, before we do that, we need to express our parametric
+              equation in terms of its components. To find the intersection
+              points, we substitute the parametric ray coordinates into the
+              circle equation. Let's expand the ray into component form first:
+            </p>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            \begin{align*} \vec{r}(t) &= \vec{o}+t\vec{d} \\ &= \begin{bmatrix}
+            x_0 \\ y_0 \end{bmatrix} + t\begin{bmatrix} d_x \\ d_y \end{bmatrix}
+            \\ &= (x_0+td_x,\,y_0+td_y) \\ &= (x(t),\,y(t)) \end{align*}
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Now, we may plug the functions \(x(t)\) and \(y(t)\) in our general
+            equation of a circle:
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            \[ \begin{aligned} & (x(t),\, y(t))) \\ & (x - h)^2 + (y - k)^2 =
+            r^2 \end{aligned} \quad \Longrightarrow \quad (x(t)- h)^2 + (y(t) -
+            k)^2 = r^2 \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Expanding this, we get \[ ((x_0+td_x) - h)^2 + ((y_0+td_y)-k)^2 =
+            r^2 \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <p>
+              This is now an equation involving only \(t\). If we expand and
+              simplify, we get a quadratic equation.
+            </p>
+            <p>
+              Let's make this concrete with an example. Consider the ray: \[
+              \vec{r}(t) = (0, 0) + t(1, 2) \]
+            </p>
+            <p>and the circle: \[ (x - 2)^2 + (y - 3)^2 = 1 \]</p>
+            <p>
+              Substituting \(x = x(t) = t\) and \(y = y(t) = 2t\), we get: \[ (t
+              - 2)^2 + (2t - 3)^2 = 1 \]
+            </p>
+            <p>
+              This expands into a quadratic in \(t\). Solving this quadratic
+              gives us the values of \(t\) at which the ray intersects the
+              circle.
+            </p>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <img src="0002/example-2.png" alt="" />
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            On the graph, the red marks on the ray correspond to the
+            \(t\)-values that solve the equation \((t-2)2+(2t-3)^2 = 1\). These
+            roots of the quadratic determine the specific positions along the
+            ray that lie on the circle—and this is precisely where the
+            intersections occur.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            To easily determine the roots of any quadratic we use the
+            <b>quadratic formula</b> and looking at the quadratic formula, \[ x
+            =\frac{-b\pm\sqrt{b^2-4ac}}{2a} \] it is obvious that to calculate
+            the points of intersection requires some expensive operations (I'm
+            particularly looking at the square root).
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <p>
+              Before diving into solving the quadratic, we should ask: is it
+              even necessary?
+            </p>
+            <p>
+              What if the ray doesn't intersect the circle at all? In that case,
+              computing the roots of a quadratic that has no real solution would
+              be wasted effort.
+            </p>
+
+            <p>
+              So a natural question arises: can we tell how many intersections
+              there are without solving the equation?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="chapter-title">Discriminants</h2>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            The number of solutions to a quadratic equation is determined by its
+            <b>discriminant</b>: \[ \Delta = b^2 - 4ac \]
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This quantity appears under the square root in the quadratic
+            formula. It tells us how many (real) roots the equation has, and by
+            extension, how many <b>intersection points</b> exist between a ray
+            \( r \) and a circle \( G \):
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <ul>
+              <li>
+                If \( \Delta > 0 \): two distinct roots—that is, two points of
+                intersection.
+              </li>
+              <li>
+                If \( \Delta = 0 \): one repeated root—a single point of
+                intersection
+              </li>
+              <li>
+                If \( \Delta < 0 \): no real roots—the ray does not intersect
+                the circle.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            When \( \Delta = 0 \), we return the only point of intersection.
+            When \( \Delta < 0 \), we return nothing.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            But what if \( \Delta > 0 \)? We have two candidate intersection
+            points—so which one should we return?
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            Since a ray is directional and begins at an origin point \( \vec{o}
+            \), we evaluate both roots \( t_1 \) and \( t_2 \) in the ray
+            equation \( \vec{r}(t) = \vec{o} + t\vec{d} \). The resulting points
+            are potential intersections, and we select the one
+            <b>closest to the origin</b> (that is, the smallest positive \( t
+            \)).
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            This leads us to the final form of our algorithm.
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            <img src="0002/algorithm.png" alt="" />
+          </div>
+        </div>
+
+        <div class="chapter-content">
+          <div class="graffiti"></div>
+          <div class="content">
+            In summary, the humble quadratic not only helps us trace virtual
+            bullets—it also powers one of the most iconic illusions in gaming
+            history.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <a href="/pages/blogs.html" class="back-home-btn">Back Home</a>
+    <a href="#" id="back-to-top" class="back-to-top-btn">Back to Top</a>
+    <a href="#" id="references-btn" class="references-btn">Notes and Refs</a>
+
+    <!-- References Modal -->
+    <div id="references-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Notes</h2>
+        <table style="vertical-align: top">
+          <tr>
+            <td style="vertical-align: top">[Vectors]</td>
+            <td>
+              Usually, a number represents a single value. For example, 9 is
+              just... 9. These kinds of values are called <i>scalars</i>.
+              Scalars describe magnitude only—just how much of something there
+              is.
+              <p>
+                Vectors, on the other hand, are a bit richer. A vector is an
+                object that stores multiple quantities at once. Instead of
+                describing just “how much,” a vector can also describe “in what
+                direction.”
+              </p>
+              <p>
+                While the terms “scalar” and “vector” often come up in linear
+                algebra, they're also common in physics and
+                engineering—especially in the context of <b>measurements</b>.
+              </p>
+              <p>
+                Some measurements just can't be fully captured by a single
+                number. Take <b>velocity</b>, for example. Velocity includes
+                both speed and direction. You're not just moving at 10 meters
+                per second—you're moving 10 meters per second <i>north</i>.
+                Since it combines two types of information, velocity is
+                naturally a vector.
+              </p>
+              <p>
+                In fact, many vectors are made up of scalars! The components of
+                a velocity vector—its speed and its directional coordinates—are
+                scalar values on their own.
+              </p>
+              <p>
+                A great (and free) introduction to linear algebra is
+                <b>Hefferon's Linear Algebra</b>:
+                <a href="https://hefferon.net/linearalgebra/" target="_blank"
+                  >https://hefferon.net/linearalgebra/</a
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top">[ParaEq]</td>
+            <td>
+                Usually, when we define a mathematical function, it's expressed
+                as a relationship involving \(x\), \(y\), or both. For example,
+                \(f(x)\) is a function of \(x\), while \(g(y)\) is a function of
+                \(y\).
+              <p>
+                But some curves can't be neatly described as a function of \(x\)
+                or \(y\) alone. In such cases, we introduce a third variable to
+                describe the curve more completely.
+              </p>
+              <p>This is where <b>parametric equations</b> come in.</p>
+              <p>
+                Instead of expressing \(y\) directly in terms of \(x\), or vice
+                versa, we express both \(x\) and \(y\) in terms of a third
+                variable—called the <i>parameter</i>.
+              </p>
+              <p>A typical parametric equation looks like this:</p>
+              <p>\[ x = f(t) \quad \text{and} \quad y = g(t) \]</p>
+              <p>
+                As \(t\) varies, we get a collection of points \((x, y) = (f(t),
+                g(t))\), which together form the curve.
+              </p>
+            </td>
+          </tr>
+        </table>
+        <h2>References</h2>
+        <div id="references-content">
+          <table>
+            <tr>
+              <td style="vertical-align: top">[MS15]</td>
+              <td>
+                Steve Marschner and Peter Shirley.
+                <i>Fundamentals of Computer Graphics, Fourth Edition</i>. A K
+                Peters, Natick, MA, 4 edition, nov2015
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top">[SWAMH19]</td>
+              <td>
+                Peter Shirley, Ingo Wald, Tomas Akenine-M ̈oller, and Eric
+                Haines. What is a ray?, 2019.7
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/blog_pages.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </body>
+</html>
