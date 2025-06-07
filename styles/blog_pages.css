@@ -12,6 +12,30 @@ body {
   max-width: 50%;
 }
 
+/* Remove default arrow */
+.blog-excerpt summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+/* Remove arrow in most browsers */
+.blog-excerpt summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Hover effect: italic */
+.blog-excerpt summary:hover {
+  font-style: italic;
+  color: #cc0000;
+}
+
+/* Active/open state: bold */
+.blog-excerpt[open] summary {
+  font-weight: bold;
+  font-style: normal; /* Optional: un-italicize if previously hovered */
+}
+
+
 .container {
   width: 100%;
   max-width: 850px;
