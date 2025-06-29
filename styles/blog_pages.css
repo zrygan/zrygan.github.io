@@ -181,7 +181,7 @@ pre code {
   transition: all 0.3s ease;
   z-index: 1000;
   animation: redPulse 2s infinite;
-  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 8px #cc00004d;
 }
 
 .back-home-btn {
@@ -199,16 +199,16 @@ pre code {
 .back-to-top-btn:hover {
   background-color: rgba(255, 0, 0, 0.1);
   color: #cc0000;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+  box-shadow: 0 0 15px #cc0000b3;
   text-decoration: none;
-  border-color: rgba(255, 0, 0, 0.3);
+  border-color: #cc00004d;
   animation: redPulseStrong 1.5s infinite;
 }
 
 .back-home-btn:active,
 .back-to-top-btn:active {
-  background-color: rgba(255, 0, 0, 0.2);
-  box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  background-color: #cc000033;
+  box-shadow: 0 0 8px #cc0000cc;
   transform: scale(0.97);
 }
 
@@ -227,23 +227,23 @@ pre code {
   transition: all 0.3s ease;
   z-index: 1000;
   animation: redPulse 2s infinite;
-  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 8px #cc00004d;
   bottom: 20px;
   right: 20px;
 }
 
 .references-btn:hover {
-  background-color: rgba(255, 0, 0, 0.1);
+  background-color: #cc00001a;
   color: #cc0000;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+  box-shadow: 0 0 15px #cc0000b3;
   text-decoration: none;
-  border-color: rgba(255, 0, 0, 0.3);
+  border-color: #cc00004d;
   animation: redPulseStrong 1.5s infinite;
 }
 
 .references-btn:active {
-  background-color: rgba(255, 0, 0, 0.2);
-  box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  background-color: #cc000033;
+  box-shadow: 0 0 8px #cc0000cc;
   transform: scale(0.97);
 }
 
@@ -266,7 +266,7 @@ pre code {
   margin: 10% auto;
   padding: 25px;
   border-radius: 5px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 20px #cc000033;
   width: 70%;
   max-width: 700px;
   position: relative;
@@ -303,30 +303,30 @@ pre code {
 /* Animation for the subtle persistent glow effect */
 @keyframes redPulse {
   0% {
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
   }
 
   50% {
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.4);
   }
 
   100% {
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
   }
 }
 
 /* Animation for the stronger hover glow effect */
 @keyframes redPulseStrong {
   0% {
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 8px rgba(204, 0, 0, 0.5);
   }
 
   50% {
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(204, 0, 0, 0.8);
   }
 
   100% {
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 8px rgba(204, 0, 0, 0.5);
   }
 }
 

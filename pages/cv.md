@@ -2,6 +2,8 @@
 
 zr.gntn@gmail.com
 https://zrygan.github.io/
+zhean_robby_ganituen@dlsu.edu.ph
+https://www.linkedin.com/in/zrygan/
 
 ## Research
 
