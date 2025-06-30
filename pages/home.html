@@ -3,54 +3,280 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Kings"
       rel="stylesheet"
-      href="/styles/home.css
-    "
     />
-    <title>Welcome to zrygan</title>
+    <title>zrygan->home</title>
   </head>
   <body>
-    <div class="main-box">
-      <div class="left-box">
-        <div class="left-box-text">
-          <p>Hi! I am Zhean Ganituen or <span>zrygan</span></p>
-          <p>
-            I am a Computer Science student at De La Salle University in the
-            Manila.
-          </p>
-          <p>
-            I am heavily interested in algorithms and data structures. Recently,
-            I have been interested in cryptography, numerical algorithms, and
-            geometry.
-          </p>
-          <p>
-            In general, I enjoy discussing and doing research in Theoretical
-            Computer Science or any interdisciplinary field that combines
-            Theoretical Computer Science with real-life applications.
-          </p>
-        </div>
-      </div>
+    <div class="transition-box">
+      <video autoplay muted loop playsinline webkit-playsinline class="bg">
+        <source src="/res/waves.mp4" type="video/mp4" />
+      </video>
 
-      <div class="right-box">
-        <div class="right-box-top">
-          <a href="/index.html">Bio</a>
-          <a href="/pages/blogs.html">Blog</a>
-          <a href="https://github.com/zrygan">Code</a>
-          <a href="/pages/cv.html">CV</a>
-          <a href="/pages/contact.html">Contact</a>
-        </div>
-        <div class="right-box-bottom">
-          <p><span id="manila-time"></span> (Manila)</p>
-          <p><span id="detroit-time"></span> (Detroit)</p>
+      <div class="container">
+        <div id="display-box" class="display-box empty">
+          <div class="content">
+            <!-- Add your left side content here -->
+            <div id="bio" style="display: none">
+              <h1>Biography</h1>
+              <p>
+                Hi! I'm Zhean Robby L. Ganituen, also known as
+                <span class="zrygan">zrygan</span>.
+              </p>
+              <p>
+                I'm a second-year Computer Science student at
+                <a href="https://www.dlsu.edu.ph/">De La Salle University</a>,
+                Manila.
+              </p>
+              <p>
+                I split my time between Metro Manila and the Detroit Metro Area,
+                depending on the university calendar.
+              </p>
+              <p>
+                I'm deeply interested in algorithms and data structures. Lately,
+                I've been exploring cryptography, numerical algorithms, and
+                geometry.
+              </p>
+              <p>
+                In general, I enjoy discussing and researching topics in
+                Theoretical Computer Science, especially when they intersect
+                with real-world applications or other fields.
+              </p>
+            </div>
 
-          <div class="right-box-info">
-            <p>Last updated: <i>June 29, 2025</i></p>
-            <p>2025 Zhean Ganituen / zrygan</p>
+            <div id="code" style="display: none">
+              <h1>Programming</h1>
+              <p>I regularly work with C, C++, Go, Rust, and Java.</p>
+              <p>
+                Occasionally, I also use Python and Kotlin for specific
+                projects.
+              </p>
+              <p>
+                You can check out my programming projects on my
+                <a
+                  href="https://github.com/zrygan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+                profile.
+              </p>
+              <p>
+                Some of my best projects include the
+                <a
+                  href="https://github.com/zrygan/Raytracer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Raytracer</a
+                >.
+              </p>
+              <p>
+                Currently, I am working on an unpublished C++ project as a
+                supplement to a research study.
+              </p>
+
+              <h2>Competitive Programming</h2>
+              <p>
+                I have experience with competitive programming and have
+                participated in contests, though I no longer compete actively.
+              </p>
+              <p>
+                For competitive programming resources, I maintain a
+                <a
+                  href="https://github.com/zrygan/CompetitiveProgramming"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub repository</a
+                >. You can also find my profiles on
+                <a
+                  href="https://open.kattis.com/users/zrygan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Kattis</a
+                >
+                and
+                <a
+                  href="https://codeforces.com/profile/zrygan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Codeforces</a
+                >.
+              </p>
+              <p>
+                <i>I don’t do much programming these days</i>, as I focus more
+                on research.
+              </p>
+              <p>
+                I still maintain some personal projects, but they emphasize
+                theory more than software development.
+              </p>
+            </div>
+
+            <div id="acads" style="display: none">
+              <h1>Research</h1>
+
+              <h2>Research Interests</h2>
+              <p>
+                I work primarily in theoretical computer science and natural
+                language processing.
+              </p>
+              <p>
+                I'm especially interested in real-world puzzles that can be
+                efficiently solved through creative applications of algorithms
+                and data structures.
+              </p>
+              <p>
+                My current research focuses on numerical algorithms, geometry,
+                regular languages, and automata theory.
+              </p>
+
+              <h2>Blog</h2>
+              <p>
+                I also write a blog called
+                <a href="/pages/blogs.html">\( \forall i \in \textbf{KB} \)</a>,
+                where I discuss topics in theoretical computer science in a
+                casual, "unserious" tone.
+              </p>
+
+              <h2>Tutoring</h2>
+              <p>
+                I'm a tutor and currently serve as the Associate Vice President
+                for Activities at my university's Peer Tutors' Society.
+              </p>
+              <p>
+                I primarily tutor theoretical subjects—Discrete Structures,
+                Algorithms, Introduction to Artificial Intelligence, and Theory
+                of Computation— as well as C and Java programming.
+              </p>
+              <p>
+                See my <a href="/pages/cv.html">CV</a> or the
+                <a href="/pages/cv.md">plaintext</a> version.
+              </p>
+              <p>
+                Also see my
+                <a href="https://orcid.org/0009-0002-3266-5384">ORCID</a> and my
+                <a
+                  href="https://scholar.google.com/citations?user=tGIiReAAAAAJ&hl=en"
+                  >Google Scholar</a
+                >.
+              </p>
+            </div>
+
+            <div id="contact" style="display: none">
+              <h1>Contact</h1>
+
+              <h2>Emails</h2>
+              <p>
+                <strong>For general messages:</strong>
+                <a href="mailto:zr.gntn+fromWebsite@gmail.com"
+                  >zr.gntn@gmail.com</a
+                >
+              </p>
+              <p>
+                <strong>For academic purposes:</strong>
+                <a href="mailto:zhean_robby_ganituen@dlsu.edu.ph"
+                  >zhean_robby_ganituen@dlsu.edu.ph</a
+                >
+              </p>
+
+              <h2>Phone Number and Mailing Address</h2>
+              <p>
+                I <em>do not</em> make my Philippine or United States phone
+                number and address publicly available.
+              </p>
+              <p>Everything can be handled via email anyway.</p>
+
+              <h2>Social Media</h2>
+              <p>
+                If you're not a friend or family member, please contact me only
+                through the emails listed above.
+              </p>
+              <p>
+                <strong>
+                  Any attempt to contact me through social media or other
+                  unlisted methods will be disregarded.
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-box">
+          <div class="menu-box">
+            <button class="btn" data-target="bio">Bio</button>
+            <button class="btn" data-target="code">Code</button>
+            <button class="btn" data-target="contact">Contact</button>
+            <button class="btn" data-target="acads">Research</button>
+
+            <div class="small-box">
+              <div>
+                Also see my <a href="/pages/cv.html">CV</a>,
+                <a href="/pages/blogs.html">Blog</a>
+              </div>
+              <div>
+                <p class="time mytime">
+                  Detroit: <span id="manila-time"></span>
+                </p>
+                <p class="time">Manila:<span id="detroit-time"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-box">
+            <a href="/index.html">
+              <div class="logo">
+                <p>zrygan</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </body>
   <script src="/js/index.js"></script>
+  <script>
+    const buttons = document.querySelectorAll(".btn");
+    const sections = {
+      bio: document.getElementById("bio"),
+      code: document.getElementById("code"),
+      acads: document.getElementById("acads"),
+      contact: document.getElementById("contact"),
+    };
+
+    const displayBox = document.getElementById("display-box");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Hide all sections
+        let shown = false;
+        for (const id in sections) {
+          sections[id].style.display = "none";
+        }
+
+        // Show the clicked one
+        const targetId = btn.getAttribute("data-target");
+        if (sections[targetId]) {
+          sections[targetId].style.display = "block";
+          shown = true;
+        }
+
+        // Toggle backdrop filter
+        if (shown) {
+          displayBox.classList.remove("empty");
+        } else {
+          displayBox.classList.add("empty");
+        }
+      });
+    });
+  </script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
 </html>
