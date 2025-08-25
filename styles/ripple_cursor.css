@@ -1,0 +1,36 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color:#0000cc;
+  mix-blend-mode: screen;
+}
+
+.ripple {
+  position: fixed;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 9998;
+  animation: rippleAnim 0.8s ease-out forwards;
+  border: 2px solid transparent;
+  background: transparent;
+  background-color: transparent;
+  backdrop-filter: blur(400px) contrast(600) brightness(2.5) saturate(4);
+  -webkit-backdrop-filter: blur(400px) contrast(0) brightness(2.5) saturate(4);
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: translate(-50%, -50%) scale(6);
+    opacity: 0;
+  }
+}
