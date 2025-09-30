@@ -86,7 +86,7 @@ body {
   padding: 0.25rem;
 }
 
-.display-box p, li {
+.display-box p, li, table {
   font-size: 1.15rem;
 }
 
@@ -169,4 +169,36 @@ body {
 #manila-time,
 #nyc-time {
   font-size: 1rem;
+}
+
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.15rem;
+}
+
+.event-table th,
+.event-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem;
+}
+
+.event-table th:first-child,
+.event-table td:first-child {
+  white-space: nowrap;
+  font-weight: bolder;
+}
+
+.event-table th {
+  font-weight: 600;
+}
+
+.event-table td {
+  font-weight: 400;
+}
+
+.event-table tbody tr:hover {
+  background-color: #ccc;
+  color: #151515;
 }
