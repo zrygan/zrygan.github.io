@@ -120,9 +120,190 @@ section h2 {
   font-size: 1rem;
 }
 
+/* Button container for dynamic positioning */
+.button-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+  flex-direction: row-reverse; /* Right to left ordering */
+}
+
+/* Button styles */
+.back-home-btn,
+.back-to-top-btn,
+.contents-btn {
+  font-family: "IBM Plex Mono", monospace;
+  position: static;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  animation: redPulse 2s infinite;
+  box-shadow: 0 0 8px #cc00004d;
+  white-space: nowrap;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.back-to-top-btn {
+  display: none;
+}
+
+.back-home-btn:hover,
+.back-to-top-btn:hover,
+.contents-btn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #cc0000;
+  box-shadow: 0 0 15px #cc0000b3;
+  text-decoration: none;
+  border-color: #cc00004d;
+  animation: redPulseStrong 1.5s infinite;
+}
+
+.back-home-btn:active,
+.back-to-top-btn:active,
+.contents-btn:active {
+  background-color: #cc000033;
+  box-shadow: 0 0 8px #cc0000cc;
+  transform: scale(0.97);
+}
+
+/* Modal styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+}
+
+.modal {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px #cc000033;
+  width: 20%;
+  position: relative;
+  animation: modalFadeIn 0.3s;
+}
+
+.modal-content {
+  position: relative;
+}
+
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: absolute;
+  top: -10px;
+  right: 5px;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #cc0000;
+  text-decoration: none;
+}
+
+.contents-list {
+  margin-top: 20px;
+}
+
+.contents-list h3 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.contents-list ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+
+.contents-list li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.contents-list a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.contents-list a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes redPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px #cc00004d;
+  }
+  50% {
+    box-shadow: 0 0 12px #cc000066;
+  }
+}
+
+@keyframes redPulseStrong {
+  0%, 100% {
+    box-shadow: 0 0 15px #cc0000b3;
+  }
+  50% {
+    box-shadow: 0 0 20px #cc0000cc;
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media print {
+  :root {
+    --print-body-padding: 6pt; /* Further reduced from 10pt to 6pt for minimal margins */
+    --left-column-width: 100pt; /* Further increased from 80pt to 100pt for even bigger left column */
+    --left-column-padding-right: 18pt;
+    --heading-font-size: 16pt;
+    --right-font-size: 10pt;
+    --left-font-size: 10pt;
+    --line-height: 1.5;
+    --section-gap: 8pt;
+  }
+
   #back-to-top,
-  .download-btn,
+  .contents-btn,
+  .button-container,
   .modal,
   header a,
   #toc,
@@ -131,66 +312,116 @@ section h2 {
   }
 
   body {
-    max-width: 100%;
-    color: #000;
-    background: #fff;
-    font-size: 11pt;
-    font-family: "IBM Plex Sans", sans-serif;
-  }
-
-  .section-content {
-    gap: 0;
-  }
-
-  section h2 {
-    font-size: 18px !important;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    max-width: 100% !important;
+    color: #000 !important;
+    background: #fff !important;
+    font-family: "IBM Plex Sans", sans-serif !important;
+    font-size: var(--right-font-size) !important;
+    line-height: var(--line-height) !important;
+    margin: 0 !important;
+    padding: var(--print-body-padding) !important;
   }
 
   .container {
-    width: 100%;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  section h2 {
+    font-size: var(--heading-font-size) !important;
+    margin-top: var(--section-gap) !important;
+    margin-left: calc(var(--left-column-width) + var(--left-column-padding-right)) !important;
+  }
+
+  header {
+    padding-left: calc(var(--left-column-width) + var(--left-column-padding-right)) !important;
   }
 
   .section-content {
     display: flex !important;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin-bottom: 0.5em;
+    margin-bottom: var(--section-gap) !important;
+    padding-left: 0 !important;
+    position: static !important;
   }
 
   .left-column,
   .left-column-sans {
-    flex: 0 0 10%;
-    box-sizing: border-box;
-    font-size: 11pt;
-    padding-right: 0;
+    width: var(--left-column-width) !important;
+    text-align: right !important;
+    font-size: var(--left-font-size) !important;
+    line-height: var(--line-height) !important;
+    margin-right: var(--left-column-padding-right) !important;
+    position: static !important;
+    padding-right: 0 !important;
+    font-family: "IBM Plex Sans Condensed", sans-serif !important;
   }
 
   .right-column {
-    flex: 1 1 auto;
-    box-sizing: border-box;
-    line-height: 1.5;
+    flex: 1 !important;
+    font-size: var(--right-font-size) !important;
+    line-height: var(--line-height) !important;
   }
 
+  .right-column p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: var(--right-font-size) !important;
+  }
+
+  /* Ensure all text elements use consistent print font sizes */
+  .right-column p,
+  .right-column li,
+  .right-column b,
+  .right-column strong,
+  .right-column i,
+  .right-column em,
+  .right-column span,
+  .right-column div,
+  ul,
+  ol,
+  li {
+    font-size: var(--right-font-size) !important;
+    line-height: var(--line-height) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Remove all margins from text and components */
+  h1, h2, h3, h4, h5, h6,
+  p, ul, ol, li,
+  div, span, b, strong, i, em,
+  .contact-info, .email, .link,
+  .left-column, .left-column-sans,
   .right-column,
-  .right-column * {
-    font-size: 11pt !important;
-    line-height: 1.5 !important;
+  .section-content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
-  .left-column:empty,
-  .left-column-sans:empty {
-    display: none;
+  /* Override section gaps - keep only for section h2 spacing */
+  section {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
-  .left-column:empty + .right-column,
-  .left-column-sans:empty + .right-column {
-    flex: 1 1 100%;
+  /* Header text sizing */
+  h1.name {
+    font-size: 24pt !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .contact-info,
+  .email,
+  .link {
+    font-size: var(--left-font-size) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   a {
-    color: black;
-    text-decoration: none;
+    color: black !important;
+    text-decoration: none !important;
   }
 }
