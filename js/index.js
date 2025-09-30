@@ -19,7 +19,7 @@ function updateDetroitTime() {
     hour12: false,
   });
 
-  document.getElementById("detroit-time").textContent = detroitTime;
+  document.getElementById("nyc-time").textContent = detroitTime;
 }
 
 setInterval(updateManilaTime, 1000);
