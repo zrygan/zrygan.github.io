@@ -1,0 +1,17 @@
+{
+  "Blog Content Block": {
+    "prefix": "CV-Content",
+    "body": [
+        "<div class=\"section-content\">",
+        "  <div class=\"left-column\">",
+        "    $1",
+        "  </div>",
+        "  <div class=\"right-column\">",
+        "    $2",
+        "  </div>",
+        "</div>",
+    
+    ],
+    "description": "A content block for the Curriculum Vitae"
+  }
+}

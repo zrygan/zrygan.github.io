@@ -1,29 +1,48 @@
+:root {
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --primary-color: #333;
+  --accent-color: #0000cc;
+  --accent-hover: #cc0000;
+  --max-width: 900px;
+  --side-column-width: 200px;
+  --column-gap: 30px;
+}
+
 body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: var(--font-sans);
   margin: 0;
-  padding: 40px;
-  line-height: 1.6;
-  color: #333;
-  max-width: 900px;
+  padding-top: 7.5%;
+  padding-bottom: 7.5%;
+  line-height: 1.5;
+  color: var(--primary-color);
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
 .container {
   width: 100%;
-  max-width: 850px;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
-/* Header styling */
 header {
   text-align: left;
-  margin-bottom: 40px;
-  padding-left: 230px;
+  padding-left: calc(var(--side-column-width) + var(--column-gap));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h1.name {
   font-size: 2rem;
-  margin-bottom: 10px;
   font-weight: 400;
 }
 
@@ -32,7 +51,7 @@ h1.name strong {
 }
 
 .contact-info {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 1rem;
   color: #555;
 }
@@ -43,17 +62,16 @@ h1.name strong {
 }
 
 a {
-  color: #0000cc;
+  color: var(--accent-color);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #cc0000;
+  color: var(--accent-hover);
 }
 
 section {
-  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
 }
@@ -61,383 +79,118 @@ section {
 section h2 {
   font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-  margin-left: 230px;
-}
-
-.research-statement {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.9rem;
-  padding-right: 15px;
-  font-style: italic;
+  margin-left: calc(var(--side-column-width) + var(--column-gap));
 }
 
 .section-content {
-  display: flex;
+  position: relative;
+  display: block;
   margin-bottom: 15px;
+  padding-left: calc(var(--side-column-width) + var(--column-gap));
 }
 
 .left-column {
-  width: 200px;
+  position: absolute;
+  left: 0;
+  width: var(--side-column-width);
   text-align: right;
-  flex-shrink: 0;
-  color: #333;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.9rem;
-  padding-right: 15px;
+  color: var(--primary-color);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding-right: var(--column-gap);
 }
 
 .left-column-sans {
-  width: 200px;
+  position: absolute;
+  left: 0;
+  width: var(--side-column-width);
   text-align: right;
-  flex-shrink: 0;
-  color: #333;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.9rem;
-  padding-right: 15px;
-}
-
-/* Make sure it works in responsive mode too */
-@media (max-width: 768px) {
-  .left-column-sans {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #888;
-    padding-right: 0;
-  }
+  color: var(--primary-color);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding-right: var(--column-gap);
 }
 
 .right-column {
-  flex-grow: 1;
-  padding-left: 15px;
+  display: block;
 }
 
 .right-column p {
   margin: 0 0 10px 0;
+  font-size: 1rem;
 }
 
-.back-home-btn {
-  font-family: "IBM Plex Mono", monospace;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #cccccccc;
-  backdrop-filter: blur(5px);
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  text-decoration: none;
-  color: #333;
-  transition: all 0.2s ease;
-}
-
-.back-home-btn:hover {
-  background-color: rgba(204, 0, 0, 0.1);
-  color: #cc0000;
-  text-decoration: none;
-}
-
-.publication {
-  font-style: italic;
-  color: #555;
-  font-size: 0.9rem;
-  display: block;
-  margin-top: 2px;
-}
-
-.event {
-  font-size: 0.85rem;
-  color: #555;
-  display: block;
-  margin-top: 3px;
-  font-style: italic;
-}
-
-/* Add to your existing CSS */
-
-.back-home-btn,
-.download-btn,
-.back-to-top-btn {
-  font-family: "IBM Plex Mono", monospace;
-  position: fixed;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  text-decoration: none;
-  color: #333;
-  border: 1px solid #ddd;
-  background-color: rgba(204, 255, 255, 0.8);
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-  z-index: 1000;
-  animation: redPulse 2s infinite;
-  /* Apply animation persistently */
-  box-shadow: 0 0 8px rgba(204, 0, 0, 0.3);
-  /* Add default glow */
-}
-
-.download-btn {
-  bottom: 20px;
-  right: 20px;
-}
-
-.back-to-top-btn {
-  top: 20px;
-  right: 120px;
-  display: none;
-}
-
-/* Stronger glow effect on hover */
-.back-home-btn:hover,
-.download-btn:hover,
-.back-to-top-btn:hover {
-  background-color: rgba(204, 0, 0, 0.1);
-  color: #cc0000;
-  box-shadow: 0 0 15px rgba(204, 0, 0, 0.7);
-  /* Stronger glow on hover */
-  text-decoration: none;
-  border-color: rgba(204, 0, 0, 0.3);
-  animation: redPulseStrong 1.5s infinite;
-  /* Apply stronger animation on hover */
-}
-
-/* Active/pressed state effect */
-.back-home-btn:active,
-.download-btn:active,
-.back-to-top-btn:active {
-  background-color: rgba(204, 0, 0, 0.2);
-  box-shadow: 0 0 8px rgba(204, 0, 0, 0.8);
-  transform: scale(0.97);
-}
-
-/* Animation for the subtle persistent glow effect */
-@keyframes redPulse {
-  0% {
-    box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
+@media print {
+  #back-to-top,
+  .download-btn,
+  .modal,
+  header a,
+  #toc,
+  .container header .link {
+    display: none !important;
   }
 
-  50% {
-    box-shadow: 0 0 10px rgba(204, 0, 0, 0.4);
-  }
-
-  100% {
-    box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
-  }
-}
-
-/* Animation for the stronger hover glow effect */
-@keyframes redPulseStrong {
-  0% {
-    box-shadow: 0 0 8px rgba(204, 0, 0, 0.5);
-  }
-
-  50% {
-    box-shadow: 0 0 15px rgba(204, 0, 0, 0.8);
-  }
-
-  100% {
-    box-shadow: 0 0 8px rgba(204, 0, 0, 0.5);
-  }
-}
-
-/* Responsive design for the buttons */
-@media (max-width: 768px) {
-  .back-home-btn,
-  .download-btn {
-    position: static;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    width: fit-content;
-  }
-
-  .back-to-top-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    top: auto;
-  }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
   body {
-    padding: 20px;
-  }
-
-  .section-title {
-    margin-left: 0;
-    /* Reset margin on small screens */
+    max-width: 100%;
+    color: #000;
+    background: #fff;
+    font-size: 11pt;
+    font-family: "IBM Plex Sans", sans-serif;
   }
 
   .section-content {
-    flex-direction: column;
+    gap: 0;
   }
 
-  .left-column {
+  section h2 {
+    font-size: 18px !important;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .container {
     width: 100%;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #888;
-    padding-right: 0;
   }
 
+  .section-content {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 0.5em;
+  }
+
+  .left-column,
   .left-column-sans {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #888;
+    flex: 0 0 10%;
+    box-sizing: border-box;
+    font-size: 11pt;
     padding-right: 0;
   }
 
   .right-column {
-    border-left: none;
-    /* Remove the divider on mobile */
-    padding-left: 0;
-    /* Reset padding */
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    line-height: 1.5;
   }
 
-  .back-home-btn {
-    position: static;
-    display: block;
-    margin: 30px auto 0;
-    text-align: center;
-    width: fit-content;
-  }
-}
-
-/* Update the modal overlay and animation */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.97);
-  /* Pure black with slight transparency */
-  backdrop-filter: blur(5px);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  /* Slow fade in */
-}
-
-.modal-overlay.active {
-  opacity: 1;
-}
-
-.modal {
-  background-color: rgba(0, 0, 0, 0.97);
-  color: white;
-  padding: 30px 40px;
-  border-radius: 8px;
-  position: relative;
-  width: 90%;
-  max-width: 500px;
-  animation: modalAppear 0.6s ease-out;
-  border: none;
-  box-shadow: none;
-  animation: intensePulse 1.5s infinite;
-}
-
-@keyframes modalAppear {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
+  .right-column,
+  .right-column * {
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-  transition: color 0.2s;
-}
-
-.close-modal:hover {
-  color: #ff0000;
-}
-
-.modal-content {
-  font-family: "IBM Plex Sans", sans-serif;
-  color: white;
-}
-
-.modal-content h3 {
-  display: none;
-}
-
-.download-options {
-  width: 100%;
-  margin-top: 0;
-}
-
-.download-options table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.download-options td {
-  padding: 15px 5px;
-}
-
-.download-options tr:last-child td {
-  border-bottom: none;
-}
-
-.download-options td:first-child {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 1rem;
-  text-align: left;
-  width: 65%;
-}
-
-.download-options td:last-child {
-  text-align: right;
-}
-
-.download-option {
-  font-family: "IBM Plex Mono", monospace;
-  padding: 6px 15px;
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  transition: all 0.2s ease;
-  display: inline-block;
-  font-size: 0.85rem;
-}
-
-.download-option:hover {
-  color: white;
-  text-decoration: none;
-}
-
-@keyframes intensePulse {
-  0% {
-    box-shadow: 0 0 15px #ff0000, 0 0 25px rgba(204, 0, 0, 0.6);
+  .left-column:empty,
+  .left-column-sans:empty {
+    display: none;
   }
 
-  50% {
-    box-shadow: 0 0 25px #ff0000, 0 0 40px rgba(204, 0, 0, 0.9);
+  .left-column:empty + .right-column,
+  .left-column-sans:empty + .right-column {
+    flex: 1 1 100%;
   }
 
-  100% {
-    box-shadow: 0 0 15px #ff0000, 0 0 25px rgba(204, 0, 0, 0.6);
+  a {
+    color: black;
+    text-decoration: none;
   }
 }
