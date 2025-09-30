@@ -86,8 +86,8 @@ body {
   padding: 0.25rem;
 }
 
-.display-box p {
-  font-size: 1.25rem;
+.display-box p, li {
+  font-size: 1.15rem;
 }
 
 .right-box {
