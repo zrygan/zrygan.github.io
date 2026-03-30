@@ -1,21 +1,14 @@
-:root {
-  --font-sans: "IBM Plex Sans", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
-  --primary-color: #333;
-  --accent-color: #0000cc;
-  --accent-hover: #cc0000;
-  --max-width: 900px;
-  --side-column-width: 200px;
-  --column-gap: 30px;
-}
+/* ================================================================
+   CV PAGE (pages/cv.html)
+   Requires: tokens.css, fonts.css, gen.css
+   ================================================================ */
 
 body {
   font-family: var(--font-sans);
-  margin: 0;
-  padding-top: 7.5%;
-  padding-bottom: 7.5%;
+  padding-top: 7%;
+  padding-bottom: 7%;
   line-height: 1.5;
-  color: var(--primary-color);
+  color: var(--clr-text);
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -26,285 +19,237 @@ body {
   margin: 0 auto;
 }
 
+/* ── Header ───────────────────────────────────────────────── */
 header {
   text-align: left;
-  padding-left: calc(var(--side-column-width) + var(--column-gap));
+  padding-left: calc(var(--cv-left-col) + var(--cv-col-gap));
+  margin-bottom: var(--sp-8);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0;
 }
 
 h1.name {
-  font-size: 2rem;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
   font-weight: 400;
+  color: var(--clr-text);
+  line-height: 1.1;
 }
-
-h1.name strong {
-  font-weight: 800;
-}
+h1.name strong { font-weight: 700; }
 
 .contact-info {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: #555;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  margin-top: var(--sp-2);
 }
 
-.email,
-.link {
-  margin: 5px 0;
-}
+.email, .link { margin: var(--sp-1) 0; }
 
 a {
-  color: var(--accent-color);
+  color: var(--clr-accent-light);
   text-decoration: none;
+  transition: color var(--t-fast);
 }
+a:hover { color: var(--clr-on-accent); text-decoration: underline; }
 
-a:hover {
-  text-decoration: underline;
-  color: var(--accent-hover);
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-}
+/* ── Sections ─────────────────────────────────────────────── */
+section { display: flex; flex-direction: column; }
 
 section h2 {
-  font-size: 1.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
   font-weight: 600;
-  margin-left: calc(var(--side-column-width) + var(--column-gap));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clr-accent-light);
+  border-bottom: 1px solid var(--clr-border-accent);
+  padding-bottom: var(--sp-2);
+  margin-bottom: var(--sp-4);
+  margin-top: var(--sp-8);
+  margin-left: calc(var(--cv-left-col) + var(--cv-col-gap));
 }
 
+/* ── Two-column layout ────────────────────────────────────── */
 .section-content {
   position: relative;
   display: block;
-  margin-bottom: 15px;
-  padding-left: calc(var(--side-column-width) + var(--column-gap));
+  margin-bottom: var(--sp-4);
+  padding-left: calc(var(--cv-left-col) + var(--cv-col-gap));
 }
 
 .left-column {
   position: absolute;
   left: 0;
-  width: var(--side-column-width);
+  width: var(--cv-left-col);
   text-align: right;
-  color: var(--primary-color);
+  color: var(--clr-text-muted);
   font-family: var(--font-mono);
-  font-size: 1rem;
-  padding-right: var(--column-gap);
+  font-size: 0.82rem;
+  padding-right: var(--cv-col-gap);
+  line-height: 1.5;
 }
 
 .left-column-sans {
   position: absolute;
   left: 0;
-  width: var(--side-column-width);
+  width: var(--cv-left-col);
   text-align: right;
-  color: var(--primary-color);
+  color: var(--clr-text-muted);
   font-family: var(--font-sans);
-  font-size: 1rem;
-  padding-right: var(--column-gap);
+  font-size: 0.88rem;
+  padding-right: var(--cv-col-gap);
+  line-height: 1.5;
 }
 
-.right-column {
-  display: block;
-}
+.right-column { display: block; }
 
 .right-column p {
-  margin: 0 0 10px 0;
-  font-size: 1rem;
+  margin: 0 0 var(--sp-2) 0;
+  font-size: 0.92rem;
+  color: var(--clr-text);
 }
 
-/* Button container for dynamic positioning */
-.button-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 1000;
-  flex-direction: row-reverse; /* Right to left ordering */
+.right-column ul,
+.right-column ol {
+  margin: 0 0 var(--sp-2) 0;
+  padding-left: var(--sp-5);
 }
 
-/* Button styles */
-.back-home-btn,
-.back-to-top-btn,
-.contents-btn {
-  font-family: "IBM Plex Mono", monospace;
-  position: static;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  text-decoration: none;
-  color: #333;
-  border: 1px solid #ddd;
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-  animation: redPulse 2s infinite;
-  box-shadow: 0 0 8px #cc00004d;
-  white-space: nowrap;
-  width: auto;
-  flex-shrink: 0;
+.right-column li {
+  font-size: 0.92rem;
+  color: var(--clr-text);
+  margin-bottom: var(--sp-1);
 }
 
-.back-to-top-btn {
-  display: none;
-}
-
-.back-home-btn:hover,
-.back-to-top-btn:hover,
-.contents-btn:hover {
-  background-color: rgba(255, 0, 0, 0.1);
-  color: #cc0000;
-  box-shadow: 0 0 15px #cc0000b3;
-  text-decoration: none;
-  border-color: #cc00004d;
-  animation: redPulseStrong 1.5s infinite;
-}
-
-.back-home-btn:active,
-.back-to-top-btn:active,
-.contents-btn:active {
-  background-color: #cc000033;
-  box-shadow: 0 0 8px #cc0000cc;
-  transform: scale(0.97);
-}
-
-/* Modal styles */
+/* ── Contents modal ───────────────────────────────────────── */
 .modal-overlay {
   display: none;
   position: fixed;
   z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity var(--t-slow);
+  align-items: center;
+  justify-content: center;
 }
-
 .modal-overlay.active {
   opacity: 1;
+  display: flex;
 }
 
 .modal {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 0 0 20px #cc000033;
-  width: 20%;
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--glass-border);
+  border-top-color: var(--glass-highlight);
+  border-radius: var(--r-lg);
+  padding: var(--sp-8);
+  width: min(320px, 90vw);
   position: relative;
-  animation: modalFadeIn 0.3s;
+  animation: modalFadeIn var(--t-base) both;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.65),
+    var(--glow-sm),
+    inset 0 1px 0 var(--glass-highlight);
 }
 
-.modal-content {
-  position: relative;
-}
+.modal-content { position: relative; }
 
 .close-modal {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
+  color: var(--clr-text-muted);
   position: absolute;
-  top: -10px;
-  right: 5px;
+  top: calc(-1 * var(--sp-4));
+  right: 0;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--t-fast);
 }
+.close-modal:hover { color: var(--clr-accent-light); }
 
-.close-modal:hover,
-.close-modal:focus {
-  color: #cc0000;
-  text-decoration: none;
-}
-
-.contents-list {
-  margin-top: 20px;
-}
+.contents-list { margin-top: var(--sp-5); }
 
 .contents-list h3 {
-  margin-bottom: 15px;
-  color: var(--primary-color);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clr-text-muted);
+  margin-bottom: var(--sp-4);
 }
 
 .contents-list ol {
   list-style-type: decimal;
-  padding-left: 20px;
+  padding-left: var(--sp-5);
 }
+.contents-list li { margin-bottom: var(--sp-2); line-height: 1.4; }
 
-.contents-list li {
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
+.contents-list a { color: var(--clr-accent-light); font-size: 0.88rem; }
+.contents-list a:hover { color: var(--clr-on-accent); }
 
-.contents-list a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.contents-list a:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
-}
-
-/* Animations */
-@keyframes redPulse {
-  0%, 100% {
-    box-shadow: 0 0 8px #cc00004d;
-  }
-  50% {
-    box-shadow: 0 0 12px #cc000066;
-  }
-}
-
-@keyframes redPulseStrong {
-  0%, 100% {
-    box-shadow: 0 0 15px #cc0000b3;
-  }
-  50% {
-    box-shadow: 0 0 20px #cc0000cc;
-  }
-}
-
+/* ── Animation ────────────────────────────────────────────── */
 @keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  body { padding: var(--sp-8) var(--sp-4); }
+
+  header {
+    padding-left: 0;
+    margin-bottom: var(--sp-6);
+  }
+
+  section h2 { margin-left: 0; }
+
+  .section-content {
+    padding-left: 0;
+    position: static;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-column,
+  .left-column-sans {
+    position: static;
+    width: 100%;
+    text-align: left;
+    padding-right: 0;
+    margin-bottom: var(--sp-1);
+    font-size: 0.78rem;
+    color: var(--clr-text-muted);
+  }
+
+  .button-container { top: var(--sp-3); right: var(--sp-3); }
+}
+
+/* ================================================================
+   PRINT — overrides everything above for clean paper output.
+   ================================================================ */
 @media print {
   :root {
-    --print-body-padding: 6pt; /* Further reduced from 10pt to 6pt for minimal margins */
-    --left-column-width: 100pt; /* Further increased from 80pt to 100pt for even bigger left column */
-    --left-column-padding-right: 18pt;
-    --heading-font-size: 16pt;
-    --right-font-size: 10pt;
-    --left-font-size: 10pt;
-    --line-height: 1.5;
-    --section-gap: 8pt;
+    --print-padding:  6pt;
+    --left-col-w:   100pt;
+    --left-col-gap:  18pt;
+    --heading-size:  14pt;
+    --body-size:     10pt;
+    --line-height:    1.5;
+    --section-gap:    8pt;
   }
 
   #back-to-top,
   .contents-btn,
   .button-container,
   .modal,
+  .modal-overlay,
   header a,
   #toc,
   .container header .link {
@@ -315,27 +260,29 @@ section h2 {
     max-width: 100% !important;
     color: #000 !important;
     background: #fff !important;
-    font-family: "IBM Plex Sans", sans-serif !important;
-    font-size: var(--right-font-size) !important;
+    font-family: var(--font-sans) !important;
+    font-size: var(--body-size) !important;
     line-height: var(--line-height) !important;
     margin: 0 !important;
-    padding: var(--print-body-padding) !important;
+    padding: var(--print-padding) !important;
   }
 
-  .container {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+  a { color: #000 !important; text-decoration: none !important; }
+
+  .container { width: 100% !important; margin: 0 !important; padding: 0 !important; }
 
   section h2 {
-    font-size: var(--heading-font-size) !important;
+    font-size: var(--heading-size) !important;
+    color: #000 !important;
+    border-bottom-color: #999 !important;
     margin-top: var(--section-gap) !important;
-    margin-left: calc(var(--left-column-width) + var(--left-column-padding-right)) !important;
+    margin-left: calc(var(--left-col-w) + var(--left-col-gap)) !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
   }
 
   header {
-    padding-left: calc(var(--left-column-width) + var(--left-column-padding-right)) !important;
+    padding-left: calc(var(--left-col-w) + var(--left-col-gap)) !important;
   }
 
   .section-content {
@@ -347,29 +294,18 @@ section h2 {
 
   .left-column,
   .left-column-sans {
-    width: var(--left-column-width) !important;
+    width: var(--left-col-w) !important;
     text-align: right !important;
-    font-size: var(--left-font-size) !important;
-    line-height: var(--line-height) !important;
-    margin-right: var(--left-column-padding-right) !important;
+    font-size: var(--body-size) !important;
+    margin-right: var(--left-col-gap) !important;
     position: static !important;
     padding-right: 0 !important;
-    font-family: "IBM Plex Sans Condensed", sans-serif !important;
+    color: #333 !important;
+    font-family: var(--font-sans) !important;
   }
 
-  .right-column {
-    flex: 1 !important;
-    font-size: var(--right-font-size) !important;
-    line-height: var(--line-height) !important;
-  }
+  .right-column { flex: 1 !important; }
 
-  .right-column p {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: var(--right-font-size) !important;
-  }
-
-  /* Ensure all text elements use consistent print font sizes */
   .right-column p,
   .right-column li,
   .right-column b,
@@ -378,50 +314,35 @@ section h2 {
   .right-column em,
   .right-column span,
   .right-column div,
-  ul,
-  ol,
-  li {
-    font-size: var(--right-font-size) !important;
+  ul, ol, li {
+    font-size: var(--body-size) !important;
     line-height: var(--line-height) !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+    color: #000 !important;
   }
 
-  /* Remove all margins from text and components */
   h1, h2, h3, h4, h5, h6,
   p, ul, ol, li,
   div, span, b, strong, i, em,
   .contact-info, .email, .link,
   .left-column, .left-column-sans,
-  .right-column,
-  .section-content {
+  .right-column, .section-content {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
 
-  /* Override section gaps - keep only for section h2 spacing */
-  section {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
+  section { margin-top: 0 !important; margin-bottom: 0 !important; }
 
-  /* Header text sizing */
   h1.name {
     font-size: 24pt !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    color: #000 !important;
+    margin: 0 !important;
   }
 
-  .contact-info,
-  .email,
-  .link {
-    font-size: var(--left-font-size) !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  a {
-    color: black !important;
-    text-decoration: none !important;
+  .contact-info, .email, .link {
+    font-size: var(--body-size) !important;
+    color: #333 !important;
+    margin: 0 !important;
   }
 }

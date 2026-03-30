@@ -1,45 +1,81 @@
+/* ================================================================
+   SPLASH PAGE (index.html)
+   Requires: tokens.css, fonts.css, gen.css
+   ================================================================ */
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 .bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: 0;
 }
 
+/* ── Logo box ─────────────────────────────────────────────── */
 .logo {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(7vw + 7vh);
-  height: calc(7vw + 7vh);
-  aspect-ratio: 1/1;
-  background-color: #cccccc03;
-  backdrop-filter: blur(calc(1.5vw + 0.5vh)) contrast(5) saturate(2);
-  -webkit-backdrop-filter: blur(calc(1.5vw + 0.5vh)) contrast(5) saturate(2);
+  width: calc(8vw + 8vh);
+  height: calc(8vw + 8vh);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-lg);
+  cursor: none;
   z-index: 1;
+  transition: background var(--t-base), box-shadow var(--t-base);
+
+  /* liquid glass */
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(28px) saturate(1.8) brightness(1.1);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8) brightness(1.1);
+  border: 1px solid var(--glass-border);
+  border-top-color: var(--glass-highlight);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 var(--glass-highlight),
+    0 0 0 1px var(--clr-accent-dim);
 }
 
 .logo:hover {
-  cursor: none;
-  background-color: #0000cc;
+  background: rgba(0, 82, 255, 0.12);
+  border-color: var(--clr-accent);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 var(--glass-highlight),
+    var(--glow);
 }
 
 .logo p {
   position: absolute;
-  top: 80%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  font-family: "Kings", cursive;
-  font-size: calc(0.32 * (5vw + 5vh));
-  color: #0000cc;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: calc(0.28 * (5vw + 5vh));
+  color: var(--clr-accent-light);
   margin: 0;
+  white-space: nowrap;
+  transition: color var(--t-base), text-shadow var(--t-base);
+  user-select: none;
 }
 
 .logo:hover p {
-  color: #cccccc;
+  color: var(--clr-on-accent);
+  text-shadow: 0 0 20px var(--clr-accent-glow);
 }
 
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .logo {
+    width: min(60vw, 60vh);
+    height: min(60vw, 60vh);
+  }
+}
