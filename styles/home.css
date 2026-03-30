@@ -36,7 +36,7 @@ html, body {
   transition: backdrop-filter var(--t-slow), background var(--t-slow),
               border-color var(--t-slow);
 
-  /* liquid glass */
+  
   background: rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(28px) saturate(1.6) brightness(0.82);
   -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(0.82);

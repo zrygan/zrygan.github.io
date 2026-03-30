@@ -65,7 +65,7 @@ a:hover {
   cursor: pointer;
   transition: color var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
 
-  /* liquid glass */
+  
   background: rgba(7, 7, 15, 0.78);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
