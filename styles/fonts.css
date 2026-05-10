@@ -1,13 +1,7 @@
-/* ================================================================
-   FONTS — single source of truth for typefaces.
-   To change fonts: update the @import URL below and the
-   --font-* variables in tokens.css.
-   ================================================================
-
+/* 
    Current stack:
-     Serif   → EB Garamond   (headings, logo, graffiti)
-     Sans    → Inter          (body text, UI — Helvetica alternative)
-     Mono    → Fragment Mono  (code, timestamps — Helvetica-adjacent mono)
+     Sans: Inter          (body text, UI — Helvetica alternative)
+     Mono: Fragment Mono  (code, timestamps — Helvetica-adjacent mono)
 */
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Fragment+Mono:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');

@@ -16,7 +16,7 @@ body {
 .blogs-header { margin-bottom: var(--sp-10); }
 
 .blogs-header .post-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.9rem;
   font-weight: 400;
   font-style: italic;
@@ -129,7 +129,7 @@ body {
 .blog-entry:last-child { border-bottom: none; }
 
 .blog-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.3rem;
   font-weight: 500;
   margin-bottom: var(--sp-2);
@@ -162,7 +162,7 @@ body {
 .blog-excerpt[open] summary { color: var(--clr-accent-light); }
 
 .blog-excerpt p {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1rem;
   color: var(--clr-text-muted);
   line-height: 1.6;
