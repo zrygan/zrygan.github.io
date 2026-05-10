@@ -47,7 +47,7 @@ a:hover {
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
   border-top-color: var(--glass-highlight);
-  color: var(--clr-text-muted);
+  color: var(--clr-text);
   box-shadow: var(--glow-sm);
 }
 
@@ -84,7 +84,7 @@ a:hover {
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
   border-top-color: var(--glass-highlight);
-  color: var(--clr-text-muted);
+  color: var(--clr-text);
   box-shadow: var(--glow-sm);
   position: fixed;
   bottom: var(--sp-5);

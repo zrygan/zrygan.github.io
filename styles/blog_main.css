@@ -13,7 +13,6 @@ body {
   --glass-border: rgba(22, 35, 62, 0.18);
   --glass-highlight: rgba(255, 255, 255, 0.95);
   --clr-text: var(--blog-text);
-  --clr-text-muted: var(--blog-muted);
   --clr-border-accent: var(--blog-border);
 
   background: var(--blog-page-bg);
@@ -65,7 +64,7 @@ body {
 
 .search-icon {
   margin-left: var(--sp-3);
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   font-size: 0.82rem;
   flex-shrink: 0;
 }
@@ -80,12 +79,12 @@ body {
   font-size: 0.88rem;
   color: var(--clr-text);
 }
-.search-input::placeholder { color: var(--clr-text-muted); }
+.search-input::placeholder { color: var(--cv-text); }
 
 .clear-search-button {
   background: none;
   border: none;
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   cursor: pointer;
   padding: 0 var(--sp-3);
   font-size: 0.82rem;
@@ -108,7 +107,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-top-color: var(--glass-highlight);
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
 }
 .search-button:hover {
   color: var(--clr-accent);
@@ -124,7 +123,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   border-bottom: 1px solid var(--clr-border-accent);
   padding-bottom: var(--sp-2);
   margin-bottom: var(--sp-6);
@@ -151,7 +150,7 @@ body {
 .blog-date {
   font-family: var(--font-sans);
   font-size: 0.78rem;
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   margin-bottom: var(--sp-2);
 }
 
@@ -162,7 +161,7 @@ body {
 .blog-excerpt summary {
   list-style: none;
   cursor: pointer;
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   font-family: var(--font-sans);
   font-size: 0.78rem;
   transition: color var(--t-fast);
@@ -175,7 +174,7 @@ body {
 .blog-excerpt p {
   font-family: var(--font-sans);
   font-size: 1rem;
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   line-height: 1.6;
   margin-top: var(--sp-2);
   padding-left: var(--sp-4);
@@ -185,14 +184,14 @@ body {
 .blog-keywords {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   letter-spacing: 0.02em;
 }
 
 .loading, .no-results {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   text-align: center;
   padding: var(--sp-16);
   font-style: italic;
@@ -205,7 +204,7 @@ body {
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--clr-border-accent);
   border-top-color: rgba(255, 255, 255, 0.97);
-  color: var(--clr-text-muted);
+  color: var(--cv-text);
   box-shadow: 0 8px 24px rgba(0, 82, 255, 0.12);
 }
 
