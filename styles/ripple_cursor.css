@@ -9,7 +9,7 @@
   transform: translate(-50%, -50%);
   z-index: 9999;
   background-color: var(--clr-accent);
-  mix-blend-mode: screen;
+  mix-blend-mode: exclusion;
 }
 
 .ripple {

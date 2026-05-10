@@ -8,16 +8,16 @@
   --glass-highlight:   rgba(255, 255, 255, 0.16);
   --glass-blur:        blur(24px) saturate(1.8) brightness(1.05);
 
-  --clr-accent:        #577CFF;
+  --clr-accent:        #2957ff;
   --clr-accent-compl:  #ffad00;
-  --clr-accent-dim:    #577CFF24;
-  --clr-accent-glow:   #577CFF61;
-  --clr-accent-light:  #677cff;
-  --clr-border-accent: #577CFF38;
+  --clr-accent-dim:    #2957ff24;
+  --clr-accent-glow:   #2957ff61;
+  --clr-accent-light:  #577CFF;
+  --clr-border-accent: #2957ff38;
 
   --clr-text:          #dde0f0;
   --clr-text-muted:    #6070a0;
-  --clr-on-accent:     #ffffff;
+  --clr-on-accent:     #ffffff;   
 
   --font-sans:  'Inter', Helvetica, Arial, sans-serif;
   --font-mono:  'Fragment Mono', 'Courier New', monospace;

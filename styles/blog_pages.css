@@ -2,8 +2,7 @@
   --blog-page-bg: #ffffff;
   --blog-surface: #ffffff;
   --blog-surface-soft: #ffffff;
-  --blog-text: #16233e;
-  --blog-muted: #4f6289;
+  --blog-text: #000000;
   --blog-border: rgba(0, 82, 255, 0.26);
 }
 
@@ -13,7 +12,6 @@ body {
   --glass-border: rgba(22, 35, 62, 0.18);
   --glass-highlight: rgba(255, 255, 255, 0.95);
   --clr-text: var(--blog-text);
-  --clr-text-muted: var(--blog-muted);
   --clr-border-accent: var(--blog-border);
 
   background: var(--blog-page-bg);
@@ -49,7 +47,7 @@ h1.post-title {
 .post-meta {
   font-family: var(--font-sans);
   font-size: 0.8rem;
-  color: var(--clr-text-muted);
+  color: var(--blog-text);
 }
 .post-date, .post-tags { margin: var(--sp-1) 0; }
 
@@ -73,7 +71,7 @@ h3.chapter-title {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--clr-text-muted);
+  color: var(--blog-text);
   border-bottom: 1px solid var(--clr-border-accent);
   padding-bottom: var(--sp-2);
   margin-bottom: var(--sp-4);
@@ -90,7 +88,7 @@ h3.chapter-title {
   width: 200px;
   flex-shrink: 0;
   text-align: right;
-  color: var(--clr-text-muted);
+  color: var(--blog-text);
   font-family: var(--font-sans);
   font-style: italic;
   font-size: 0.88rem;
@@ -121,7 +119,7 @@ blockquote {
   border-left: 2px solid var(--clr-accent);
   padding-left: var(--sp-4);
   margin: var(--sp-4) 0;
-  color: var(--clr-text-muted);
+  color: var(--blog-text);
   font-style: italic;
 }
 
@@ -135,7 +133,7 @@ a:hover { color: var(--clr-accent-compl); text-decoration: underline; }
 code {
   font-family: var(--font-mono);
   font-size: 0.88em;
-  background: var(--clr-accent-dim);
+  background: var(--blog-text);
   color: var(--clr-accent-light);
   padding: var(--sp-1) var(--sp-2);
   border-radius: var(--r-sm);
@@ -196,7 +194,7 @@ pre code { background: transparent; padding: 0; color: var(--clr-text); }
   float: right;
   font-size: 1.4rem;
   line-height: 1;
-  color: var(--clr-text-muted);
+  color: var(--blog-text);
   cursor: pointer;
   transition: color var(--t-fast);
 }
@@ -228,7 +226,7 @@ pre code { background: transparent; padding: 0; color: var(--clr-text); }
 .modal-content td:first-child {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--clr-text-muted);
+  color: var(--blog-text);
   white-space: nowrap;
   padding-right: var(--sp-5);
 }
@@ -254,7 +252,7 @@ pre code { background: transparent; padding: 0; color: var(--clr-text); }
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--clr-border-accent);
   border-top-color: rgba(255, 255, 255, 0.97);
-  color: var(--clr-text-muted);
+  color: var(--blog-text);
   box-shadow: 0 8px 24px rgba(0, 82, 255, 0.12);
 }
 
