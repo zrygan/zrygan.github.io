@@ -37,19 +37,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ── Liquid glass utility class ───────────────────────────── */
-/* Apply .glass to any element for the frosted-glass surface.  */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-top-color: var(--glass-highlight);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 var(--glass-highlight);
-}
-
 /* ── Shared nav button appearance ─────────────────────────── */
 /* Positioning is handled by .button-container or page CSS.    */
 .back-home-btn,

@@ -103,8 +103,6 @@ h3.chapter-title {
   display: block;
 }
 
-.images-w { max-width: 50%; }
-
 /* ── Inline elements ──────────────────────────────────────── */
 blockquote {
   border-left: 2px solid var(--clr-accent);

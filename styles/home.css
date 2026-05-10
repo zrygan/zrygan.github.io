@@ -135,6 +135,14 @@ html, body {
   flex-direction: column;
 }
 
+#section-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: auto;
+}
+
 /* ── Menu nav buttons ─────────────────────────────────────── */
 .btn {
   display: block;
@@ -156,9 +164,8 @@ html, body {
   text-shadow: 0 0 24px var(--clr-accent-glow), 0 0 8px var(--clr-accent);
 }
 
-/* ── Info strip (links + times) ───────────────────────────── */
 .small-box {
-  margin-top: auto;
+  margin-top: var(--sp-4);
   display: flex;
   flex-direction: column;
   gap: var(--sp-3);
@@ -187,7 +194,6 @@ html, body {
 }
 .mytime { color: var(--clr-accent-light); }
 
-/* ── Logo ─────────────────────────────────────────────────── */
 .logo-box {
   display: flex;
   height: 35%;
@@ -214,7 +220,6 @@ html, body {
   cursor: none;
 }
 
-/* ── Event / news table ───────────────────────────────────── */
 .event-table {
   width: 100%;
   border-collapse: collapse;
@@ -249,7 +254,6 @@ html, body {
 .event-table tbody tr { transition: background var(--t-fast); }
 .event-table tbody tr:hover { background: var(--clr-accent-dim); }
 
-/* ── Mobile ───────────────────────────────────────────────── */
 @media (max-width: 768px) {
   html, body { overflow: auto !important; height: auto; }
 
@@ -264,10 +268,9 @@ html, body {
     min-height: 100dvh;
   }
 
-  /* Menu slides to top on mobile */
   .right-box {
     width: 100%;
-    flex-direction: column-reverse; /* logo first, then menu */
+    flex-direction: column-reverse; 
     order: -1;
   }
 
@@ -290,7 +293,7 @@ html, body {
   }
 
   .small-box {
-    display: none; /* hide clocks on mobile */
+    display: none; 
   }
 
   .logo-box {
@@ -307,7 +310,6 @@ html, body {
     padding: 0;
   }
 
-  /* Content panel becomes full width */
   .display-box {
     width: 100%;
     height: auto;
