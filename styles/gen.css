@@ -1,19 +1,11 @@
-/* ================================================================
-   GLOBAL BASE — shared by every page.
-   Requires: tokens.css, fonts.css
-   ================================================================ */
+::selection      { background: var(--clr-accent-compl); color: var(--clr-bg); }
+::-moz-selection { background: var(--clr-accent-compl); color: var(--clr-bg); }
 
-/* ── Selection ────────────────────────────────────────────── */
-::selection      { background: var(--clr-accent); color: var(--clr-on-accent); }
-::-moz-selection { background: var(--clr-accent); color: var(--clr-on-accent); }
-
-/* ── Scrollbar ────────────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: var(--clr-bg); }
 ::-webkit-scrollbar-thumb { background: var(--clr-border-accent); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--clr-accent); }
 
-/* ── Reset ────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
@@ -26,7 +18,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Links ────────────────────────────────────────────────── */
 a {
   color: var(--clr-accent-light);
   text-decoration: none;
@@ -37,8 +28,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ── Shared nav button appearance ─────────────────────────── */
-/* Positioning is handled by .button-container or page CSS.    */
 .back-home-btn,
 .back-to-top-btn,
 .contents-btn {
@@ -80,7 +69,6 @@ a:hover {
 
 .back-to-top-btn { display: none; }
 
-/* References button — always fixed bottom-right */
 .references-btn {
   font-family: var(--font-sans);
   font-size: 0.78rem;
@@ -111,7 +99,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* ── Button container (fixed top-right group) ─────────────── */
 .button-container {
   position: fixed;
   top: var(--sp-5);

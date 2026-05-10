@@ -1,4 +1,22 @@
+:root {
+  --cv-page-bg: #ffffff;
+  --cv-surface: #ffffff;
+  --cv-surface-soft: #ffffff;
+  --cv-text: #16233e;
+  --cv-muted: #4f6289;
+  --cv-border: rgba(0, 82, 255, 0.26);
+}
+
 body {
+  --clr-bg-elevated: var(--cv-surface-soft);
+  --glass-bg: rgba(255, 255, 255, 0.94);
+  --glass-border: rgba(22, 35, 62, 0.18);
+  --glass-highlight: rgba(255, 255, 255, 0.97);
+  --clr-text: var(--cv-text);
+  --clr-text-muted: var(--cv-muted);
+  --clr-border-accent: var(--cv-border);
+
+  background: var(--cv-page-bg);
   font-family: var(--font-sans);
   padding-top: 7%;
   padding-bottom: 7%;
@@ -44,13 +62,12 @@ h1.name strong { font-weight: 700; }
 .email, .link { margin: var(--sp-1) 0; }
 
 a {
-  color: var(--clr-accent-light);
+  color: var(--clr-accent);
   text-decoration: none;
   transition: color var(--t-fast);
 }
-a:hover { color: var(--clr-on-accent); text-decoration: underline; }
+a:hover { color: var(--clr-accent-compl); text-decoration: underline; }
 
-/* ── Sections ─────────────────────────────────────────────── */
 section { display: flex; flex-direction: column; }
 
 section h2 {
@@ -67,7 +84,6 @@ section h2 {
   margin-left: calc(var(--cv-left-col) + var(--cv-col-gap));
 }
 
-/* ── Two-column layout ────────────────────────────────────── */
 .section-content {
   position: relative;
   display: block;
@@ -119,7 +135,6 @@ section h2 {
   margin-bottom: var(--sp-1);
 }
 
-/* ── Contents modal ───────────────────────────────────────── */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -176,15 +191,33 @@ section h2 {
 .contents-list li { margin-bottom: var(--sp-2); line-height: 1.4; }
 
 .contents-list a { color: var(--clr-accent-light); font-size: 0.88rem; }
-.contents-list a:hover { color: var(--clr-on-accent); }
+.contents-list a:hover { color: var(--clr-accent-compl); }
 
-/* ── Animation ────────────────────────────────────────────── */
+.back-home-btn,
+.back-to-top-btn,
+.contents-btn,
+.references-btn {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--clr-border-accent);
+  border-top-color: rgba(255, 255, 255, 0.97);
+  color: var(--clr-text-muted);
+  box-shadow: 0 8px 24px rgba(0, 82, 255, 0.12);
+}
+
+.back-home-btn:hover,
+.back-to-top-btn:hover,
+.contents-btn:hover,
+.references-btn:hover {
+  color: var(--clr-accent);
+  border-color: var(--clr-accent);
+  box-shadow: 0 10px 28px rgba(0, 82, 255, 0.18);
+}
+
 @keyframes modalFadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Mobile ───────────────────────────────────────────────── */
 @media (max-width: 768px) {
   body { padding: var(--sp-8) var(--sp-4); }
 
@@ -216,9 +249,6 @@ section h2 {
   .button-container { top: var(--sp-3); right: var(--sp-3); }
 }
 
-/* ================================================================
-   PRINT — overrides everything above for clean paper output.
-   ================================================================ */
 @media print {
   :root {
     --print-padding:  6pt;

@@ -1,9 +1,23 @@
-/* ================================================================
-   BLOG HOME PAGE (pages/blogs.html)
-   Requires: tokens.css, fonts.css, gen.css
-   ================================================================ */
+:root {
+  --blog-page-bg: #ffffff;
+  --blog-surface: #ffffff;
+  --blog-surface-soft: #ffffff;
+  --blog-text: #16233e;
+  --blog-muted: #4f6289;
+  --blog-border: rgba(0, 82, 255, 0.26);
+}
 
 body {
+  --clr-bg-elevated: var(--blog-surface-soft);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(22, 35, 62, 0.18);
+  --glass-highlight: rgba(255, 255, 255, 0.95);
+  --clr-text: var(--blog-text);
+  --clr-text-muted: var(--blog-muted);
+  --clr-border-accent: var(--blog-border);
+
+  background: var(--blog-page-bg);
+  color: var(--clr-text);
   padding: var(--sp-16) var(--sp-8);
 }
 
@@ -12,7 +26,6 @@ body {
   margin: 0 auto;
 }
 
-/* ── Page header ──────────────────────────────────────────── */
 .blogs-header { margin-bottom: var(--sp-10); }
 
 .blogs-header .post-title {
@@ -24,7 +37,6 @@ body {
   margin: 0 0 var(--sp-6);
 }
 
-/* ── Search bar ───────────────────────────────────────────── */
 .search-container {
   display: flex;
   gap: var(--sp-3);
@@ -99,12 +111,11 @@ body {
   color: var(--clr-text-muted);
 }
 .search-button:hover {
-  color: var(--clr-on-accent);
+  color: var(--clr-accent);
   border-color: var(--clr-accent);
   box-shadow: var(--glow-sm);
 }
 
-/* ── Blog list ────────────────────────────────────────────── */
 .blogs-content-section { margin-top: var(--sp-10); }
 
 .blogs-section-title {
@@ -134,8 +145,8 @@ body {
   font-weight: 500;
   margin-bottom: var(--sp-2);
 }
-.blog-title a { color: var(--clr-text); transition: color var(--t-fast); }
-.blog-title a:hover { color: var(--clr-accent-light); text-decoration: none; }
+.blog-title a { color: var(--clr-accent); transition: color var(--t-fast); }
+.blog-title a:hover { color: var(--clr-accent-compl); text-decoration: none; }
 
 .blog-date {
   font-family: var(--font-sans);
@@ -178,7 +189,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* ── States ───────────────────────────────────────────────── */
 .loading, .no-results {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -188,7 +198,26 @@ body {
   font-style: italic;
 }
 
-/* ── Mobile ───────────────────────────────────────────────── */
+.back-home-btn,
+.back-to-top-btn,
+.contents-btn,
+.references-btn {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--clr-border-accent);
+  border-top-color: rgba(255, 255, 255, 0.97);
+  color: var(--clr-text-muted);
+  box-shadow: 0 8px 24px rgba(0, 82, 255, 0.12);
+}
+
+.back-home-btn:hover,
+.back-to-top-btn:hover,
+.contents-btn:hover,
+.references-btn:hover {
+  color: var(--clr-accent);
+  border-color: var(--clr-accent);
+  box-shadow: 0 10px 28px rgba(0, 82, 255, 0.18);
+}
+
 @media (max-width: 768px) {
   body { padding: var(--sp-8) var(--sp-4); }
   .search-container { flex-direction: column; }

@@ -1,36 +1,27 @@
-/* ================================================================
-   DESIGN TOKENS — edit here to retheme the entire site.
-   Every colour, font, space, and radius is defined once here.
-   ================================================================ */
 :root {
-  /* ── Backgrounds ──────────────────────────────────────────── */
   --clr-bg:            #07070f;
   --clr-bg-elevated:   #0d0d1c;
 
-  /* ── Liquid glass surfaces ────────────────────────────────── */
   --glass-bg:          rgba(255, 255, 255, 0.042);
   --glass-bg-hover:    rgba(255, 255, 255, 0.075);
   --glass-border:      rgba(255, 255, 255, 0.09);
   --glass-highlight:   rgba(255, 255, 255, 0.16);
   --glass-blur:        blur(24px) saturate(1.8) brightness(1.05);
 
-  /* ── Accent (blue) ────────────────────────────────────────── */
   --clr-accent:        #0052ff;
+  --clr-accent-compl:  #ffad00;
   --clr-accent-dim:    rgba(0, 82, 255, 0.14);
   --clr-accent-glow:   rgba(0, 82, 255, 0.38);
   --clr-accent-light:  #5588ff;
   --clr-border-accent: rgba(0, 82, 255, 0.22);
 
-  /* ── Text ─────────────────────────────────────────────────── */
   --clr-text:          #dde0f0;
   --clr-text-muted:    #6070a0;
   --clr-on-accent:     #ffffff;
 
-  /* ── Typography ───────────────────────────────────────────── */
   --font-sans:  'Inter', Helvetica, Arial, sans-serif;
   --font-mono:  'Fragment Mono', 'Courier New', monospace;
 
-  /* ── Spacing (base 4 px) ──────────────────────────────────── */
   --sp-1:  0.25rem;   /*  4 px */
   --sp-2:  0.5rem;    /*  8 px */
   --sp-3:  0.75rem;   /* 12 px */
@@ -42,23 +33,19 @@
   --sp-12: 3rem;      /* 48 px */
   --sp-16: 4rem;      /* 64 px */
 
-  /* ── Radii ────────────────────────────────────────────────── */
   --r-sm:  3px;
   --r-md:  8px;
   --r-lg: 16px;
   --r-xl: 24px;
 
-  /* ── Transitions ──────────────────────────────────────────── */
   --t-fast: 120ms ease;
   --t-base: 240ms ease;
   --t-slow: 420ms ease;
 
-  /* ── Glows ────────────────────────────────────────────────── */
   --glow-sm: 0 0  8px var(--clr-accent-glow);
   --glow:    0 0 18px var(--clr-accent-glow);
   --glow-lg: 0 0 36px var(--clr-accent-glow);
 
-  /* ── Layout ───────────────────────────────────────────────── */
   --max-width:   900px;
   --cv-left-col: 200px;
   --cv-col-gap:   30px;
