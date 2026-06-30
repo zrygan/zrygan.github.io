@@ -32,3 +32,9 @@
     opacity: 0;
   }
 }
+
+@media print {
+  .cursor,
+  .ripple,
+  #ripple-svg-filter { display: none !important; }
+}

@@ -56,6 +56,15 @@
   style.innerHTML = 'a, a:hover, a:active, button, button:hover, button:active { cursor: none !important; }';
   document.head.appendChild(style);
 
+  window.addEventListener('beforeprint', () => {
+    document.body.style.cursor = '';
+    cursor.style.display = 'none';
+  });
+  window.addEventListener('afterprint', () => {
+    document.body.style.cursor = 'none';
+    cursor.style.display = '';
+  });
+
   let lastRippleTime = 0;
   document.addEventListener('click', (e) => {
     const now = Date.now();

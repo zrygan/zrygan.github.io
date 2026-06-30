@@ -4,6 +4,10 @@
   --cv-surface-soft: #ffffff;
   --cv-text: #16233e;
   --cv-border: rgba(0, 82, 255, 0.26);
+
+  --cv-section-col: 150px;
+  --cv-entry-col:   160px;
+  --cv-gap:          20px;
 }
 
 body {
@@ -30,16 +34,21 @@ body {
   margin: 0 auto;
 }
 
-header {
-  text-align: left;
-  padding-left: calc(var(--cv-left-col) + var(--cv-col-gap));
-  margin-bottom: var(--sp-8);
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-8);
+  margin-bottom: var(--sp-4);
+}
+
+.header-name { flex: 1; }
 
 h1.name {
   font-family: var(--font-sans);
@@ -50,14 +59,16 @@ h1.name {
 }
 h1.name strong { font-weight: 700; }
 
-.contact-info {
+.header-contact {
+  text-align: right;
   font-family: var(--font-sans);
   font-size: 0.88rem;
   color: var(--cv-text);
-  margin-top: var(--sp-2);
 }
 
-.email, .link { margin: var(--sp-1) 0; }
+.contact-item { margin-bottom: var(--sp-1); }
+
+.clabel { font-weight: 600; }
 
 a {
   color: var(--clr-accent);
@@ -66,73 +77,107 @@ a {
 }
 a:hover { color: var(--clr-accent-compl); text-decoration: underline; }
 
-section { display: flex; flex-direction: column; }
+/* SECTION LAYOUT */
+section { display: block; }
 
-section h2 {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--clr-accent-light);
-  border-bottom: 1px solid var(--clr-border-accent);
-  padding-bottom: var(--sp-2);
-  margin-bottom: var(--sp-4);
-  margin-top: var(--sp-8);
-  margin-left: calc(var(--cv-left-col) + var(--cv-col-gap));
-}
-
-.section-content {
-  position: relative;
+.section-row {
   display: block;
-  margin-bottom: var(--sp-4);
-  padding-left: calc(var(--cv-left-col) + var(--cv-col-gap));
+  margin-top: var(--sp-8);
 }
 
-.left-column {
-  position: absolute;
-  left: 0;
-  width: var(--cv-left-col);
-  text-align: right;
-  color: var(--cv-text);
-  font-family: var(--font-mono);
+.section-label {
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  margin-bottom: var(--sp-2);
+}
+
+.section-label h2 {
+  font-family: var(--font-sans);
   font-size: 0.82rem;
-  padding-right: var(--cv-col-gap);
-  line-height: 1.5;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--clr-accent-light);
+  margin: 0;
 }
 
-.left-column-sans {
-  position: absolute;
-  left: 0;
-  width: var(--cv-left-col);
+.section-entries {
+  width: 100%;
+  border-top: 1px solid var(--clr-border-accent);
+  padding-top: var(--sp-4);
+}
+
+/* ENTRY LAYOUT */
+.entry-row {
+  display: flex;
+  margin-bottom: var(--sp-4);
+}
+
+.entry-date {
+  width: var(--cv-entry-col);
+  flex-shrink: 0;
   text-align: right;
+  padding-right: var(--cv-gap);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   color: var(--cv-text);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.entry-label {
   font-family: var(--font-sans);
   font-size: 0.88rem;
-  padding-right: var(--cv-col-gap);
-  line-height: 1.5;
+  font-style: normal;
+  word-break: normal;       /* reset .entry-date's break-word so hyphens takes over */
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  overflow-wrap: anywhere;  /* last-resort fallback only if no hyphen point exists */
 }
 
-.right-column { display: block; }
+/* Hide the Firefox print footer on screen; only shown via @supports rule in print */
+.print-footer { display: none; }
 
-.right-column p {
+.entry-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.entry-content p {
   margin: 0 0 var(--sp-2) 0;
   font-size: 0.92rem;
   color: var(--clr-text);
 }
 
-.right-column ul,
-.right-column ol {
+.entry-content ul,
+.entry-content ol {
   margin: 0 0 var(--sp-2) 0;
   padding-left: var(--sp-5);
 }
 
-.right-column li {
+.entry-content li {
   font-size: 0.92rem;
   color: var(--clr-text);
   margin-bottom: var(--sp-1);
 }
 
+.entry-note { margin-bottom: var(--sp-4); }
+
+/* Publications numbered list */
+.pub-list {
+  margin: 0;
+  padding-left: var(--sp-5);
+}
+
+.pub-list li {
+  font-size: 0.92rem;
+  color: var(--clr-text);
+  margin-bottom: var(--sp-4);
+  line-height: 1.5;
+}
+
+/* MODAL */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -181,16 +226,15 @@ section h2 {
 .close-modal:hover { color: var(--clr-accent-light); }
 
 .contents-list { margin-top: var(--sp-5); }
-
 .contents-list ol {
   list-style-type: decimal;
   padding-left: var(--sp-5);
 }
 .contents-list li { margin-bottom: var(--sp-2); line-height: 1.4; }
-
 .contents-list a { color: var(--clr-accent-light); font-size: 0.88rem; }
 .contents-list a:hover { color: var(--clr-accent-compl); }
 
+/* BUTTONS */
 .back-home-btn,
 .back-to-top-btn,
 .contents-btn,
@@ -216,55 +260,67 @@ section h2 {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
   body { padding: var(--sp-8) var(--sp-4); }
 
   header {
-    padding-left: 0;
-    margin-bottom: var(--sp-6);
-  }
-
-  section h2 { margin-left: 0; }
-
-  .section-content {
-    padding-left: 0;
-    position: static;
-    display: flex;
     flex-direction: column;
+    gap: var(--sp-4);
   }
 
-  .left-column,
-  .left-column-sans {
-    position: static;
+  .header-contact { text-align: left; }
+
+  .section-row { margin-top: var(--sp-6); }
+
+  .entry-row { flex-direction: column; }
+
+  .entry-date {
     width: 100%;
     text-align: left;
     padding-right: 0;
     margin-bottom: var(--sp-1);
     font-size: 0.78rem;
-    color: var(--cv-text);
   }
 
   .button-container { top: var(--sp-3); right: var(--sp-3); }
 }
 
-@media print {
-  :root {
-    --print-padding:  6pt;
-    --left-col-w:   100pt;
-    --left-col-gap:  18pt;
-    --heading-size:  14pt;
-    --body-size:     10pt;
-    --line-height:    1.5;
-    --section-gap:    8pt;
+/* PRINT */
+@page {
+  margin: 0.75in 1in 0.9in 1in;
+  @bottom-center {
+    content: counter(page) " of " counter(pages);
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    color: #666;
   }
+}
 
-  #back-to-top,
-  .contents-btn,
+/* Firefox doesn't support @page margin boxes (@bottom-center).
+   Show an HTML footer only in Firefox via the -moz-appearance support flag. */
+@supports (-moz-appearance: none) {
+  @media print {
+    .print-footer {
+      display: block;
+      position: fixed;
+      bottom: 0.32in;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 8pt;
+      color: #555;
+    }
+  }
+}
+
+@media print {
+  /* Hide the HTML footer in Chrome/Edge/Safari — @page handles it there */
+  .print-footer { display: none; }
+
   .button-container,
   .modal,
-  .modal-overlay,
-  header a,
-  .container header .link {
+  .modal-overlay {
     display: none !important;
   }
 
@@ -272,89 +328,133 @@ section h2 {
     max-width: 100% !important;
     color: #000 !important;
     background: #fff !important;
-    font-family: var(--font-sans) !important;
-    font-size: var(--body-size) !important;
-    line-height: var(--line-height) !important;
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
     margin: 0 !important;
-    padding: var(--print-padding) !important;
+    padding: 0 !important;
   }
 
   a { color: #000 !important; text-decoration: none !important; }
 
   .container { width: 100% !important; margin: 0 !important; padding: 0 !important; }
 
-  section h2 {
-    font-size: var(--heading-size) !important;
-    color: #000 !important;
-    border-bottom-color: #999 !important;
-    margin-top: var(--section-gap) !important;
-    margin-left: calc(var(--left-col-w) + var(--left-col-gap)) !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-  }
-
+  /* HEADER — keep flex, it works reliably for two-column header */
   header {
-    padding-left: calc(var(--left-col-w) + var(--left-col-gap)) !important;
-  }
-
-  .section-content {
     display: flex !important;
-    margin-bottom: var(--section-gap) !important;
-    padding-left: 0 !important;
-    position: static !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 18pt !important;
+    margin-bottom: 5pt !important;
+    border-bottom: 0.75pt solid #000 !important;
+    padding-bottom: 4pt !important;
   }
 
-  .left-column,
-  .left-column-sans {
-    width: var(--left-col-w) !important;
-    text-align: right !important;
-    font-size: var(--body-size) !important;
-    margin-right: var(--left-col-gap) !important;
-    position: static !important;
-    padding-right: 0 !important;
-    color: #333 !important;
-    font-family: var(--font-sans) !important;
-  }
-
-  .right-column { flex: 1 !important; }
-
-  .right-column p,
-  .right-column li,
-  .right-column b,
-  .right-column strong,
-  .right-column i,
-  .right-column em,
-  .right-column span,
-  .right-column div,
-  ul, ol, li {
-    font-size: var(--body-size) !important;
-    line-height: var(--line-height) !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    color: #000 !important;
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  p, ul, ol, li,
-  div, span, b, strong, i, em,
-  .contact-info, .email, .link,
-  .left-column, .left-column-sans,
-  .right-column, .section-content {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  section { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .header-name { flex: 1 !important; }
 
   h1.name {
-    font-size: 24pt !important;
+    font-size: 20pt !important;
+    font-weight: 400 !important;
+    color: #000 !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  h1.name strong { font-weight: 700 !important; }
+
+  .header-contact {
+    text-align: right !important;
+    font-size: 9pt !important;
+    color: #000 !important;
+  }
+
+  .contact-item { margin-bottom: 1.5pt !important; line-height: 1.35 !important; }
+  .clabel { font-weight: 700 !important; }
+
+  /* SECTIONS — heading above the rule, content below */
+  section { margin: 0 !important; padding: 0 !important; }
+
+  .section-row {
+    display: block !important;
+    margin-top: 9pt !important;
+  }
+
+  .section-label {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    padding: 0 !important;
+    margin-bottom: 2pt !important;
+  }
+
+  .section-label h2 {
+    font-size: 9.5pt !important;
+    font-weight: 700 !important;
+    font-variant: small-caps !important;
+    letter-spacing: 0.04em !important;
     color: #000 !important;
     margin: 0 !important;
   }
 
-  .contact-info, .email, .link {
-    font-size: var(--body-size) !important;
+  .section-entries {
+    display: block !important;
+    width: 100% !important;
+    border-top: 0.75pt solid #000 !important;
+    padding-top: 3pt !important;
+  }
+
+  /* ENTRIES — same table trick so dates sit beside content */
+  .entry-row {
+    display: table !important;
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin-bottom: 5pt !important;
+  }
+
+  .entry-date {
+    display: table-cell !important;
+    width: 90pt !important;
+    vertical-align: top !important;
+    text-align: right !important;
+    padding-right: 10pt !important;
+    font-size: 8pt !important;
     color: #333 !important;
-    margin: 0 !important;
+    line-height: 1.45 !important;
+    word-break: break-word !important;
+  }
+
+  .entry-label { font-style: italic !important; font-size: 10pt !important; }
+
+  .entry-content { display: table-cell !important; vertical-align: top !important; }
+
+  .entry-content,
+  .entry-content p,
+  .entry-content li,
+  .entry-content b,
+  .entry-content strong,
+  .entry-content i,
+  .entry-content em,
+  .entry-content span {
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+    color: #000 !important;
+  }
+
+  .entry-content p { margin: 0 0 2pt 0 !important; }
+
+  .entry-content ul,
+  .entry-content ol { margin: 0 !important; padding-left: 14pt !important; }
+
+  .entry-content li { margin-bottom: 1pt !important; }
+
+  .entry-note { margin-bottom: 4pt !important; }
+
+  .pub-list { margin: 0 !important; padding-left: 14pt !important; }
+
+  .pub-list li {
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+    color: #000 !important;
+    margin-bottom: 4pt !important;
   }
 }

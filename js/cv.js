@@ -43,21 +43,32 @@ window.addEventListener("click", function (e) {
     }
 });
 
+// Firefox print footer — Chrome/Edge use @page @bottom-center instead.
+// Firefox doesn't support @page margin boxes, so we inject total-page count
+// into a position:fixed element. We can't get the *current* page number from
+// JS/CSS without full CSS Paged Media support, so we show "page N of M" where
+// N is estimated from scroll height and M is the same estimate.
+(function () {
+  let footerEl = null;
+
+  function updateFooter() {
+    if (!footerEl) footerEl = document.querySelector('.print-footer-text');
+    if (!footerEl) return;
+    // Letter paper: 11 in. @page margins: 0.75 in top + 0.9 in bottom.
+    // Use 96 px/in as the baseline screen resolution estimate.
+    const contentPerPagePx = (11 - 0.75 - 0.9) * 96;
+    const total = Math.max(1, Math.ceil(document.documentElement.scrollHeight / contentPerPagePx));
+    footerEl.textContent = `of ${total}`;
+  }
+
+  window.addEventListener('beforeprint', updateFooter);
+})();
+
+// Firefox and Edge require lang on the element itself (not just inherited from <html>)
+// for hyphens:auto to use the correct hyphenation dictionary.
 document.addEventListener("DOMContentLoaded", () => {
-  // only sections with id="ctr"
-  const sections = document.querySelectorAll("section#ctr");
-
-  sections.forEach(section => {
-    const prefix = section.dataset.prefix || "";
-    const items = section.querySelectorAll(".section-content");
-
-    items.forEach((item, idx) => {
-      const left = item.querySelector(".left-column, .left-column-sans");
-      if (left) {
-        const label = prefix ? `${prefix} ${idx + 1}.` : `${idx + 1}.`;
-        left.textContent = label;
-      }
-    });
+  document.querySelectorAll(".entry-label").forEach(el => {
+    if (!el.hasAttribute("lang")) el.setAttribute("lang", "en");
   });
 });
 
@@ -65,38 +76,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalToc = document.querySelector("#modal-toc");
   if (!modalToc) return;
 
-  // create a <ol> for the TOC
   const tocList = document.createElement("ol");
 
-  // get all section h2s
-  const sections = document.querySelectorAll("section > h2");
-  
-  sections.forEach((h2, idx) => {
-    let section = h2.parentElement;
+  document.querySelectorAll("section").forEach((section, idx) => {
+    const h2 = section.querySelector("h2");
+    if (!h2) return;
+
     if (!section.id) {
       section.id = `section-${idx + 1}`;
     }
 
-    // create TOC entry
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = `#${section.id}`;
     a.textContent = h2.textContent;
-    
-    // Add click handler to close modal when clicking on TOC links
+
     a.addEventListener("click", function() {
-      const contentsModal = document.getElementById("contents-modal");
       contentsModal.classList.remove("active");
       setTimeout(() => {
         contentsModal.style.display = "none";
       }, 500);
     });
-    
+
     li.appendChild(a);
     tocList.appendChild(li);
   });
 
   modalToc.appendChild(tocList);
 });
-
-
