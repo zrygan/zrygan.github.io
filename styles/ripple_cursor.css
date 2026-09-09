@@ -1,40 +1,134 @@
-.cursor {
+/* ── Apple Liquid Glass Magnifying Lens Cursor ─────────────── */
+.magnifier-lens {
   position: fixed;
   top: 0;
   left: 0;
-  width: 0.7em;
-  height: 0.7em;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  margin-left: -14px;
   border-radius: 50%;
+  overflow: hidden;
   pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  background-color: var(--clr-accent);
-  mix-blend-mode: exclusion;
+  z-index: 999999;
+  transform: translate3d(-9999px, -9999px, 0);
+  opacity: 0;
+  background: var(--cv-page-bg, var(--clr-bg, #07070f));
+
+  /* Apple Liquid Glass Bevel Rim & Ambient Drop Shadow */
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 4px 12px -1px rgba(0, 0, 0, 0.45),
+    0 1px 4px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1.5px rgba(0, 0, 0, 0.35);
+
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  will-change: transform;
 }
 
-.ripple {
-  position: fixed;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
+/* Cloned Magnified Content Container */
+.magnifier-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 9998;
-  animation: rippleAnim 0.9s ease-out forwards;
-  background: transparent;
-  backdrop-filter: blur(32px) contrast(48) brightness(2) saturate(3);
-  -webkit-backdrop-filter: blur(32px) contrast(48) brightness(2) saturate(3);
+  user-select: none;
+  will-change: transform;
 }
 
-@keyframes rippleAnim {
-  to {
-    transform: translate(-50%, -50%) scale(7);
-    opacity: 0;
-  }
+/* Prevent recursive magnifier lens nesting */
+.magnifier-view .magnifier-lens {
+  display: none !important;
+}
+
+/* Ensure modal displays properly inside magnified view when active */
+.magnifier-view .modal-overlay {
+  opacity: 1 !important;
+  display: flex !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+.magnifier-view .modal {
+  opacity: 1 !important;
+  display: block !important;
+  animation: none !important;
+}
+
+/* Mirror hover effects inside the magnifier view */
+.magnifier-view a.lens-hover,
+.magnifier-view .btn.lens-hover {
+  color: var(--clr-on-accent, #ffffff) !important;
+  text-shadow: 0 0 24px var(--clr-accent-glow), 0 0 8px var(--clr-accent) !important;
+}
+
+.magnifier-view .small-box a.lens-hover,
+.magnifier-view .display-box a.lens-hover {
+  color: var(--clr-accent-compl, #ffad00) !important;
+  text-decoration: underline !important;
+}
+
+.magnifier-view .event-table tbody tr.lens-hover {
+  background: var(--clr-accent-dim) !important;
+}
+
+.magnifier-view .logo-box p.lens-hover {
+  color: var(--clr-on-accent, #ffffff) !important;
+  text-shadow: 0 0 28px var(--clr-accent-glow) !important;
+}
+
+/* Mirrored text selection highlight inside magnifier view */
+::highlight(lens-selection) {
+  background-color: var(--clr-accent-compl, #ffad00);
+  color: var(--clr-bg, #07070f);
+}
+
+.magnifier-view .lens-selected {
+  background-color: var(--clr-accent-compl, #ffad00) !important;
+  color: var(--clr-bg, #07070f) !important;
+}
+
+/* 3D Curved Surface Glass Reflection Glint */
+.magnifier-glass-glint {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 26%,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.12) 35%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Interactive element hover state */
+.magnifier-lens.hovering-interactive {
+  border-color: #0a84ff;
+  box-shadow:
+    0 4px 14px -1px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(10, 132, 255, 0.65),
+    0 0 0 1px rgba(10, 132, 255, 0.7),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1.5px rgba(0, 0, 0, 0.35);
+}
+
+/* Tactile mouse press state */
+.magnifier-lens.clicking {
+  border-color: #ffffff;
 }
 
 @media print {
-  .cursor,
-  .ripple,
-  #ripple-svg-filter { display: none !important; }
+  .magnifier-lens {
+    display: none !important;
+  }
+  * {
+    cursor: auto !important;
+  }
 }

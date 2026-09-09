@@ -20,35 +20,74 @@ html, body {
 
 /* ── Left content panel ───────────────────────────────────── */
 .display-box {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70%;
   height: 100vh;
-  overflow-y: auto;
   box-sizing: border-box;
-  transition: backdrop-filter var(--t-slow), background var(--t-slow),
-              border-color var(--t-slow);
+  border-right: 1px solid var(--glass-border);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.04);
+  transition: border-color var(--t-slow), box-shadow var(--t-slow);
+}
 
-  
+/* Zoomed-in liquid glass magnified background */
+.display-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/res/u-lo-m5hUO73JvJc-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.25);
+  transform-origin: 35vw 50vh;
+  filter: blur(28px) saturate(1.6) brightness(0.82);
+  -webkit-filter: blur(28px) saturate(1.6) brightness(0.82);
+  z-index: -2;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity var(--t-slow), transform var(--t-slow);
+}
+
+/* Glass color tint overlay & ambient blur */
+.display-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(28px) saturate(1.6) brightness(0.82);
   -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(0.82);
-  border-right: 1px solid var(--glass-border);
-  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.04);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity var(--t-slow);
 }
 
 .display-box.empty {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  background: transparent;
   border-right-color: transparent;
   box-shadow: none;
 }
 
+.display-box.empty::before {
+  opacity: 0;
+  transform: scale(1);
+}
+
+.display-box.empty::after {
+  opacity: 0;
+}
+
 /* ── Scrollable content area ──────────────────────────────── */
 .content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -130,6 +169,7 @@ html, body {
   flex-direction: column;
 }
 
+.section-nav,
 #section-nav {
   display: flex;
   flex-direction: column;
@@ -313,6 +353,11 @@ html, body {
     padding-top: var(--sp-6);
     border-right: none;
     border-top: 1px solid var(--glass-border);
+  }
+
+  .display-box::before {
+    transform-origin: 50% 50%;
+    height: 100%;
   }
 
   .content {
