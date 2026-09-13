@@ -70,16 +70,15 @@
     let rectTop = 0;
     let lastHoveredClone = null;
 
-    // Cache target source bounding rect to eliminate layout thrashing on mousemove
+    let cloneNodesMap = [];
+
+    // Cache target source bounding rect to eliminate layout thrashing
     function updateRect() {
       if (!targetSource) targetSource = getSourceElement();
       if (targetSource) {
         const rect = targetSource.getBoundingClientRect();
         rectLeft = rect.left;
         rectTop = rect.top;
-        if (currentClone && Math.abs(currentClone.offsetWidth - rect.width) > 1) {
-          currentClone.style.width = `${rect.width}px`;
-        }
       }
     }
 
@@ -95,14 +94,16 @@
       }
     }
 
-    // Tag matching elements with IDs for hover and interaction synchronization
+    // Tag matching elements with IDs for fast O(1) hover and interaction synchronization
     function tagElements(src, clone) {
       const srcAll = src.querySelectorAll('*');
       const cloneAll = clone.querySelectorAll('*');
       const len = Math.min(srcAll.length, cloneAll.length);
+      cloneNodesMap = new Array(len);
       for (let i = 0; i < len; i++) {
         srcAll[i].setAttribute('data-lens-id', i);
         cloneAll[i].setAttribute('data-lens-id', i);
+        cloneNodesMap[i] = cloneAll[i];
       }
     }
 
@@ -252,14 +253,26 @@
 
     // Observe DOM mutations across document.body to catch modal toggles, section changes, and clocks
     const observer = new MutationObserver((mutations) => {
-      let isRelevant = false;
+      let needsFullSync = false;
       for (let i = 0; i < mutations.length; i++) {
-        if (!lens.contains(mutations[i].target)) {
-          isRelevant = true;
-          break;
+        const target = mutations[i].target;
+        if (lens.contains(target)) continue;
+
+        // Fast-path: clock updates (#manila-time or #nyc-time) sync text directly to clone without full re-clone
+        const el = target.nodeType === Node.ELEMENT_NODE ? target : target.parentElement;
+        const clockSpan = el ? el.closest('#manila-time, #nyc-time') : null;
+        if (clockSpan) {
+          if (currentClone) {
+            const cloneClock = currentClone.querySelector('#' + clockSpan.id);
+            if (cloneClock) cloneClock.textContent = clockSpan.textContent;
+          }
+          continue;
         }
+
+        needsFullSync = true;
+        break;
       }
-      if (isRelevant) {
+      if (needsFullSync) {
         scheduleSync();
       }
     });
@@ -277,9 +290,11 @@
     let isInsideWindow = false;
     let isClicking = false;
     let isHoveringInteractive = false;
+    let rafPending = false;
 
     // Instant zero-lag hardware transform update (no layout reflow)
-    function updateTransform() {
+    function renderLens() {
+      rafPending = false;
       const localX = clientX - rectLeft;
       const localY = clientY - rectTop;
 
@@ -291,32 +306,34 @@
       view.style.transform = `translate3d(${transX}px, ${transY}px, 0) scale(${ZOOM})`;
     }
 
-    // Sync hover state to clone and lens border
-    function updateHoverState() {
-      const el = document.elementFromPoint(clientX, clientY);
-      const isInteractive = !!(
-        el &&
-        el.closest(
-          'a, button, .btn, [role="button"], .back-home-btn, .back-to-top-btn, .contents-btn, .close-modal, .references-btn'
-        )
-      );
+    function scheduleRender() {
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(renderLens);
+      }
+    }
 
+    const INTERACTIVE_SELECTOR =
+      'a, button, .btn, [role="button"], .back-home-btn, .back-to-top-btn, .contents-btn, .close-modal, .references-btn';
+    const MIRROR_SELECTOR = 'a, button, .btn, tr, .small-box a, .display-box a';
+
+    // Event-driven hover state (zero document.elementFromPoint layout thrashing)
+    function updateHoverFromElement(el) {
+      if (!el || !(el instanceof Element)) return;
+
+      const isInteractive = !!el.closest(INTERACTIVE_SELECTOR);
       if (isInteractive !== isHoveringInteractive) {
         isHoveringInteractive = isInteractive;
-        if (isHoveringInteractive) {
-          lens.classList.add('hovering-interactive');
-        } else {
-          lens.classList.remove('hovering-interactive');
-        }
+        lens.classList.toggle('hovering-interactive', isHoveringInteractive);
       }
 
       // Mirror hover styling inside the magnified view
-      const hoveredInteractive = el ? el.closest('a, button, .btn, tr, .small-box a, .display-box a') : null;
+      const hoveredInteractive = el.closest(MIRROR_SELECTOR);
       let newHoveredClone = null;
       if (hoveredInteractive && targetSource && targetSource.contains(hoveredInteractive)) {
         const lensId = hoveredInteractive.getAttribute('data-lens-id');
-        if (lensId !== null && currentClone) {
-          newHoveredClone = currentClone.querySelector(`[data-lens-id="${lensId}"]`);
+        if (lensId !== null && cloneNodesMap && cloneNodesMap[lensId]) {
+          newHoveredClone = cloneNodesMap[lensId];
         }
       }
 
@@ -338,8 +355,15 @@
           lens.style.opacity = '1';
         }
 
-        updateTransform();
-        updateHoverState();
+        scheduleRender();
+      },
+      { passive: true }
+    );
+
+    document.addEventListener(
+      'mouseover',
+      (e) => {
+        updateHoverFromElement(e.target);
       },
       { passive: true }
     );
@@ -349,13 +373,13 @@
     document.addEventListener('mousedown', () => {
       isClicking = true;
       lens.classList.add('clicking');
-      updateTransform();
+      renderLens();
     });
 
     document.addEventListener('mouseup', () => {
       isClicking = false;
       lens.classList.remove('clicking');
-      updateTransform();
+      renderLens();
     });
 
     document.documentElement.addEventListener('mouseleave', () => {
@@ -366,6 +390,10 @@
       if (lastHoveredClone) {
         lastHoveredClone.classList.remove('lens-hover');
         lastHoveredClone = null;
+      }
+      if (isHoveringInteractive) {
+        isHoveringInteractive = false;
+        lens.classList.remove('hovering-interactive');
       }
     });
 
@@ -380,7 +408,7 @@
       () => {
         updateRect();
         syncScrolls();
-        updateTransform();
+        scheduleRender();
       },
       { capture: true, passive: true }
     );
@@ -390,7 +418,7 @@
       () => {
         syncClone();
         updateRect();
-        updateTransform();
+        scheduleRender();
       },
       { passive: true }
     );
